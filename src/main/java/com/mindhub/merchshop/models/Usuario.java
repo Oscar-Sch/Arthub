@@ -10,8 +10,6 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(strategy = "native", name = "native")
     private String email;
     private String nombre;
     private String nick;
