@@ -4,6 +4,7 @@ package com.mindhub.merchshop.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,9 +19,9 @@ public class Usuario {
     private String avatarUrl;
     private String contraseña;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    private List<Compra> listaDeCompras;
+    private List<Compra> listaDeCompras = new ArrayList<>();
     @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
-    private List<Direccion> direcciones;
+    private List<Direccion> direcciones = new ArrayList<>();
 
     public Usuario(){};
     public Usuario(String email, String nombre, String nick, String avatarUrl, String contraseña, List<Compra> listaDeCompras, List<Direccion> direcciones) {
