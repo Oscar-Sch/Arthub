@@ -13,8 +13,8 @@ public class IlustradorDTO {
     private String nombre;
     private String nick;
     private String avatarURL;
-    private String contraseña;
-    private Direccion direccion;
+    private String contrasenia;
+//    private Direccion direccion;
     private List<IlustracionDTO> ilustraciones;
     public IlustradorDTO(){}
     public IlustradorDTO(Ilustrador ilustrador){
@@ -22,8 +22,8 @@ public class IlustradorDTO {
         this.nombre = ilustrador.getNombre();
         this.nick = ilustrador.getNick();
         this.avatarURL = ilustrador.getAvatarURL();
-        this.contraseña = ilustrador.getContraseña();
-        this.direccion = ilustrador.getDireccion();
+        this.contrasenia = ilustrador.getContrasenia();
+//        this.direccion = ilustrador.getDireccion();
         this.ilustraciones = ilustrador.getIlustraciones().stream().map(IlustracionDTO::new).collect(Collectors.toList());
     }
 
@@ -43,13 +43,13 @@ public class IlustradorDTO {
         return avatarURL;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
-    }
+//    public Direccion getDireccion() {
+//        return direccion;
+//    }
 
     public List<IlustracionDTO> getIlustraciones() {
         return ilustraciones;

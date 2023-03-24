@@ -1,6 +1,8 @@
 package com.mindhub.merchshop.models;
 
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,18 +20,15 @@ public class Usuario {
     private String contraseña;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Compra> listaDeCompras = new ArrayList<>();
-    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
-    private List<Direccion> direcciones = new ArrayList<>();
+//    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
+//    private List<Direccion> direcciones = new ArrayList<>();
 
     public Usuario(){};
-    public Usuario(String email, String nombre, String nick, String avatarUrl, String contraseña, List<Compra> listaDeCompras, List<Direccion> direcciones) {
+    public Usuario(String email, String nombre, String nick, String contraseña) {
         this.email = email;
         this.nombre = nombre;
         this.nick = nick;
-        this.avatarUrl = avatarUrl;
         this.contraseña = contraseña;
-        this.listaDeCompras = listaDeCompras;
-        this.direcciones = direcciones;
     }
 
     public String getEmail() {
@@ -80,19 +79,19 @@ public class Usuario {
         this.listaDeCompras = listaDeCompras;
     }
 
-    public List<Direccion> getDirecciones() {
-        return direcciones;
-    }
-
-    public void setDirecciones(List<Direccion> direcciones) {
-        this.direcciones = direcciones;
-    }
+//    public List<Direccion> getDirecciones() {
+//        return direcciones;
+//    }
+//
+//    public void setDirecciones(List<Direccion> direcciones) {
+//        this.direcciones = direcciones;
+//    }
     public void addListaDeCompras(Compra compra) {
         compra.setUsuario(this);
         listaDeCompras.add(compra);
     }
-    public void addDirecciones(Direccion direccion) {
-        direccion.setUsuario(this);
-        direcciones.add(direccion);
-    }
+//    public void addDirecciones(Direccion direccion) {
+//        direccion.setUsuario(this);
+//        direcciones.add(direccion);
+//    }
 }

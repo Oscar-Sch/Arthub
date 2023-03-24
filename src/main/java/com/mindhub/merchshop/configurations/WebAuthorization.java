@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @EnableWebSecurity
-
 @Configuration
 class WebAuthorization extends WebSecurityConfigurerAdapter {
 
@@ -21,6 +20,7 @@ class WebAuthorization extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
+                .antMatchers("/web/**").permitAll()
         ;
 
 
