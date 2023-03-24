@@ -39,11 +39,11 @@ public class PaqueteDeProductos {
         this.compra = compra;
     }
 
-    public ProductoIlustracion getIllustrationProduct() {
+    public ProductoIlustracion getProductoIlustracion() {
         return productoIlustracion;
     }
 
-    public void setIllustrationProduct(ProductoIlustracion productoIlustracion) {
+    public void setProductoIlustracion(ProductoIlustracion productoIlustracion) {
         this.productoIlustracion = productoIlustracion;
     }
 

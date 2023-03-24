@@ -1,6 +1,5 @@
 package com.mindhub.merchshop.models;
 
-import org.apache.tomcat.jni.Address;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -80,12 +79,12 @@ public class Ilustrador {
         this.direccion = direccion;
     }
 
-    public List<Ilustracion> getIllustrationes() {
+    public List<Ilustracion> getIlustraciones() {
         return ilustraciones;
     }
 
-    public void setIllustrationes(List<Ilustracion> ilustracions) {
-        this.ilustraciones = ilustracions;
+    public void setIlustraciones(List<Ilustracion> ilustraciones) {
+        this.ilustraciones = ilustraciones;
     }
     public void addIlustraciones(Ilustracion ilustracion) {
         ilustracion.setIllustrator(this);

@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 :root{
-    --violet:#8854c2;
+    --violet:#a787caff;
+    --green:#5ad096ff;
+    --pink: #b73980ff;
 }
 body{
     background-color: #000;
@@ -15,6 +17,8 @@ body{
 .tablet{
     width: 100%;
     max-width: 1800px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid black;
     height: calc(100vh - 4rem);
     background: rgb(254,254,254);
     background: linear-gradient(180deg, rgba(254,254,254,1) 0%, rgba(222,222,222,1) 3%, rgba(204,204,204,1) 98%, rgba(166,166,166,1) 100%); 
@@ -24,7 +28,7 @@ body{
     margin: 0 auto;
 }
 .tablet-brand{
-    color: var(--violet);
+    color: var(--pink);
     font-size: 3rem;
     font-weight: bolder;
     text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
@@ -47,15 +51,18 @@ body{
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background-color: var(--violet);
+    background-color: var(--pink);
 }
 .main-content{
     position: absolute;
-    inset: 7rem 2rem 3rem 2rem;
-    background-color: #333;
+    inset: 7rem 2rem 4rem 2rem;
+    /* background-color: #333; */
     border-radius: 1rem;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     border: 3px solid #555;
+    background-image: linear-gradient(#efb8fd20,#efb8fd20),url(../images/background.jpg);
+    display: flex;
+    overflow: hidden;
 }
 .pc-nav{
     width: 90%;
@@ -72,7 +79,7 @@ body{
 .tablet-button,.mobile-tablet-button{
     width: 10rem;
     font-size: 1.6rem;
-    background-color: var(--violet);
+    background-color: var(--pink);
     color: #fffc;
     text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
     #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
@@ -91,7 +98,7 @@ body{
 }
 .navbar-collapse{
     margin-top: .35rem;
-    background-color: #999;
+    background-color: #333a;
     border-radius: 1rem 1rem 0 0;
 }
 .navbar-collapse ul{
@@ -105,7 +112,105 @@ body{
     font-weight: bolder;
     text-decoration: none;
 }
-@media (max-width:650px) {
+.tablet-footer{
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    translate: -50% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3rem;
+    width: 100%;
+}
+.tablet-footer p{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: var(--pink);
+}
+.menu-block{
+    width: 4.2rem;
+    z-index: 3;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    /* padding: 1rem .5rem; */
+}
+.menu-container{
+    /* position: absolute;
+    top: 2rem;
+    left: 1rem; */
+    /* width: 11rem; */
+    width: 4.2rem;
+    height: calc(100% - 4rem);
+    background-color: #444;
+    padding: 1rem .5rem;
+    border: 1px solid #aaa;
+    overflow: hidden;
+    transition: all .3s;
+    position: relative;
+    z-index: 2;
+}
+/* .menu-container:hover{
+    width: 11rem;
+} */
+.menu-backround{
+    inset: 1rem .5rem;
+    position: absolute;
+    background-color: #666;
+    z-index: -1;
+}
+.menu-content{
+    width: 10rem;
+    height: 100%;
+    /* background-color: #666; */
+    padding-top: 1rem;
+    z-index: 3;
+}
+.menu-content ul{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0;
+}
+.menu-list-item{
+    list-style: none;
+    margin-left: .5rem;
+}
+.menu-list-item a{
+    color: white;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    text-decoration: none;
+}
+.menu-icon{
+    width: 2rem;
+}
+
+@media (max-width:1000px){
+    .tablet-footer p{
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width:750px){
+    .tablet-button{
+        display: none;
+    }
+    .mobile-nav{
+        display: flex;
+    }
+    .menu-block{
+        display: none;
+    }
+    .mobile-tablet-button{
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width:660px) {
     body{
         padding: .5rem 0;
     }
@@ -123,5 +228,11 @@ body{
     }
     .mobile-nav{
         display: flex;
+    }
+    .menu-block{
+        display: none;
+    }
+    .mobile-tablet-button{
+        margin: 0px;
     }
 }
