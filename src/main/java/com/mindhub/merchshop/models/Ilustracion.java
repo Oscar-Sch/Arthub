@@ -56,12 +56,12 @@ public class Ilustracion {
         this.ilustrador = ilustrador;
     }
 
-    public List<ProductoIlustracion> getIllustrationProducts() {
+    public List<ProductoIlustracion> getProductoIlustraciones() {
         return productoIlustraciones;
     }
 
-    public void setIllustrationProducts(List<ProductoIlustracion> productoIlustracions) {
-        this.productoIlustraciones = productoIlustracions;
+    public void setProductoIlustraciones(List<ProductoIlustracion> productoIlustraciones) {
+        this.productoIlustraciones = productoIlustraciones;
     }
     public void addProductoIlustraciones(ProductoIlustracion productoIlustracion) {
         productoIlustracion.setIllustracion(this);

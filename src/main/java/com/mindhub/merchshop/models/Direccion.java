@@ -15,17 +15,17 @@ public class Direccion {
     private Usuario usuario;
     private String pais;
     private String ciudad;
-    private String direccion;
+    private String calle;
     private Integer numero;
     private String zipCode;
     private String descripcion;
     public Direccion(){};
 
-    public Direccion(Usuario usuario, String pais, String ciudad, String direccion, Integer numero, String zipCode, String descripcion) {
+    public Direccion(Usuario usuario, String pais, String ciudad, String calle, Integer numero, String zipCode, String descripcion) {
         this.usuario = usuario;
         this.pais = pais;
         this.ciudad = ciudad;
-        this.direccion = direccion;
+        this.calle = calle;
         this.numero = numero;
         this.zipCode = zipCode;
         this.descripcion = descripcion;
@@ -58,12 +58,12 @@ public class Direccion {
         this.ciudad = ciudad;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getCalle() {
+        return calle;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCalle(String calle) {
+        this.calle = calle;
     }
 
     public Integer getNumero() {
