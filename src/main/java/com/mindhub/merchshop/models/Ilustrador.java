@@ -20,7 +20,7 @@ public class Ilustrador {
     private List<Ilustracion> ilustraciones = new ArrayList<>();
 
     public Ilustrador(){};
-    public Ilustrador(String email, String nombre, String nick, String avatarURL, String contrasenia, Direccion direccion, List<Ilustracion> ilustraciones) {
+    public Ilustrador(String email, String nombre, String nick, String avatarURL, String contrasenia,  List<Ilustracion> ilustraciones) {
         this.email = email;
         this.nombre = nombre;
         this.nick = nick;
