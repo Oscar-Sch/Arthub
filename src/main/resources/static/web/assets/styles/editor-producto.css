@@ -4,8 +4,15 @@
     --font-white: #cecece;
     --green: #55c6b4;
 }
+@font-face {
+    font-family: 'bahnschrift'; 
+    src: url('../fonts/bahnschrift.ttf');
+}
+.main__editor-producto{
+    font-family: 'bahnschrift';
+}
 #tablet__editor-producto{
-    min-height: 56rem;
+    min-height: 53rem;
 }
 #main__editor-producto{
     display: flex;
@@ -22,13 +29,10 @@
     background-color: var(--grey);
     margin-top: 1rem;
     border: 2px solid var(--dark-grey);
-}
-.nav-productos ul{
     display: flex;
     justify-content: space-evenly;
     list-style: none;
     align-items: center;
-    height: 100%;
 }
 .talle__editor-producto{
     display: flex;
@@ -54,6 +58,30 @@
     height: 1.5rem;
     border: 2px solid var(--dark-grey);
     border-radius: 50%;
+}
+.iconos-productos{
+    background-position: center;
+    background-size: cover;
+    width: 2.5rem;
+    height: 2rem;
+}
+.llavero{
+    background-image: url('../images/llavero.png');
+    width: 2.2rem;
+}
+.cuaderno{
+    background-image: url('../images/cuaderno.png');
+}
+.remera{
+    background-image: url('../images/remera.png');
+    width: 2.4rem;
+}
+.retrato{
+    background-image: url('../images/retrato.png');
+    width: 2rem;
+}
+.taza{
+    background-image: url('../images/taza.png');
 }
 .rojo{
     background-color: #d73636;
@@ -138,4 +166,7 @@
     border-radius: 5px;
     padding: .3rem .5rem;
     background-color: var(--green);
+    font-weight: bold;
+    color: var(--dark-grey);
+    font-size: 12px;
 }
