@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <script defer src="./assets/scripts/main.js"></script>
+    <script defer src="./assets/scripts/editor-producto.js"></script>
     <title>Shop | Editor</title>
 </head>
 <body id="app">
@@ -75,7 +75,25 @@
                         </ul>   
                     </div>
     
-                    <div class="d-flex justify-content-between mt-3">
+                    <div class="d-flex justify-content-between mt-3 gap-2">
+                        <div class="talle__editor-producto colores-editor">
+                            <p class="mb-0 py-2">COLORES</p>
+                            <ul class="ps-0 mb-0">
+                                <span class="rojo"></span>
+                                <span class="azul"></span>
+                                <span class="verde"></span>
+                                <span class="blanco"></span>
+                                <span class="rosa"></span>
+                                <span class="amarillo"></span>
+                            </ul>  
+                        </div>
+    
+                        <div class="vista-previa__editor-producto">
+    
+                        </div>
+                    </div>
+                   
+                    <div class="d-flex justify-content-between mt-3 gap-2">
                         <div class="talle__editor-producto">
                             <p class="mb-0 py-2">TALLES</p>
                             <ul class="ps-0 mb-0">
@@ -87,26 +105,14 @@
                                 <li>3XL</li>
                             </ul>  
                         </div>
+                        <div class="d-flex flex-column contenedor-carrusel_editor">
+                            <div class="carrusel__editor-producto">
+        
+                            </div>
     
-                        <div class="vista-previa__editor-producto">
-    
-                        </div>
-                    </div>
-                   
-                    <div class="d-flex justify-content-between mt-3">
-                        <div class="talle__editor-producto">
-                            <p class="mb-0 py-2">COLORES</p>
-                            <ul class="ps-0 mb-0">
-                                <span class="rojo"></span>
-                                <span class="azul"></span>
-                                <span class="verde"></span>
-                                <span class="blanco"></span>
-                                <span class="rosa"></span>
-                                <span class="amarillo"></span>
-                            </ul>  
-                        </div>
-                        <div class="carrusel__editor-producto">
-    
+                            <div class="carrusel-info__editor-producto">
+        
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -114,7 +120,6 @@
 
             </div>
 
-           
 
             <div class="tablet-footer" id="tablet-footer__editor-producto">
                 <p>Proyecto final MindHub</p>
@@ -122,5 +127,6 @@
             </div>
         </div>
     </main>
+    
 </body>
 </html>
