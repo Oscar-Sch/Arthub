@@ -1,0 +1,318 @@
+.ilustraciones-contenedor::-webkit-scrollbar-thumb{
+    background-color: #4e4e4e;
+}
+
+.ilustraciones-contenedor::-webkit-scrollbar{
+    width: 1rem;
+}
+
+.ilustrador-elementos-contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.ilustraciones-contenedor{
+    width: 75%;
+    height: 86%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.ilustracion-individual-contenedor{
+    background-color: #fff;
+    height: 10rem;
+    width: 8rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    transition: .5s;
+}
+
+.ilustracion-individual-contenedor:hover{
+    background-color: aqua;
+    transform: scale(1.02);
+}
+
+.imagen-ilustracion{
+    width: 9rem;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+}
+
+.ilustracion-texto{
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    width: 125%;
+    color: aqua;
+    margin: 0;
+}
+
+.ilustracion-texto-secundario{
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    width: 125%;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.ilustrador-contenedor{
+    width: 20%;
+    height: 87%;
+    background-color: #6c6c6c;
+    border: 5px solid #444;
+    border-top: 2rem solid #444;
+}
+
+.imagen-ilustrador-contenedor{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.imagen-ilustrador{
+    height: 100%;
+}
+
+.nick-ilustrador{
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: aqua;
+    margin: 0;
+    text-align: center;
+}
+
+.texto-ilustrador-contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: .5rem 1rem;
+}
+
+.texto-ilustrador-informacion{
+    color: white;
+    margin: .3rem 0;
+}
+
+.redessociales-contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: .5rem;
+    padding: 0 1rem;
+}
+
+.redessociales{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo-redsocial{
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(1);
+    margin-right: .2rem;
+}
+
+.texto-redsocial{
+    margin: 0;
+    color: #fff;
+    margin-right: .2rem;
+}
+
+.redessociales a{
+    text-decoration: none;
+    color: #fff;
+}
+
+@media (max-width:1440px){
+    .ilustraciones-contenedor{
+        width: 67%;
+        height: 86%;
+    }
+
+    .ilustrador-contenedor{
+        width: 30%;
+    }
+
+    .nick-ilustrador{
+        font-size: 2rem;
+    }
+
+    .texto-ilustrador-informacion{
+        font-size: 1.5rem;
+    }
+
+    .redessociales{
+        font-size: 1.5rem;
+    }
+
+    .ilustracion-individual-contenedor{
+        height: 12rem;
+        width: 10rem;
+        margin-bottom: 9rem;
+    }
+    
+    .imagen-ilustracion{
+        width: 11rem;
+    }
+    
+    .ilustracion-texto{
+        font-size: 1.4rem;
+        width: 119%;
+    }
+    
+    .ilustracion-texto-secundario{
+        font-size: 1.2rem;
+        width: 119%;
+    }
+}
+
+@media (max-width:1024px){
+    .imagen-ilustrador-contenedor{
+        width: 100%;
+        height: 40%;
+    }
+
+    .nick-ilustrador{
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width:768px){
+    .ilustrador-elementos-contenedor{
+        flex-direction: column-reverse;
+    }
+
+    .ilustraciones-contenedor{
+        width: 100%;
+        height: 63%;
+    }
+
+    .ilustrador-contenedor{
+        width: 100%;
+        height: 30%;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imagen-ilustrador-contenedor{
+        width: 50%;
+        height: 100%;
+    }
+
+    .nick-ilustrador{
+        font-size: 1.7rem;
+        margin-top: .5rem;
+    }
+
+    .texto-ilustrador-contenedor{
+        align-items: center;
+    }
+
+    .texto-ilustrador-informacion{
+        font-size: 1.3rem;
+    }
+
+    .redessociales-contenedor{
+        justify-content: center;
+    }
+
+    .redessociales{
+        font-size: 1.3rem;
+    }
+
+    .ilustracion-individual-contenedor{
+        height: 10rem;
+        width: 9rem;
+        margin-bottom: 9rem;
+    }
+    
+    .imagen-ilustracion{
+        width: 10rem;
+    }
+    
+}
+
+@media (max-width:426px){
+    .ilustraciones-contenedor::-webkit-scrollbar{
+        width: .5rem;
+    }
+    .ilustrador-elementos-contenedor{
+        flex-direction: column-reverse;
+    }
+
+    .ilustraciones-contenedor{
+        width: 100%;
+        height: 67%;
+    }
+
+    .ilustrador-contenedor{
+        width: 100%;
+        height: 26%;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imagen-ilustrador-contenedor{
+        width: 100%;
+        height: 100%;
+    }
+
+    .nick-ilustrador{
+        font-size: 1.4rem;
+        margin-top: .5rem;
+    }
+
+    .texto-ilustrador-contenedor{
+        align-items: center;
+    }
+
+    .texto-ilustrador-informacion{
+        font-size: 1.1rem;
+    }
+
+    .redessociales-contenedor{
+        justify-content: center;
+    }
+
+    .redessociales{
+        font-size: 1.1rem;
+    }
+
+    .ilustracion-individual-contenedor{
+        height: 7rem;
+        width: 4rem;
+        margin-bottom: 6rem;
+    }
+    
+    .imagen-ilustracion{
+        width: 6rem;
+    }
+
+    .ilustracion-texto{
+        font-size: 1.2rem;
+        width: 180%;
+    }
+    
+    .ilustracion-texto-secundario{
+        font-size: 1rem;
+        width: 180%;
+    }
+    
+}
