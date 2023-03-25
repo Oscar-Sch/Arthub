@@ -88,11 +88,35 @@
 }
 .carrusel__editor-producto{
     height: 9rem;
-    background-color: rebeccapurple;
     border: 2px solid var(--dark-grey);
 }
 .carrusel-info__editor-producto{
     height: 10.5rem;
     background-color: rebeccapurple;
     border: 2px solid var(--dark-grey);
+}
+#carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    top: 1rem;
+    right: 3.2rem;
+}
+  #carousel img {
+    height: 7rem;
+    width: 8rem;
+    object-fit: cover;
+}
+.next-button{
+    width: 2rem;
+
+}
+.prev-button{
+    width: 2rem;
+}
+.contenedor-iconos{
+    gap: 9rem;
+    top: 3.5rem;
+    width: 100%;
 }
