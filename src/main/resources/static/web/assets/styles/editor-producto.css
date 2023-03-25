@@ -79,7 +79,8 @@
 .vista-previa__editor-producto {
     background-image: url(../images/productos/remera_blanca.png);
     background-position: center;
-    background-size: cover;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
     width: 16.6rem;
 }
 #tablet-footer__editor-producto{
