@@ -170,3 +170,34 @@
     color: var(--dark-grey);
     font-size: 12px;
 }
+
+@media (min-width: 768px){
+    .contenedor-editor-md{
+        width: 80%;
+    }
+    .nav-productos{
+        margin-top: 2rem;
+    }
+    .vista-previa__editor-md {
+        background-image: url(../images/productos/remera_blanca.png);
+        background-position: center;
+        background-size: cover;
+        width: 51%;
+        height: 21rem;
+    }
+    .contenedor-color-talle-md{
+    }
+    .talle__editor-producto{
+        width: 100%;
+        height: 3rem;
+    }
+    .talle__editor-producto ul{
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+
+    }
+    .carrusel-info__editor-producto {
+        height: 13rem;
+    }
+}

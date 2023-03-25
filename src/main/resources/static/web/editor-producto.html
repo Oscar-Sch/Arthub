@@ -47,7 +47,7 @@
                 </div>
             </nav>
             
-            <div class="main-content"  id="main__editor-producto">
+            <div class="main-content flex-md-row gap-md-4"  id="main__editor-producto">
                 <div class="menu-block">
                     <div class="menu-container">
                         <div class="menu-backround"></div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="contenedor__editor-producto">
+                <div class="contenedor__editor-producto d-md-none">
 
                     <div class="nav-productos">
                         <span class="llavero iconos-productos"></span>
@@ -75,7 +75,6 @@
     
                     <div class="d-flex justify-content-between mt-3 gap-2">
                         <div class="talle__editor-producto colores-editor">
-                            <!-- <p class="mb-0 py-2">COLORES</p> -->
                             <ul class="ps-0 mb-0">
                                 <span class="rojo"></span>
                                 <span class="azul"></span>
@@ -131,9 +130,84 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
 
+                <!--  -->
+
+                <div class="contenedor-editor-md d-none d-md-block">
+                    
+                    <div class="nav-productos">
+                        <span class="llavero iconos-productos"></span>
+                        <span class="cuaderno iconos-productos"></span>
+                        <span class="remera iconos-productos"></span>
+                        <span class="retrato iconos-productos"></span>
+                        <span class="taza iconos-productos"></span>
+                    </div>
+
+                    <div class="d-flex mt-4">
+                        <div class="vista-previa__editor-md">
+        
+                        </div>
+    
+                        <div class="d-flex flex-column contenedor-carrusel_editor">
+                            <div class="carrusel__editor-producto position-relative">
+                                <div>
+                                    <div id="carousel" class="position-absolute">
+                                        <img :src="currentImage" alt="">
+                                    </div>
+                                    <div class="position-absolute d-flex justify-content-around contenedor-iconos">
+                                        <img @click="nextImage" class="prev-button" src="../web/assets/images/prev.png" alt="">
+                                        <img @click="prevImage" class="next-button" src="../web/assets/images/next.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                          
+                            <div class="carrusel-info__editor-producto">
+                                <p class="text-center mb-0 titulo-info fw-bolder">TITULO</p>
+                                <ul class="mb-0 d-flex flex-column gap-2">
+                                    <li>Color:</li>
+                                    <li>Stock:</li>
+                                    <li>Talle:</li>
+                                    <li>Producto:</li>
+                                    <li>Ilustracion por:</li>
+                                </ul>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column contenedor-color-talle-md mt-4 gap-3">
+                        <div class="talle__editor-producto">
+                            <ul class="ps-0 mb-0">
+                                <span class="rojo"></span>
+                                <span class="azul"></span>
+                                <span class="verde"></span>
+                                <span class="blanco"></span>
+                                <span class="rosa"></span>
+                                <span class="amarillo"></span>
+                            </ul>  
+                        </div>
+    
+                        <div class="talle__editor-producto">
+                            <!-- <p class="mb-0 py-2">TALLES</p> -->
+                            <ul class="ps-0 mb-0">
+                                <li>XS</li>
+                                <li>M</li>
+                                <li>L</li>
+                                <li>XL</li>
+                                <li>XXL</li>
+                                <li>3XL</li>
+                            </ul>  
+                        </div>
+                    </div>
+
+
+                </div>
+
+               
             </div>
 
 
