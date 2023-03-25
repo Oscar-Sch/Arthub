@@ -5,9 +5,9 @@ createApp({
         return {
             currentIndex: 0,
             images: [
-                'https://picsum.photos/id/237/500/300',
-                'https://picsum.photos/id/238/500/300',
-                'https://picsum.photos/id/239/500/300'
+                '../web/assets/images/illustrations/illust_Joel/1.png',
+                '../web/assets/images/illustrations/illust_Joel/2.png',
+                '../web/assets/images/illustrations/illust_Joel/3.png'
               ]
         }
     },
