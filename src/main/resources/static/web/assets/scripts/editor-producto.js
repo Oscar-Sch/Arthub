@@ -8,7 +8,8 @@ createApp({
                 '../web/assets/images/illustrations/illust_Joel/1.png',
                 '../web/assets/images/illustrations/illust_Joel/2.png',
                 '../web/assets/images/illustrations/illust_Joel/3.png'
-              ]
+            ],
+            seleccionado: null,
         }
     },
     created(){
@@ -25,13 +26,14 @@ createApp({
             }
         },
         prevImage() {
-            console.log("prev")
             this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length
           },
-          nextImage() {
-            console.log("next")
+        nextImage() {
             this.currentIndex = (this.currentIndex + 1) % this.images.length
-          }
+        },
+        llavero(){
+
+        }
     },
     computed: {
         currentImage() {

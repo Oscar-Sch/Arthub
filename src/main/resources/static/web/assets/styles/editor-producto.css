@@ -64,6 +64,7 @@
     background-size: cover;
     width: 2.5rem;
     height: 2rem;
+    cursor: pointer;
 }
 .llavero{
     background-image: url('../images/llavero.png');
@@ -84,21 +85,27 @@
     background-image: url('../images/taza.png');
 }
 .rojo{
+    cursor: pointer;
     background-color: #d73636;
 }
 .azul{
+    cursor: pointer;
     background-color: #364ed7;
 }
 .verde{
+    cursor: pointer;
     background-color: #36d75e;
 }
 .blanco{
+    cursor: pointer;
     background-color: #e7e7e7;
 }
 .rosa{
+    cursor: pointer;
     background-color: #f86390;
 }
 .amarillo{
+    cursor: pointer;
     background-color: #bdd343;
 }
 .colores-editor{
@@ -111,8 +118,33 @@
     background-repeat: no-repeat;
     width: 16.6rem;
 }
-#tablet-footer__editor-producto{
-    /* bottom: -21rem; */
+.vista-previa__editor-producto-llavero {
+    background-image: url(../images/productos/llavero-plastico-cuadrado.png);
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 16.6rem;
+}
+.vista-previa__editor-producto-cuaderno {
+    background-image: url(../images/productos/llavero-plastico-rectangular.png);
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 16.6rem;
+}
+.vista-previa__editor-producto-retrato {
+    background-image: url(../images/productos/Poster-Mockup.png);
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 16.6rem;
+}
+.vista-previa__editor-producto-taza {
+    background-image: url(../images/productos/taza.png);
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 16.6rem;
 }
 .contenedor-carrusel_editor{
     width: 16.6rem;
@@ -146,12 +178,9 @@
     width: 7rem;
     object-fit: cover;
 }
-.next-button{
+.next-button, .prev-button{
     width: 2rem;
-
-}
-.prev-button{
-    width: 2rem;
+    cursor: pointer;
 }
 .contenedor-iconos{
     gap: 9rem;
@@ -209,6 +238,9 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+    }
+    .talle__editor-producto ul li{
+        cursor: pointer;
     }
     .contenedor-color-talle{
         display: flex;
