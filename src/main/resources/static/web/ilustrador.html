@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/ilustrador.css">
@@ -61,64 +60,32 @@
                         </nav>
                     </div>
                 </div>
-
                 <section class="ilustrador-elementos-contenedor">
                     <div class="ilustraciones-contenedor">
                         <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
                         </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" alt="titulo" title="titulo">
-                            <p class="ilustracion-texto">Nombre ilustracion</p>
-                            <p class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-
                     </div>
                     <div class="ilustrador-contenedor">
                         <div class="imagen-ilustrador-contenedor">
-                            <img class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" alt="ilustrador" title="ilustrador">
+                            <img v-cloak class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" :alt="nick" :title="nick">
                         </div>
                         <div>
-                            <p class="nick-ilustrador">Nick ilustrador</p>
+                            <p v-cloak class="nick-ilustrador">{{nick}}</p>
                             <div class="texto-ilustrador-contenedor">
-                                <p class="texto-ilustrador-informacion">Ilustraciones: <b>5</b></p>
-                                <p class="texto-ilustrador-informacion">Ciudad: <b>Valpo</b></p>
+                                <p class="texto-ilustrador-informacion">Ilustraciones: <b v-cloak>{{ilustracionesCantidad}}</b></p>
+                                <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudad}}</b></p>
                             </div>
                             <div class="redessociales-contenedor">
                                 <div class="redessociales">
                                     <img class="logo-redsocial" src="./assets/images/instagram.png" alt="Logo Instagram" title="Logo Instagram">
-                                    <p class="texto-redsocial"><a href="https://www.instagram.com/"> pepitademaiz</a></p>
+                                    <p v-cloak class="texto-redsocial"><a href="https://www.instagram.com/" target="_blank"> {{redes[0]}}</a></p>
                                 </div>
                                 <div class="redessociales">
                                     <img class="logo-redsocial" src="./assets/images/twitter.png" alt="Logo Twitter" title="Logo Twitter">
-                                    <p class="texto-redsocial"><a href="https://twitter.com/">pepitademaiz</a></p>
+                                    <p v-cloak class="texto-redsocial"><a href="https://twitter.com/" target="_blank">{{redes[1]}}</a></p>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +99,9 @@
             </div>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/scripts/ilustrador.js"></script>
 </body>
 </html>
