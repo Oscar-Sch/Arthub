@@ -66,28 +66,38 @@
                 <div class="contenedor__editor-producto d-md-none">
 
                     <div class="nav-productos">
-                        <span @click="seleccionado = 'vista-previa__editor-producto-llavero'" class="llavero iconos-productos"></span>
-                        <span @click="seleccionado = 'vista-previa__editor-producto-cuaderno'" class="cuaderno iconos-productos"></span>
-                        <span @click="seleccionado = 'vista-previa__editor-producto'" class="remera iconos-productos"></span>
-                        <span @click="seleccionado = 'vista-previa__editor-producto-retrato'" class="retrato iconos-productos"></span>
-                        <span @click="seleccionado = 'vista-previa__editor-producto-taza'" class="taza iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-llavero')" class="vista-previa llavero iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-cuaderno')" class="vista-previa cuaderno iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto')" class="vista-previa remera iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-retrato')" class="vista-previa retrato iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-taza')" class="vista-previa taza iconos-productos"></span>
                     </div>
     
+
                     <div class="d-flex justify-content-between mt-3 gap-2">
+
                         <div class="talle__editor-producto colores-editor">
-                            <ul class="ps-0 mb-0">
-                                <span class="rojo"></span>
-                                <span class="azul"></span>
-                                <span class="verde"></span>
-                                <span class="blanco"></span>
-                                <span class="rosa"></span>
-                                <span class="amarillo"></span>
-                            </ul>  
+                          <ul v-show="seleccionado == 'vista-previa__editor-producto'" class="ps-0 mb-0">
+                            <span class="rojo" @click="cambiarColor('rojo')"></span>
+                            <span class="azul" @click="cambiarColor('azul')"></span>
+                            <span class="verde" @click="cambiarColor('verde')"></span>
+                            <span class="blanco" @click="cambiarColor('blanco')"></span>
+                            <span class="rosa" @click="cambiarColor('rosa')"></span>
+                            <span class="amarillo" @click="cambiarColor('amarillo')"></span>
+                          </ul>  
                         </div>
-                        <div class="vista-previa__editor-producto" v-bind:class="seleccionado">
-    
-                        </div>
-                    </div>
+
+                        <div class="" 
+                            :class="[ seleccionado, 
+                            { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
+                            'vista-previa__remera-azul': colorSeleccionado === 'azul',
+                            'vista-previa__remera-verde' : colorSeleccionado === 'verde',
+                            'vista-previa__editor-producto' : colorSeleccionado === 'blanco',
+                            'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
+                            'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
+                        } ]"></div>
+                      </div>
+                      
                    
                     <div class="d-flex justify-content-between mt-3 gap-2">
                         <div class="talle__editor-producto">
@@ -236,10 +246,10 @@
             </div>
 
 
-            <div class="tablet-footer" id="tablet-footer__editor-producto">
+            <!-- <div class="tablet-footer" id="tablet-footer__editor-producto">
                 <p>Proyecto final MindHub</p>
                 <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
-            </div>
+            </div> -->
         </div>
     </main>
     

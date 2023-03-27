@@ -9,7 +9,8 @@ createApp({
                 '../web/assets/images/illustrations/illust_Joel/2.png',
                 '../web/assets/images/illustrations/illust_Joel/3.png'
             ],
-            seleccionado: null,
+            seleccionado: 'vista-previa__editor-producto',
+            colorSeleccionado: '',
         }
     },
     created(){
@@ -33,6 +34,20 @@ createApp({
         },
         llavero(){
 
+        },
+        cambiarColor(color){
+            console.log(color)
+            this.colorSeleccionado = color
+
+            // this.seleccionado = ''
+
+        },
+        seleccion(icono){
+            this.seleccionado = icono
+            console.log(icono)
+            if(icono == 'vista-previa__editor-producto-llavero' || icono == 'vista-previa__editor-producto-cuaderno'  || icono == 'vista-previa__editor-producto-retrato' || icono == 'vista-previa__editor-producto-taza'){
+                this.colorSeleccionado = ''
+            }
         }
     },
     computed: {

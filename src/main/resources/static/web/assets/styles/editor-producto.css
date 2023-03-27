@@ -39,12 +39,10 @@
     flex-direction: column;
     width: 4rem;
     height: 20rem;
-    background-color: var(--grey);
     color: var(--font-white);
     font-weight: bold;
     align-items: center;
     font-size: 11px;
-    border: 2px solid var(--dark-grey);
 }
 .talle__editor-producto ul{
     list-style: none;
@@ -56,7 +54,6 @@
 .talle__editor-producto span{
     width: 1.5rem;
     height: 1.5rem;
-    border: 2px solid var(--dark-grey);
     border-radius: 50%;
 }
 .iconos-productos{
@@ -108,43 +105,58 @@
     cursor: pointer;
     background-color: #bdd343;
 }
+.color-seleccionado{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: -1px 1px 14px 5px rgb(255, 255, 255);
+    transform: scale(1.5);
+}
 .colores-editor{
     height: 16rem;
 }
-.vista-previa__editor-producto {
-    background-image: url(../images/productos/remera_blanca.png);
+.vista-previa__editor-producto,
+.vista-previa__editor-producto-llavero,
+.vista-previa__editor-producto-cuaderno,
+.vista-previa__editor-producto-retrato,
+.vista-previa__editor-producto-taza,
+.vista-previa__remera-rojo{
     background-position: center;
     background-size: calc(90%);
     background-repeat: no-repeat;
     width: 16.6rem;
+}
+.vista-previa__editor-producto {
+    background-image: url(../images/productos/remera_blanca.png);
 }
 .vista-previa__editor-producto-llavero {
     background-image: url(../images/productos/llavero-plastico-cuadrado.png);
-    background-position: center;
-    background-size: calc(90%);
-    background-repeat: no-repeat;
-    width: 16.6rem;
 }
 .vista-previa__editor-producto-cuaderno {
-    background-image: url(../images/productos/llavero-plastico-rectangular.png);
-    background-position: center;
-    background-size: calc(90%);
-    background-repeat: no-repeat;
-    width: 16.6rem;
+    background-image: url(../images/productos/cuaderno.png);
 }
 .vista-previa__editor-producto-retrato {
     background-image: url(../images/productos/Poster-Mockup.png);
-    background-position: center;
-    background-size: calc(90%);
-    background-repeat: no-repeat;
-    width: 16.6rem;
+   
 }
 .vista-previa__editor-producto-taza {
     background-image: url(../images/productos/taza.png);
-    background-position: center;
-    background-size: calc(90%);
-    background-repeat: no-repeat;
-    width: 16.6rem;
+}
+.vista-previa__remera-rojo {
+    background-image: url(../images/productos/remera_roja.png);
+}
+.vista-previa__remera-azul {
+    background-image: url(../images/productos/remera_azul.png);
+}
+.vista-previa__remera-verde {
+    background-image: url(../images/productos/remera_verde.png);
+}
+.vista-previa__remera-rosa {
+    background-image: url(../images/productos/remera_rosa.png);
+}
+.vista-previa__remera-amarillo {
+    background-image: url(../images/productos/remera_amarilla.png);
 }
 .contenedor-carrusel_editor{
     width: 16.6rem;
