@@ -81,6 +81,13 @@
 .taza{
     background-image: url('../images/taza.png');
 }
+.desactivado{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #242424;
+    border: 1px solid black;
+}
 .rojo{
     cursor: pointer;
     background-color: #d73636;
@@ -211,6 +218,14 @@
     color: var(--dark-grey);
     font-size: 12px;
 }
+.img-template{
+    width: 40%;
+    height: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 @media (min-width: 768px){
     .contenedor-editor-md{
@@ -219,12 +234,24 @@
     .nav-productos{
         margin-top: 2rem;
     }
+    
     .vista-previa__editor-md {
         background-image: url(../images/productos/remera_blanca.png);
-        background-position: center;
-        background-size: cover;
-        width: 51%;
-        height: 21rem;
+    }
+    .vista-previa__remera-rojo-md{
+        background-image: url(../images/productos/remera_roja.png);
+    }
+    .vista-previa__remera-azul-md{
+        background-image: url(../images/productos/remera_azul.png);
+    }
+    .vista-previa__remera-verde-md{
+        background-image: url(../images/productos/remera_verde.png);
+    }
+    .vista-previa__remera-rosa-md{
+        background-image: url(../images/productos/remera_rosa.png);
+    }
+    .vista-previa__remera-amarillo-md{
+        background-image: url(../images/productos/remera_amarilla.png);
     }
     .talle__editor-producto{
         width: 100%;
@@ -238,6 +265,10 @@
     }
     .carrusel-info__editor-producto {
         height: 13rem;
+    }
+    .talles-md{
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
 
@@ -281,6 +312,19 @@
     }
     .btn-agregar-carrito {
         font-size: 18px;
+    }
+   
+    .vista-previa__editor-producto,
+    .vista-previa__editor-producto-llavero,
+    .vista-previa__editor-producto-cuaderno,
+    .vista-previa__editor-producto-retrato,
+    .vista-previa__editor-producto-taza,
+    .vista-previa__remera-rojo{
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 44%;
+        height: 30rem;
+
     }
 }
 

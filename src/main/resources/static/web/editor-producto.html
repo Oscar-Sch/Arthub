@@ -77,17 +77,25 @@
                     <div class="d-flex justify-content-between mt-3 gap-2">
 
                         <div class="talle__editor-producto colores-editor">
-                          <ul v-show="seleccionado == 'vista-previa__editor-producto'" class="ps-0 mb-0">
-                            <span class="rojo" @click="cambiarColor('rojo')"></span>
-                            <span class="azul" @click="cambiarColor('azul')"></span>
-                            <span class="verde" @click="cambiarColor('verde')"></span>
-                            <span class="blanco" @click="cambiarColor('blanco')"></span>
-                            <span class="rosa" @click="cambiarColor('rosa')"></span>
-                            <span class="amarillo" @click="cambiarColor('amarillo')"></span>
-                          </ul>  
+                            <ul v-if="seleccionado == 'vista-previa__editor-producto'" class="ps-0 mb-0">
+                                <span class="rojo" @click="cambiarColor('rojo')"></span>
+                                <span class="azul" @click="cambiarColor('azul')"></span>
+                                <span class="verde" @click="cambiarColor('verde')"></span>
+                                <span class="blanco" @click="cambiarColor('blanco')"></span>
+                                <span class="rosa" @click="cambiarColor('rosa')"></span>
+                                <span class="amarillo" @click="cambiarColor('amarillo')"></span>
+                            </ul>
+                            <ul v-else class="ps-0 mb-0">
+                                  <span class="desactivado "></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                            </ul>    
                         </div>
 
-                        <div class="" 
+                        <div class="position-relative"
                             :class="[ seleccionado, 
                             { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
                             'vista-previa__remera-azul': colorSeleccionado === 'azul',
@@ -95,7 +103,11 @@
                             'vista-previa__editor-producto' : colorSeleccionado === 'blanco',
                             'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
                             'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
-                        } ]"></div>
+                        } ]">
+                            <div v-for="image of images" >
+                                <img class="img-template" :src="currentImage" alt="">
+                            </div>
+                        </div>
                       </div>
                       
                    
@@ -147,15 +159,23 @@
                 <div class="contenedor-editor-md d-none d-md-block">
                     
                     <div class="nav-productos">
-                        <span @click="llavero" class="llavero iconos-productos"></span>
-                        <span class="cuaderno iconos-productos"></span>
-                        <span class="remera iconos-productos"></span>
-                        <span class="retrato iconos-productos"></span>
-                        <span class="taza iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-llavero')" class="llavero iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-cuaderno')" class="cuaderno iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto')" class="remera iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-retrato')" class="retrato iconos-productos"></span>
+                        <span @click="seleccion('vista-previa__editor-producto-taza')" class="taza iconos-productos"></span>
                     </div>
 
                     <div class="d-flex mt-4 justify-content-between">
-                        <div class="vista-previa__editor-md">
+                        <div class="" 
+                        :class="[ seleccionado, 
+                        { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
+                        'vista-previa__remera-azul': colorSeleccionado === 'azul',
+                        'vista-previa__remera-verde' : colorSeleccionado === 'verde',
+                        'vista-previa__editor' : colorSeleccionado === 'blanco',
+                        'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
+                        'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
+                    } ]">
         
                         </div>
     
@@ -189,16 +209,25 @@
                         </div>
 
                         <div class=" gap-3 d-md-none d-lg-inline-flex contenedor-color-talle">
-                            <div class="talle__editor-producto">
-                                <ul class="ps-0 mb-0">
-                                    <span class="rojo"></span>
-                                    <span class="azul"></span>
-                                    <span class="verde"></span>
-                                    <span class="blanco"></span>
-                                    <span class="rosa"></span>
-                                    <span class="amarillo"></span>
-                                </ul>  
-                            </div>
+                            <div class="talle__editor-producto colores-editor">
+                                <ul v-if="seleccionado == 'vista-previa__editor-producto'" class="ps-0 mb-0">
+                                  <span class="rojo" @click="cambiarColor('rojo')"></span>
+                                  <span class="azul" @click="cambiarColor('azul')"></span>
+                                  <span class="verde" @click="cambiarColor('verde')"></span>
+                                  <span class="blanco" @click="cambiarColor('blanco')"></span>
+                                  <span class="rosa" @click="cambiarColor('rosa')"></span>
+                                  <span class="amarillo" @click="cambiarColor('amarillo')"></span>
+                                </ul>
+                                <ul v-else class="ps-0 mb-0">
+                                    <span class="desactivado"></span>
+                                    <span class="desactivado"></span>
+                                    <span class="desactivado"></span>
+                                    <span class="desactivado"></span>
+                                    <span class="desactivado"></span>
+                                    <span class="desactivado"></span>
+                                  </ul>  
+                              </div>
+                             
         
                             <div class="talle__editor-producto">
                                 <!-- <p class="mb-0 py-2">TALLES</p> -->
@@ -215,27 +244,35 @@
                     </div>
 
                     <div class="d-flex flex-column contenedor-color-talle-md mt-4 gap-3 d-lg-none">
-                        <div class="talle__editor-producto">
-                            <ul class="ps-0 mb-0">
-                                <span class="rojo"></span>
-                                <span class="azul"></span>
-                                <span class="verde"></span>
-                                <span class="blanco"></span>
-                                <span class="rosa"></span>
-                                <span class="amarillo"></span>
+                        <div class="talle__editor-producto colores-editor gap-4 mt-5">
+                            <ul v-if="seleccionado == 'vista-previa__editor-producto'" class="ps-0 mb-0">
+                                <span class="rojo" @click="cambiarColor('rojo')"></span>
+                                <span class="azul" @click="cambiarColor('azul')"></span>
+                                <span class="verde" @click="cambiarColor('verde')"></span>
+                                <span class="blanco" @click="cambiarColor('blanco')"></span>
+                                <span class="rosa" @click="cambiarColor('rosa')"></span>
+                                <span class="amarillo" @click="cambiarColor('amarillo')"></span>
+                            </ul>
+                            <ul v-else class="ps-0 mb-0">
+                                  <span class="desactivado "></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
+                                  <span class="desactivado"></span>
                             </ul>  
-                        </div>
     
-                        <div class="talle__editor-producto">
-                            <!-- <p class="mb-0 py-2">TALLES</p> -->
-                            <ul class="ps-0 mb-0">
-                                <li>XS</li>
-                                <li>M</li>
-                                <li>L</li>
-                                <li>XL</li>
-                                <li>XXL</li>
-                                <li>3XL</li>
-                            </ul>  
+                            <div class="talle__editor-producto">
+                                <!-- <p class="mb-0 py-2">TALLES</p> -->
+                                <ul class="ps-0 mb-0">
+                                    <li class="talles-md text-center">XS</li>
+                                    <li class="talles-md text-center">M</li>
+                                    <li class="talles-md text-center">L</li>
+                                    <li class="talles-md text-center">XL</li>
+                                    <li class="talles-md text-center">XXL</li>
+                                    <li class="talles-md text-center">3XL</li>
+                                </ul>  
+                            </div>
                         </div>
                     </div>
 

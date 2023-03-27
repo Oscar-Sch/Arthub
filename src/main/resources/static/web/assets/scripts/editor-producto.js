@@ -39,6 +39,10 @@ createApp({
             console.log(color)
             this.colorSeleccionado = color
 
+            // if(color == 'rojo' || color == 'azul' || color == 'verde' || color == 'blanco' || color == 'rosa' || color == 'amarillo'){
+            //     this.seleccionado = ''
+            // }
+
             // this.seleccionado = ''
 
         },
