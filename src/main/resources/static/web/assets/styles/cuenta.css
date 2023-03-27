@@ -309,7 +309,7 @@ label{
     
 }
 
-@media (max-width:768px){
+@media (max-width:1000px){
     .datos-compras-contenedor{
         flex-direction: column;
         overflow-y: scroll;
@@ -367,7 +367,11 @@ label{
         margin-bottom: 1rem;
     }
 }
-
+@media (max-width:750px){
+    .datos-compras-contenedor{
+        width: 100%;
+    }
+}
 @media (max-width:426px){
     .datos-compras-contenedor{
         width: 100%;
