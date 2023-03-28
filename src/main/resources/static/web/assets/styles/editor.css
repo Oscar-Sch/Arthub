@@ -13,13 +13,16 @@
     font-family: 'bahnschrift';
 }
 .customizalo{
+    margin: 0 auto;
+    width: 78%;
     color: var(--violet);
     font-size: 3rem;
+    border-bottom: 1px solid white;
 }
 .contenedor-info-carrusel_editor{
     margin: 2rem auto;
     width: 92%;
-    height: 8rem;
+    /* height: 8rem; */
     background-color: var(--blue-green);
     box-shadow: -12px -11px 0px 0px rgb(255, 255, 255);
 }
@@ -147,7 +150,7 @@
     background-color: var(--violet);
     font-weight: bold;
     color: white;
-    font-size: 24px;
+    font-size: 10px;
 }
 .vista-prev-colores-remera{
     background-position: center;
@@ -171,4 +174,87 @@
     height: 2rem;
     background-color: var(--blue-green);
     box-shadow: -1px -1px 14px 2px var(--blue-green);
+}
+.contenedor-colores-btn{
+    height: 100%;
+}
+.contenedor-2-hijo{
+    height: 100%;
+}
+.colores-talles{
+    height: 100%;
+}
+.contenedo-btn{
+    margin-left: 3.5rem;
+}
+.vista-talles{
+    /* width: 50%; */
+}
+.contenedor-principal_editor{
+    /* width: 80%; */
+}   
+
+@media (min-width: 768px) {
+    .contenedor-info-carrusel_editor {
+        margin: 0;
+        width: 60%;
+        height: 20rem;
+        padding: .8rem;
+    }
+    #carrousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+    }
+    .customizalo{
+        width: 70%;
+        font-size: 5rem;
+    }
+    .info-ilustrador_editor p{
+        font-size: 12px;
+    }
+    .poductos-iconos{
+        height: 91%;
+    }
+    .contenedor1_editor{
+        width: 90%;
+    }
+    .body__editor {
+        min-height: 35rem;
+    }
+    .btn-agregar-carrito {
+        padding: .3rem 1rem;
+        /* font-size: 20px; */
+    }
+    .contenedor-bt-carrito_editor button{
+        width: 9rem;
+    }
+    .vista-previa_editor {
+        width: 25rem;
+        height: 27rem;
+    }
+}
+
+@media (min-width: 1024px){
+    .contenedor1_editor {
+        width: 30%;
+    }
+    .contenedor-principal_editor{
+        width: 80%;
+        margin-left: 30rem;
+    }
+    .contenedor-info-carrusel_editor {
+        width: 68%;
+        height: 100%;
+    }
+    .vista-previa_editor {
+        width: 25rem;
+        height: 27rem;
+    }
+    
+    .contenedor2_editor{
+        width: 50%;
+    }
 }
