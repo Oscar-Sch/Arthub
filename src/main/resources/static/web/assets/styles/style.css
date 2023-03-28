@@ -48,7 +48,7 @@ footer p{
     font-size: 1.3rem;
     margin: 0;
 }
-@media (max-width:1000px){
+/* @media (max-width:1000px){
     .tablet-footer p{
         font-size: 1rem;
         text-align: center;
@@ -95,7 +95,7 @@ footer p{
     .mobile-tablet-button{
         margin: 0px;
     }
-}
+} */
 
 [v-cloak] {
     display: none;
