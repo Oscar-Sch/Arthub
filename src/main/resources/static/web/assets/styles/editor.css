@@ -291,6 +291,7 @@
         margin-left: 27rem;
     }
     .texto-guia {
+        margin-top: 0;
         margin-left: -4.5rem;
         font-size: 12px;
     }
@@ -317,7 +318,7 @@
     }
     .img-template {
         width: 55%;
-        height: 10rem;
+        height: 11rem;
     }
     #carrousel img {
         height: 9rem;
