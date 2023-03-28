@@ -20,6 +20,7 @@ public class Usuario {
     private String contraseña;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Compra> listaDeCompras = new ArrayList<>();
+
 //    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
 //    private List<Direccion> direcciones = new ArrayList<>();
 
