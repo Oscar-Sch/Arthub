@@ -31,12 +31,14 @@
                     </div>
                 </div>
                 <div class="">
-                    <p class="text-white mb-0">Chica pelo negro :u</p>
-                    <p class="text-white mb-0 info-texto__editor">Ilustración por:</p>
-                    <p class="text-white mb-0 info-texto__editor">Producto:</p>
-                    <p class="text-white mb-0 info-texto__editor">Talle:</p>
-                    <p class="text-white mb-0 info-texto__editor">Color:</p>
-                    <p class="text-white mb-0 info-texto__editor">Stock:</p>
+                    <p class="text-white mb-0 mt-1">Título ilustracion</p>
+                    <div class="d-flex flex-column gap-2 mt-2">
+                        <p class="text-white mb-0 info-texto__editor">Ilustración por:</p>
+                        <p class="text-white mb-0 info-texto__editor">Producto:</p>
+                        <p class="text-white mb-0 info-texto__editor">Talle:</p>
+                        <p class="text-white mb-0 info-texto__editor">Color:</p>
+                        <p class="text-white mb-0 info-texto__editor">Stock:</p>
+                    </div>
                 </div>
             </div>
 
@@ -44,11 +46,11 @@
             <div class="contenedor-productos_editor">
                 <h6 class="text-white mt-4">PRODUCTOS</h6>
                 <div class="d-flex justify-content-around">
-                    <span @click="seleccion('vista-previa__editor-producto-llavero')"><img src="./assets/images/cuaderno.png" alt=""></span>
-                    <span @click="seleccion('vista-previa__editor-producto-cuaderno')"><img src="./assets/images/llavero.png" alt=""></span>
-                    <span @click="seleccion('vista-previa__editor-producto')"><img src="./assets/images/remera.png" alt=""></span>
-                    <span @click="seleccion('vista-previa__editor-producto-retrato')"><img src="./assets/images/retrato.png" alt=""></span>
-                    <span @click="seleccion('vista-previa__editor-producto-taza')"><img src="./assets/images/taza.png" alt=""></span>
+                    <span @click="seleccion('vista-previa__editor-producto-llavero', 'llavero')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'llavero' }"><img src="./assets/images/llavero.png" alt=""></span>
+                    <span @click="seleccion('vista-previa__editor-producto-cuaderno', 'cuaderno')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'cuaderno' }"><img src="./assets/images/cuaderno.png" alt=""></span>
+                    <span @click="seleccion('vista-previa__editor-producto', 'remera')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'remera' }"><img src="./assets/images/remera.png" alt=""></span>
+                    <span @click="seleccion('vista-previa__editor-producto-retrato', 'retrato')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'retrato' }"><img src="./assets/images/retrato.png" alt=""></span>
+                    <span @click="seleccion('vista-previa__editor-producto-taza', 'taza')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'taza' }"><img src="./assets/images/taza.png" alt=""></span>
                 </div>
 
                 <div class="d-flex flex-wrap mt-5">
@@ -69,19 +71,20 @@
                         </div>
 
                         </div>
-                                <!-- <div v-for="image of images" >
-                                    <img class="img-template" :src="currentImage" alt="">
-                                </div> -->
+                        
+                        <div v-for="image of images" >
+                            <img class="img-template" :src="currentImage" alt="">
+                        </div>
                     </div>
 
                     <div class="d-flex gap-3">
                         <div class="d-flex flex-column align-items-center justify-content-evenly">
-                            <span class="rojo colores-editor" @click="cambiarColor('rojo')"></span>
-                            <span class="azul colores-editor" @click="cambiarColor('azul')"></span>
-                            <span class="verde colores-editor" @click="cambiarColor('verde')"></span>
-                            <span class="blanco colores-editor" @click="cambiarColor('blanco')"></span>
-                            <span class="rosa colores-editor" @click="cambiarColor('rosa')"></span>
-                            <span class="amarillo colores-editor" @click="cambiarColor('amarillo')"></span>
+                            <span class="rojo colores-editor" @click="cambiarColor('rojo')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'rojo' }"></span>
+                            <span class="azul colores-editor" @click="cambiarColor('azul')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'azul' }"></span>
+                            <span class="verde colores-editor" @click="cambiarColor('verde')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'verde' }"></span>
+                            <span class="blanco colores-editor" @click="cambiarColor('blanco')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'blanco' }"></span>
+                            <span class="rosa colores-editor" @click="cambiarColor('rosa')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'rosa' }"></span>
+                            <span class="amarillo colores-editor" @click="cambiarColor('amarillo')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'amarillo' }"></span>
                         </div>
                         <!-- <div class="d-flex flex-column align-items-center justify-content-evenly">
                                 <span class="rojo colores-editor" @click="cambiarColor('rojo')"></span>
@@ -93,12 +96,12 @@
                         </div> -->
     
                         <div class="talles_editor d-flex flex-column align-content-center justify-content-evenly">
-                            <span class="text-white">XS</span>
-                            <span class="text-white">M</span>
-                            <span class="text-white">L</span>
-                            <span class="text-white">XL</span>
-                            <span class="text-white">XXL</span>
-                            <span class="text-white">3L</span>
+                            <span @click="talle('XS')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XS' }">XS</span>
+                            <span @click="talle('M')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'M' }">M</span>
+                            <span @click="talle('L')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'L' }">L</span>
+                            <span @click="talle('XL')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XL' }">XL</span>
+                            <span @click="talle('XXL')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XXL' }">XXL</span>
+                            <span @click="talle('3X')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == '3L' }">3L</span>
                         </div>
                     </div>
 

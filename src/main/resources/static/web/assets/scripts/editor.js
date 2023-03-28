@@ -11,6 +11,8 @@ createApp({
             ],
             seleccionado: 'vista-previa__editor-producto',
             colorSeleccionado: '',
+            medida: '',
+            productoSeleccionado: '',
         }
     },
     created(){
@@ -41,14 +43,17 @@ createApp({
             console.log(color)
             this.colorSeleccionado = color
 
-
         },
-        seleccion(icono){
+        seleccion(icono, producto){
             this.seleccionado = icono
+            this.productoSeleccionado = producto
             console.log(icono)
             if(icono == 'vista-previa__editor-producto-llavero' || icono == 'vista-previa__editor-producto-cuaderno'  || icono == 'vista-previa__editor-producto-retrato' || icono == 'vista-previa__editor-producto-taza'){
                 this.colorSeleccionado = ''
             }
+        },
+        talle(medida){
+            this.medida = medida
         }
     },
     computed: {

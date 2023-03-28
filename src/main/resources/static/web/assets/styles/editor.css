@@ -28,10 +28,10 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    width: 45%;
+    width: 29%;
 }
 #carrousel img {
-    height: 8rem;
+    height: 7rem;
     width: 7rem;
     object-fit: cover;
 }
@@ -104,11 +104,11 @@
     background-image: url(../images/productos/Poster-Mockup.png);
 }
 .vista-previa__editor-producto-taza {
-    background-image: url(../images/productos/taza.png);
+    background-image: url(../images/productos/taza_2.png);
 }
 .vista-previa_editor{
     width: 15rem;
-    height: 15rem;
+    height: 17rem;
 }
 .colores-editor{
     width: 1.5rem;
@@ -154,5 +154,21 @@
     background-size: calc(90%);
     background-repeat: no-repeat;
     width: 15rem;
-    height: 15rem;
+    height: 17rem;
+}
+.colorSeleccionado{
+    width: 1.5rem;
+    height: 1.5rem;
+    box-shadow: -1px -1px 14px 2px var(--blue-green);
+}
+.talle{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+.productoSeleccionado{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--blue-green);
+    box-shadow: -1px -1px 14px 2px var(--blue-green);
 }
