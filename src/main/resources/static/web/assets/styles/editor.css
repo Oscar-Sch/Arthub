@@ -1,0 +1,158 @@
+:root{
+    --violet: #bc6ec9;
+    --blue-green: #5bafa2;
+}
+@font-face {
+    font-family: 'bahnschrift'; 
+    src: url('../fonts/bahnschrift.ttf');
+}
+.body__editor{
+    width: 90%;
+    min-height: 50rem;
+    margin: 0 auto;
+    font-family: 'bahnschrift';
+}
+.customizalo{
+    color: var(--violet);
+    font-size: 3rem;
+}
+.contenedor-info-carrusel_editor{
+    margin: 2rem auto;
+    width: 92%;
+    height: 8rem;
+    background-color: var(--blue-green);
+    box-shadow: -12px -11px 0px 0px rgb(255, 255, 255);
+}
+#carrousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 45%;
+}
+#carrousel img {
+    height: 8rem;
+    width: 7rem;
+    object-fit: cover;
+}
+.next-button, .prev-button{
+    width: 2rem;
+    cursor: pointer;
+}
+.contenedor-iconos{
+    gap: 7rem;
+    top: 3.5rem;
+    width: 0%;
+}
+.texto-guia{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 85%;
+    margin: 1.5rem 0 auto;
+    font-size: 10px;
+}
+.info-texto__editor{
+    font-size: 10px;
+}
+.contenedor-productos_editor span img{
+    width: 2rem;
+    height: 2rem;
+}
+.img-template{
+    width: 44%;
+    height: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.vista-previa__editor-producto,
+.vista-previa__editor-producto-llavero,
+.vista-previa__editor-producto-cuaderno,
+.vista-previa__editor-producto-retrato,
+.vista-previa__editor-producto-taza,
+.vista-previa__remera-rojo{
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 16.6rem;
+}
+.vista-previa__remera-rojo {
+    background-image: url(../images/productos/remera_roja.png);
+}
+.vista-previa__remera-azul {
+    background-image: url(../images/productos/remera_azul.png);
+}
+.vista-previa__remera-verde {
+    background-image: url(../images/productos/remera_verde.png);
+}
+.vista-previa__remera-rosa {
+    background-image: url(../images/productos/remera_rosa.png);
+}
+.vista-previa__remera-amarillo {
+    background-image: url(../images/productos/remera_amarilla.png);
+}
+.vista-previa__editor-producto {
+    background-image: url(../images/productos/remera_blanca.png);
+}
+.vista-previa__editor-producto-llavero {
+    background-image: url(../images/productos/llavero-plastico-cuadrado.png);
+}
+.vista-previa__editor-producto-cuaderno {
+    background-image: url(../images/productos/cuaderno.png);
+}
+.vista-previa__editor-producto-retrato {
+    background-image: url(../images/productos/Poster-Mockup.png);
+}
+.vista-previa__editor-producto-taza {
+    background-image: url(../images/productos/taza.png);
+}
+.vista-previa_editor{
+    width: 15rem;
+    height: 15rem;
+}
+.colores-editor{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.644);
+    border-radius: 50%;
+}
+.rojo{
+    cursor: pointer;
+    background-color: #d73636;
+}
+.azul{
+    cursor: pointer;
+    background-color: #364ed7;
+}
+.verde{
+    cursor: pointer;
+    background-color: #36d75e;
+}
+.blanco{
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+.rosa{
+    cursor: pointer;
+    background-color: #f86390;
+}
+.amarillo{
+    cursor: pointer;
+    background-color: #bdd343;
+}
+.btn-agregar-carrito{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: .3rem .5rem;
+    background-color: var(--violet);
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+}
+.vista-prev-colores-remera{
+    background-position: center;
+    background-size: calc(90%);
+    background-repeat: no-repeat;
+    width: 15rem;
+    height: 15rem;
+}
