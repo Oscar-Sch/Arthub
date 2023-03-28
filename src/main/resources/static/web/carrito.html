@@ -15,59 +15,46 @@
     <title>Shop | Carrito</title>
 </head>
 <body id="app">
-    <main>
-        <div class="tablet">
-            <div class="tablet-brand">
-                <span>ARTHUB</span>
-                <div><span></span><span></span><span></span></div>
-            </div>
-            <nav class="pc-nav">
-                <button class="tablet-button" @click="openMenu()">Menu</button>
-                <button class="tablet-button">Logout</button>
-            </nav>
-            <nav class="navbar mobile-nav">
-                <button class="mobile-tablet-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
-                            <a class="nav-link" href="./productos.html">Productos</a>
-                            <a class="nav-link" href="./artistas.html">Artistas</a>
-                            <a class="nav-link active" href="" aria-current="page">Carrito</a>
-                            <a class="nav-link" href="./contacto.html">Contacto</a>
-                        </li>
-                    </ul>
+    <div class="contenedor-overflow">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container navegacion">
+                    <a class="navbar-brand" href="./index.html">ARTHUB</a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./productos.html">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./artistas.html">Artistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Logout</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </nav>
             
-            <div class="main-content">
-                <div class="menu-block">
-                    <div class="menu-container">
-                        <div class="menu-backround"></div>
-                        <nav class="menu-content">
-                            <ul>
-                                <li class="menu-list-item"><a href="./cuenta.html"><i class="fa-solid fa-circle-user fa-2xl menu-icon"></i><span>Mi cuenta</span></a></li>
-                                <li class="menu-list-item"><a href="./productos.html"><i class="fa-solid fa-store fa-2xl menu-icon"></i><span>Productos</span></a></li>
-                                <li class="menu-list-item"><a href="./artistas.html"><i class="fa-solid fa-palette fa-2xl menu-icon"></i><span>Artistas</span></a></li>
-                                <li class="menu-list-item"><a href=""><i class="fa-solid fa-cart-shopping fa-2xl menu-icon"></i><span>Carrito</span></a></li>
-                                <li class="menu-list-item"><a href="./contacto.html"><i class="fa-solid fa-envelope fa-2xl menu-icon"></i><span>Contacto</span></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="tablet-footer">
-                <p>Proyecto final MindHub</p>
-                <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
-            </div>
-        </div>
-    </main>
+        </header>
+        <main>
+        </main>
+        <footer>
+            <p>Proyecto final MindHub</p>
+            <p>Cohort 41</p>
+            <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+        </footer>
+    </div>
 </body>
 </html>
