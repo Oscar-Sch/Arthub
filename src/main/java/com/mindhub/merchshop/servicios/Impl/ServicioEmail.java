@@ -29,6 +29,7 @@ public class ServicioEmail implements com.mindhub.merchshop.servicios.ServicioEm
             helper.setTo(emailA);
             helper.setSubject("Ticket de Compra");
             helper.setText("Estimado cliente adjuntamos el ticket de compra");
+
             javaMailSender.send(mensaje);
         }
         catch (Exception exception){
@@ -43,12 +44,12 @@ public class ServicioEmail implements com.mindhub.merchshop.servicios.ServicioEm
 //        MimeMessage mensaje = javaMailSender.createMimeMessage();
 //        try {
 //            MimeMessageHelper helper =new MimeMessageHelper(mensaje, true);
-//         //   File file = pdfService.(METODO DE CAMERON)
+//  File file = pdfService.(METODO DE CAMERON)
 //              helper.setFrom(email);
 //              helper.setTo(emailA);
 //              helper.setSubject("Ticket de Compra");
 //              helper.setText("Estimado cliente adjuntamos el ticket de compra");
-//          //    helper.addAttachment("Ticket",file); Esperar al pdf
+ //  helper.addAttachment("Ticket",file); Esperar al pdf
 //              javaMailSender.send(mensaje);
 //        }
 //        catch (Exception exception){

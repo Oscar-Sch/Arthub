@@ -49,15 +49,19 @@ public class UsuarioController {
             return new ResponseEntity<>("Los campos no pueden estar vacios",HttpStatus.FORBIDDEN);
         }
 
-          if (nombre != null && !nombre.isEmpty()) {
-              usuarioModificado.setNombre(nombre);
-        }
+          if (nombre.isEmpty()) {
+              return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.BAD_REQUEST);
+        }usuarioModificado.setNombre(nombre);
 
-        if (nick != null && !nick.isEmpty()) {
+        if (nick.isEmpty()) {
+            Usuario usuarioExistente = serviciosUsuario.findByNick(nick);
+            if (usuarioExistente != null && !usuarioExistente.getNick().equals(usuarioModificado.getNick())) {
+                return new ResponseEntity<>("El nick ya está en uso", HttpStatus.BAD_REQUEST);
+            }
             usuarioModificado.setNick(nick);
         }
 
-        if (email != null && !email.isEmpty()) {
+        if (email.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByEmail(email);
             if (usuarioExistente != null && !usuarioExistente.getEmail().equals(usuarioModificado.getEmail())) {
                 return new ResponseEntity<>("El correo electrónico ya está en uso", HttpStatus.BAD_REQUEST);
@@ -65,9 +69,10 @@ public class UsuarioController {
             usuarioModificado.setEmail(email);
         }
 
-        if (contraseña != null && !contraseña.isEmpty()) {
-            usuarioModificado.setContraseña(contraseña);
-        }
+        if (contraseña.isEmpty()) {
+            return new ResponseEntity<>("La contraseña no puede estar vacía", HttpStatus.BAD_REQUEST);
+        } usuarioModificado.setContraseña(contraseña);
+
 
         serviciosUsuario.save(usuarioModificado);
         return new ResponseEntity<>("Los datos han sido modificados con éxito", HttpStatus.OK);
