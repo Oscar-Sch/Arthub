@@ -9,25 +9,24 @@ import java.util.List;
 @Entity
 public class Ilustrador {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(strategy = "native", name = "native")
     private String email;
     private String nombre;
     private String nick;
     private String avatarURL;
-    private String contraseña;
-    private Direccion direccion;
-    @OneToMany(mappedBy = "illustrator", fetch = FetchType.EAGER)
+    private String contrasenia;
+
+//    private List<Direccion> direcciones;
+    @OneToMany(mappedBy = "ilustrador", fetch = FetchType.EAGER)
     private List<Ilustracion> ilustraciones = new ArrayList<>();
 
     public Ilustrador(){};
-    public Ilustrador(String email, String nombre, String nick, String avatarURL, String contraseña, Direccion direccion, List<Ilustracion> ilustraciones) {
+    public Ilustrador(String email, String nombre, String nick, String avatarURL, String contrasenia,  List<Ilustracion> ilustraciones) {
         this.email = email;
         this.nombre = nombre;
         this.nick = nick;
         this.avatarURL = avatarURL;
-        this.contraseña = contraseña;
-        this.direccion = direccion;
+        this.contrasenia = contrasenia;
+//        this.direccion = direccion;
         this.ilustraciones = ilustraciones;
     }
 
@@ -63,21 +62,21 @@ public class Ilustrador {
         this.avatarURL = avatarURL;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
-    }
+//    public Direccion getDireccion() {
+//        return direccion;
+//    }
+//
+//    public void setDireccion(Direccion direccion) {
+//        this.direccion = direccion;
+//    }
 
     public List<Ilustracion> getIlustraciones() {
         return ilustraciones;

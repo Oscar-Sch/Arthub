@@ -22,7 +22,7 @@ public class UsuarioDTO {
         this.nick = usuario.getNick();
         this.avatarUrl = usuario.getAvatarUrl();
         this.listaDeCompras = usuario.getListaDeCompras().stream().map(CompraDTO::new).collect(Collectors.toList());
-        this.direcciones = usuario.getDirecciones().stream().map(DireccionDTO::new).collect(Collectors.toList());
+//        this.direcciones = usuario.getDirecciones().stream().map(DireccionDTO::new).collect(Collectors.toList());
     }
 
     public String getEmail() {

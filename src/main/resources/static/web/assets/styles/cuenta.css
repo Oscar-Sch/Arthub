@@ -1,0 +1,400 @@
+.icono-actual{
+    color: black;
+}
+.datos-compras-contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 5.2rem);
+    height: 100%;
+    margin-top: -.8rem;
+    padding: 1rem;
+}
+
+.datos-contenedor{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.imagen-datos-contenedor{
+    width: 11rem;
+    height: 11rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgb(64, 158, 103);
+}
+
+.imagen-datos{
+    height: 13rem;
+}
+
+.titulos-contenedor{
+    text-align: center;
+}
+
+.nombre-editar-contenedor{
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.titulo-nombre{
+    font-size: 1.8rem;
+    color: white;
+    margin: 0;
+}
+.pagina-titulo-tablet{
+    display: none;
+}
+
+.nick-color{
+    color: aquamarine;
+    margin-right: 1rem;
+}
+
+.input-nick:focus{
+    outline: none;
+}
+
+.icono-editar{
+    margin-top: .4rem;
+    height: 1.1rem;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.titulo-formulario{
+    font-size: 1.6rem;
+    color: white;
+}
+
+.titulo-formulario-color{
+    color: rgb(237, 35, 255);
+}
+
+form{
+    width: 100%;
+}
+
+.formulario-contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+label{
+    color: rgb(237, 35, 255);
+}
+
+.formulario-label-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-input{
+    margin-bottom: 1rem;
+    width: 12rem;
+    height: 1.6rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.formulario-label-input-informacionExtra{
+    width: 74%;
+    margin-left: 6.5rem;
+}
+
+.formulario-input-informacionExtra{
+    width: 100%;
+}
+
+.formulario-input-bordebottom{
+    border-bottom: 1px solid wheat;
+}
+
+.formulario-input:focus{
+    outline: none;
+}
+
+.boton-actualizarDatos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aquamarine;
+    width: 15rem;
+    border-radius: 1rem;
+    border: 2px solid white;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+    cursor: pointer;
+}
+
+.boton-texto{
+    margin: 0;
+    font-weight: 600;
+}
+
+.compra-granTitulo-contenedor{
+    width: 50%;
+    height: 100%;
+}
+
+.pagina-titulo{
+    font-size: 5rem;
+    text-align: end;
+    color: blueviolet;
+}
+
+.compras-titulo{
+    font-size: 1.7rem;
+    color: white;
+    margin: 0;
+    text-align: end;
+}
+
+.compras-titulo-color{
+    color: rgb(184, 248, 189);
+}
+
+.compra-contenedor{
+    background-color: white;
+    height: 57vh;
+    padding: 1rem;
+    overflow-y: scroll;
+    scroll-margin: 0 2rem;
+    border-radius: 1rem;
+}
+
+.compra-contenedor::-webkit-scrollbar-thumb{
+    background-color: #4e4e4e;
+}
+
+.compra-contenedor::-webkit-scrollbar{
+    width: .5rem;
+}
+
+
+.detalleCompra-contenedor{
+    margin-bottom: 1rem;
+}
+.compra-titulo{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.productos-descripcion-contenedor{
+    background-color: rgb(255, 224, 254);
+    height: 6rem;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.imagen-producto{
+    height: 8rem;
+    margin-right: 2rem;
+}
+
+.titulo-producto{
+    font-size: 1.2rem;
+    margin: 0;
+    margin-top: .5rem;    
+}
+
+.informacion-producto-texto{
+    font-size: .9rem;
+    margin: 0;
+}
+
+.precioTotal-compra{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(236, 9, 206);
+    text-align: end;
+    margin: 0;
+}
+
+@media (max-width:1537px){
+    .datos-compras-contenedor{
+        margin-top: .2rem;
+    }
+
+    .titulo-imagen-contenedor{
+        display: flex;
+        align-items: center;
+    }
+    
+    .imagen-datos-contenedor{
+        width: 8rem;
+        height: 8rem;
+        margin-right: 1rem;
+    }
+    
+    .imagen-datos{
+        height: 10rem;
+    }
+    
+    .titulo-nombre{
+        font-size: 1.6rem;
+    }
+    
+    .formulario-input{
+        font-size: 1.1rem;
+        margin-bottom: .8rem;
+    }
+
+    .formulario-label-input-informacionExtra{
+        margin-left: 4rem;
+    }
+    
+    .boton-actualizarDatos{
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+    
+    .boton-texto{
+        margin: 0;
+        font-weight: 600;
+    }
+    
+    .pagina-titulo{
+        font-size: 4.5rem;
+    }
+    
+    .compras-titulo{
+        font-size: 1.6rem;
+    }
+
+    .compra-contenedor{
+        height: 72%;
+    }    
+    
+    .titulo-producto{
+        font-size: 1.1rem;
+    } 
+
+}
+
+@media (max-width:1440px){
+    .formulario-label-input-informacionExtra{
+        margin-left: 3.4rem;
+    }
+
+}
+
+@media (max-width:1024px){
+    .formulario-label-input-informacionExtra{
+        margin-left: 0rem;
+    }
+    .titulo-producto{
+        font-size: 1rem;
+    } 
+    .informacion-producto-texto{
+        font-size: .8rem;
+        margin: 0;
+    }
+    .imagen-datos-contenedor{
+        width: 7rem;
+        height: 7rem;
+        margin-right: 1rem;
+    }
+    .imagen-datos{
+        height: 9rem;
+    }
+    
+}
+
+@media (max-width:768px){
+    .datos-compras-contenedor{
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .datos-contenedor{
+        width: 100%;
+    }
+
+    .titulo-imagen-contenedor{
+        justify-content: center;
+        width: 100%;
+    }
+
+    .formulario-label-input-informacionExtra{
+        margin-left: 2.2rem;
+    }
+
+    .compra-granTitulo-contenedor{
+        width: 85%;
+        margin-top: 2rem;
+    }
+
+    .pagina-titulo{
+        display: none;
+    }
+
+    .compra-contenedor{
+        height: 50vh;
+    }
+
+    .pagina-titulo-tablet{
+        display: block;
+        font-size: 3rem;
+    }
+
+    .titulo-nombre{
+        padding: 0;
+    }
+
+    .titulo-nombre{
+        margin-top: -1rem;
+        margin-left: .2rem;
+    }
+
+    .icono-editar{
+        margin-top: -.5rem;
+    }
+
+    .imagen-datos-contenedor{
+        margin-top: -.5rem;
+    }
+
+    .titulo-imagen-contenedor{
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width:426px){
+    .datos-compras-contenedor{
+        width: 100%;
+    }
+    .pagina-titulo-tablet{
+        font-size: 2rem;
+    }
+    .compra-granTitulo-contenedor{
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .titulo-nombre{
+        font-size: 1.5rem;
+    }
+
+    .icono-editar{
+        height: 1rem;
+    }
+
+    .formulario-contenedor{
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+
+    .formulario-label-input-informacionExtra{
+        margin-left: 1rem;
+    }
+    
+}

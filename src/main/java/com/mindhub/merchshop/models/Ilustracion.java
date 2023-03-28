@@ -15,9 +15,9 @@ public class Ilustracion {
     private String nombre;
     private String imgURL;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "illustrador_id")
+    @JoinColumn(name = "ilustrador_id")
     private Ilustrador ilustrador;
-    @OneToMany(mappedBy = "illustration", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ilustracion", fetch = FetchType.EAGER)
     private List<ProductoIlustracion> productoIlustraciones = new ArrayList<>();
 
     public Ilustracion(){}
