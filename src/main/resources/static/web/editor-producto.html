@@ -167,15 +167,18 @@
                     </div>
 
                     <div class="d-flex mt-4 justify-content-between">
-                        <div class="" 
+                        <div class="position-relative" 
                         :class="[ seleccionado, 
-                        { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
-                        'vista-previa__remera-azul': colorSeleccionado === 'azul',
-                        'vista-previa__remera-verde' : colorSeleccionado === 'verde',
-                        'vista-previa__editor' : colorSeleccionado === 'blanco',
-                        'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
-                        'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
-                    } ]">
+                            { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
+                            'vista-previa__remera-azul': colorSeleccionado === 'azul',
+                            'vista-previa__remera-verde' : colorSeleccionado === 'verde',
+                            'vista-previa__editor' : colorSeleccionado === 'blanco',
+                            'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
+                            'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
+                        } ]">
+                        <div v-for="image of images" >
+                            <img class="img-template" :src="currentImage" alt="">
+                        </div>
         
                         </div>
     

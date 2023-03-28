@@ -219,7 +219,7 @@
     font-size: 12px;
 }
 .img-template{
-    width: 40%;
+    width: 44%;
     height: 8rem;
     position: absolute;
     top: 50%;
@@ -261,7 +261,6 @@
         flex-direction: row;
         align-items: center;
         width: 100%;
-
     }
     .carrusel-info__editor-producto {
         height: 13rem;
@@ -324,7 +323,6 @@
         background-repeat: no-repeat;
         width: 44%;
         height: 30rem;
-
     }
 }
 
