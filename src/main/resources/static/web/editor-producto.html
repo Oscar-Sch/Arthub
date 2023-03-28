@@ -16,11 +16,11 @@
     <script defer src="./assets/scripts/editor.js"></script>
     <title>Shop | Editor</title>
 </head>
-<body id="app" >
+<body id="app" class="">
     <div class="ilustracion_aditor position-absolute">
 
     </div>
-    <main class="body__editor">
+    <main class="main__editor">
         <h1 class="customizalo text-center  fw-bold mb-0">Customizalo</h1>
         <p class="text-white d-none d-md-block mb-4 texto-guia">Haz click en los productos para seleccionarlos, también puedes seleccionar su color y medida</p>
 
@@ -98,12 +98,12 @@
                                 </div>
             
                                 <div class="talles_editor d-flex flex-column align-content-center justify-content-evenly">
-                                    <span class="pointer" @click="talle('XS')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XS' }">XS</span>
-                                    <span class="pointer" @click="talle('M')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'M' }">M</span>
-                                    <span class="pointer" @click="talle('L')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'L' }">L</span>
-                                    <span class="pointer" @click="talle('XL')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XL' }">XL</span>
-                                    <span class="pointer" @click="talle('XXL')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == 'XXL' }">XXL</span>
-                                    <span class="pointer" @click="talle('3X')" class="text-white d-flex justify-content-center align-items-center talle" :class="{ 'colorSeleccionado' : medida == '3L' }">3L</span>
+                                    <span  @click="talle('XS')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XS' }">XS</span>
+                                    <span  @click="talle('M')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'M' }">M</span>
+                                    <span  @click="talle('L')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'L' }">L</span>
+                                    <span  @click="talle('XL')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XL' }">XL</span>
+                                    <span  @click="talle('XXL')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XXL' }">XXL</span>
+                                    <span  @click="talle('3X')" class="text-white d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == '3L' }">3L</span>
                                 </div>
                             </div>
                         </div>

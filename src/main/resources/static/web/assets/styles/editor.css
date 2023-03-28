@@ -6,7 +6,10 @@
     font-family: 'bahnschrift'; 
     src: url('../fonts/bahnschrift.ttf');
 }
-.body__editor{
+.body_editor{
+    position: relative;
+}
+.main__editor{
     width: 90%;
     min-height: 50rem;
     margin: 0 auto;
@@ -24,7 +27,9 @@
     width: 92%;
     /* height: 8rem; */
     background-color: var(--blue-green);
-    box-shadow: -12px -11px 0px 0px rgb(255, 255, 255);
+    box-shadow: -12px -11px 0px 0px rgb(255, 255, 255);border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
 }
 #carrousel {
     display: flex;
@@ -264,6 +269,7 @@
     .contenedor-info-carrusel_editor {
         width: 68%;
         height: 100%;
+        
     }
     .vista-previa_editor {
         width: 22rem;
@@ -300,7 +306,7 @@
     }
     .vista-prev-colores-remera {
         background-size: calc(112%);
-        width: 17rem;
+        width: 14rem;
         height: 27rem;
     }
     .vista-talles {
@@ -313,12 +319,12 @@
         background-repeat: no-repeat;
         width: 40rem;
         height: 35rem;
-        bottom: 0;
+        bottom: 0rem;
         left: -8rem;
     }
     .img-template {
         width: 55%;
-        height: 11rem;
+        height: 10rem;
     }
     #carrousel img {
         height: 9rem;
@@ -326,5 +332,8 @@
     }
     .pointer{
         cursor: pointer;
+    }
+    .btn-agregar-carrito {
+        font-size: 20px;
     }
 }
