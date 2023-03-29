@@ -39,7 +39,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item link-bordeado">
                                 <a class="nav-link" href="">Logout</a>
                             </li>                     
                         </ul>
@@ -48,42 +48,69 @@
             </nav>    
         </header>
         <main>
+            <div class="imagen-principal-contenedor">
+                <img class="imagen-principal" src="./assets/images/ilustrador.png" alt="Ilustraor imagen" title="Ilustraor imagen">
+            </div>
             <section class="ilustrador-elementos-contenedor">
-                <div class="ilustraciones-contenedor">
-                    <div class="ilustracion-individual-contenedor">
-                        <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                        <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                        <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                    </div>
-                </div>
-                <div class="ilustrador-contenedor">
-                    <div class="imagen-ilustrador-contenedor">
-                        <img v-cloak class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" :alt="nick" :title="nick">
-                    </div>
-                    <div>
-                        <p v-cloak class="nick-ilustrador">{{nick}}</p>
-                        <div class="texto-ilustrador-contenedor">
-                            <p class="texto-ilustrador-informacion">Ilustraciones: <b v-cloak>{{ilustracionesCantidad}}</b></p>
-                            <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudad}}</b></p>
+                <h2 class="titulo-pagina">Ilustrador</h2>
+                <div class="linea-titulo"></div>
+                <div class="ilustrador-contenido-contenedor">
+                    <div class="ilustrador-contenedor">
+                        <div class="imagen-ilustrador-contenedor">
+                            <img v-cloak class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" :alt="nick" :title="nick">
                         </div>
-                        <div class="redessociales-contenedor">
-                            <div class="redessociales">
-                                <img class="logo-redsocial" src="./assets/images/instagram.png" alt="Logo Instagram" title="Logo Instagram">
-                                <p v-cloak class="texto-redsocial"><a href="https://www.instagram.com/" target="_blank"> {{redes[0]}}</a></p>
+                        <div class="contenedor-informacion-ilustrador">
+                            <div class="texto-ilustrador-contenedor">
+                                <p v-cloak class="nick-ilustrador">{{nick}}</p>
+                                <p class="texto-ilustrador-informacion">Ilustraciones: <b v-cloak>{{ilustracionesCantidad}}</b></p>
+                                <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudad}}</b></p>
                             </div>
-                            <div class="redessociales">
-                                <img class="logo-redsocial" src="./assets/images/twitter.png" alt="Logo Twitter" title="Logo Twitter">
-                                <p v-cloak class="texto-redsocial"><a href="https://twitter.com/" target="_blank">{{redes[1]}}</a></p>
+                            <div class="redessociales-contenedor">
+                                <div class="redessociales">
+                                    <img class="logo-redsocial" src="./assets/images/instagram.png" alt="Logo Instagram" title="Logo Instagram">
+                                    <p v-cloak class="texto-redsocial" ><a  class="texto-redsocial-a" href="https://www.instagram.com/" target="_blank"> {{redes[0]}}</a></p>
+                                </div>
+                                <div class="redessociales">
+                                    <img class="logo-redsocial" src="./assets/images/twitter.png" alt="Logo Twitter" title="Logo Twitter">
+                                    <p v-cloak class="texto-redsocial"><a class="texto-redsocial-a" href="https://twitter.com/" target="_blank">{{redes[1]}}</a></p>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="ilustraciones-contenedor">
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
         <footer>
-            <p>Proyecto final MindHub</p>
-            <p>Cohort 41</p>
-            <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+            <p class="titulo-footer">Proyecto final MindHub - Cohort 41</p>
+            <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
         </footer>
     </div>
 </body>

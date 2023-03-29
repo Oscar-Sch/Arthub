@@ -70,8 +70,10 @@ main{
     }
 }
 .boton-llamada-a-la-accion{
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
     background-color: var(--green);
-    color: black;
+    color: rgb(17, 14, 16);
     text-decoration: none;
     font-size: 2rem;
     padding: .5em 5em;
@@ -152,6 +154,7 @@ main{
     color: white;
     font-weight: bolder;
     font-size: 2rem;
+    letter-spacing: .15rem;
     /* width: 90%; */
     z-index: 3;
     font-family: 'Bangers', cursive;
