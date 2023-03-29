@@ -57,7 +57,7 @@
     padding: 0rem 2rem 1rem 2rem;
 }
 .contenedor-editor{
-    width: 70%;
+    /* width: 70%;  */
     min-height: 73vh;
     display: flex;
     flex-direction: column;
@@ -66,7 +66,6 @@
 .titulo-seccion{
     border-bottom: 4px solid white;
     width: 100%;
-    text-align: right;
 }
 .contenedor-info-carrusel_editor{
     margin: 2rem auto;
@@ -283,13 +282,13 @@
     }
     .btn-agregar-carrito {
         padding: .3rem 1rem;
-        font-size: 24px;
+        font-size: 15px;
     }
     .contenedor-bt-carrito_editor button{
         width: 9rem;
     }
     .vista-previa_editor {
-        width: 25rem;
+        width: 20rem;
         height: 27rem;
     }
     .vista-talles{
@@ -299,7 +298,7 @@
         bottom: 0rem;
     }
     .vista-prev-colores-remera {
-        width: 23rem;
+        width: 20rem;
         height: 27rem;
     }
 }
@@ -336,7 +335,7 @@
     .vista-previa__editor-producto-taza
     {
         background-size: calc(112%);
-        width: 17rem;
+        width: 14rem;
         height: 27rem;
     }
     .customizalo {
@@ -382,5 +381,8 @@
     }
     .btn-agregar-carrito {
         font-size: 20px;
+    }
+    .titulo-seccion{
+        text-align: initial;
     }
 }
