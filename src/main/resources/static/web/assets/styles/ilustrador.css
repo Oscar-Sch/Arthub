@@ -222,6 +222,10 @@ main{
         opacity: 1;
     }
 }
+label{
+    display: block;
+    font-family: 'Bangers',cursive;
+}
 
 .contenedor-inicioSesion, .contenedor-Registro{
     background-color: white;
@@ -257,6 +261,7 @@ input{
     margin-bottom: 1rem;
     font-family: 'Bangers',cursive;
     letter-spacing: .15rem;
+    width: 100%;
 }
 
 .boton-cerrar{
