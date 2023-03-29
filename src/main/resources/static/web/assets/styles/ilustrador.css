@@ -15,7 +15,7 @@ main{
     height: 120vh;
 } */
 .ilustrador-blanca,.ilustrador-color{
-    height: 90%;
+    height: 100%;
     /* width: 50%; */
     object-fit: contain;
     object-position: bottom;
@@ -214,8 +214,8 @@ main{
     
     .ilustrador-elementos-contenedor{
         width: 70%;
-        /* margin-top: 5rem;
-        margin-right: 3rem; */
+        margin-top: 5rem;
+        margin-right: 3rem;
     }
     
     .ilustrador-contenedor{
