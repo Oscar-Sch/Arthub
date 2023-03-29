@@ -81,6 +81,13 @@ createApp( {
                 }
                 
             })
+        },
+        mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
+            document.getElementById(idMostrar).classList.remove('ocultar-capa')
+            document.getElementById(idOcultar).classList.add('ocultar-capa')
+            document.getElementById(idTextoActivo).classList.add('informacion-navegar-activo')
+            document.getElementById(idTextoDesactivado).classList.remove('informacion-navegar-activo')
+            document.getElementById('iconoEditar').classList.toggle('ocultar-capa')
         }
     }
 }).mount("#app")
