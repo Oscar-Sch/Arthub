@@ -4,14 +4,27 @@ createApp( {
     data(){
         return {
             id: "",
-            nick: "Pepi",
+            nick: "",
             ilustraciones: [],
-            ilustracionesCantidad: "5",
+            ilustracionesCantidad: 0,
             imagenIlustrador: "",
-            ciudad: "Springfield",
-            redes: ['pepita', 'pepitadelmaiz'],
-            nombreIlustracion: "Nombre de la ilu",
-            auxCambiarDatos: false 
+            ciudad: "",
+            redes: [],
+            nombreIlustracion: "",
+            auxCambiarDatos: false,
+            nombre: "",
+            nickTitulo: "",
+            nick: "",
+            emailONick: "",
+            apellido: "",
+            email: "",
+            contraseñaRegistro: "",
+            contraseña: "",
+            direccion: "",
+            codigoPostal: "",
+            ciudad: "",
+            pais: "",
+            descripcionExtra: "",
         }
     },
     created(){
@@ -28,8 +41,8 @@ createApp( {
             document.getElementById('inicioSesion').classList.toggle('ocultar-modal')
             document.getElementById('registro').classList.toggle('ocultar-modal')
         },
-        register(){
-            axios.post('/api/usuario/registro',`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
+        registro(){
+            axios.post('/api/usuario/registro',`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&contraseña=${this.contraseñaRegistro}&direccion=${this.direccion}
                         &codigoPostal=${this.codigoPostal}&pais=${this.pais}&ciudad=${this.ciudad}&nick=${this.nick}&descripcionExtra=${this.descripcionExtra}`,
                         {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response => {
@@ -39,7 +52,7 @@ createApp( {
             })
         },
         logIn(){
-            axios.post('/api/login',`email=${this.email}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
+            axios.post('/api/login',`email=${this.emailONick}&password=${this.contraseña}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(res => {
                 if(this.email === "admin@mindhub.com"){
                     window.location.href = "../admin/create-loan.html"

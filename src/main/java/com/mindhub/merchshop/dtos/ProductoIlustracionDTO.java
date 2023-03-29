@@ -20,7 +20,7 @@ public class ProductoIlustracionDTO {
         this.id = productoIlustracion.getId();
         this.nombre = productoIlustracion.getNombre();
         this.ilustracionId = productoIlustracion.getIlustracion().getId();
-        this.productoId = productoIlustracion.getProducto().getId();
+        //this.productoId = productoIlustracion.getProducto().getId();
         this.stock = productoIlustracion.getStock();
         this.descripcion = productoIlustracion.getDescripcion();
         this.precio = productoIlustracion.getPrecio();
@@ -38,9 +38,9 @@ public class ProductoIlustracionDTO {
         return ilustracionId;
     }
 
-    public Long getProductoId() {
-        return productoId;
-    }
+//    public Long getProductoId() {
+//        return productoId;
+//    }
 
     public Integer getStock() {
         return stock;
