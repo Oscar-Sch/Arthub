@@ -183,6 +183,8 @@ main{
     align-self: flex-start;
 }
 
+/*MODAL*/
+
 .contenedor-inicioSesionRegistro{
     position: absolute;
     z-index: 10;
