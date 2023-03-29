@@ -148,6 +148,8 @@ main{
     display: inline;
     margin-right: 2rem;
     cursor: pointer;
+    letter-spacing: .15rem;
+    font-family: 'Bangers',cursive;
 }
 
 .informacion-navegar-activo{
@@ -267,6 +269,14 @@ label{
     font-family: 'Bangers',cursive;
     letter-spacing: .15rem;
     font-size: 1.5rem;
+    border-width: 3px 2px 1px 2px;
+    border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
+    transition: .5s;
+}
+
+.boton-actualizarDatos:hover{
+    background-color: rgb(150, 67, 218);
+    color: black;
 }
 
 .boton-texto{
@@ -327,7 +337,7 @@ label{
 
 .productos-descripcion-contenedor{
     background-color: rgb(255, 224, 254);
-    height: 6rem;
+    height: 7rem;
     margin-bottom: 2rem;
     display: flex;
     border: 2px solid rgb(0, 0, 0);
@@ -349,8 +359,9 @@ label{
 }
 
 .informacion-producto-texto{
-    font-size: .9rem;
+    font-size: 1.2rem;
     margin: 0;
+    font-family: 'Mouse Memoirs', sans-serif;
 }
 
 .precioTotal-compra{
@@ -359,6 +370,8 @@ label{
     color: rgb(236, 9, 206);
     text-align: end;
     margin: 0;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
 }
 
 @media (max-width:1700px){

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/styles/carrito.css">
-    <script defer src="./assets/scripts/main.js"></script>
+    <script defer src="./assets/scripts/carrito.js"></script>
     <title>Shop | Carrito</title>
 </head>
 <body id="app">
@@ -48,6 +48,63 @@
             </nav>         
         </header>
         <main>
+            <div class="contenedor-modalCarrito ocultar-modal" id="modalCarrito">
+                <div class="contenedor-modal" id="compraDatos">
+                    <div class="boton-cerrar" >
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <div class="contenedor-modal-tarjeta-datosPersonales">
+                        <div class="contenedor-datos">
+                            <div class="titulo-editardatos-contenedor">
+                                <p class="titulo-modal">MIS DATOS</p>
+                                <img v-cloak class="icono-editar" src="./assets/images/pen.png" alt="Editar" @click="activarFormulario()" id="iconoEditar">
+                            </div>
+                            <div class="contenedor-datos-personales">
+                                <div>
+                                    <p>Nombre</p>
+                                    <input type="text" v-model="nombre" readonly>
+                                    <p>Direccion</p>
+                                    <input type="text" v-model="direccion" readonly>
+                                    <p>Pais</p>
+                                    <input type="text" v-model="pais" readonly>
+                                </div>
+                                <div>
+                                    <p>Apellido</p>
+                                    <input type="text" v-model="nombre" readonly>
+                                    <p>Codigo Postal</p>
+                                    <input type="text" v-model="codigoPostal" readonly>
+                                    <p>Ciudad</p>
+                                    <input type="text" v-model="ciudad" readonly>
+                                </div>
+                            </div>
+                            <p>Descripcion direccion</p>
+                            <input type="text" class="input-extra" v-model="descripcionExtra" readonly>
+                            <div class="boton-contenedor input-extra ocultar-modal" id="actualizarDatosBoton" @click="actualizar()">
+                                <p>Actualizar datos</p>
+                            </div>
+                        </div>
+                        <div class="datos-tarjeta-contenedor">
+                            <div class="titulo-editardatos-contenedor">
+                                <p class="titulo-modal">DATOS DE PAGO</p>
+                            </div>
+                            <div class="tarjeta-datos">
+                                <p>Numero de tarjeta</p>
+                                <input type="text" v-model="numeroTarjeta">
+                                <p>Codigo de seguridad</p>
+                                <input type="number" v-model="cvvTarjeta">
+                                <p>Nombre tarjeta</p>
+                                <input type="text" v-model="nombreTarjeta">
+                                <p>Fecha de expiracion</p>
+                                <input type="text" v-model="expiracionTarjeta" >
+                            </div>
+                            <div class="boton-contenedor input-extra">
+                                <p>Pagar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
             <img class="carrito-blanca" src="./assets/images/carrito-blanco.png">
             <img class="carrito-color" src="./assets/images/carrito-color.png">
             <div class="contenedor-carrito">
@@ -263,81 +320,13 @@
                         <p>Total: <span>$25000</span></p>
                     </div>
                 </div>
-                <button class="boton-checkout" data-bs-toggle="modal" data-bs-target="#checkout">Checkout</button>
+                <button class="boton-checkout" data-bs-toggle="modal" data-bs-target="#checkout" @click="cerrarModal()">Checkout</button>
             </div>
             
-            <!-- Modal Body -->
-            <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-
-            <!-- data-bs-backdrop="static" data-bs-keyboard="false" -->
-            <div class="modal fade modal-checkout" id="checkout" tabindex="-1"  
-            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="modal-mis-datos">
-                                <div>
-                                    <div>
-                                        <span>Nombre</span>
-                                        <p>Pepita del maiz</p>
-                                    </div>
-                                    <div>
-                                        <span>Apellido</span>
-                                        <p>Montenegro Arguello</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span>Direccion</span>
-                                        <p>Calle siempreviva 123</p>
-                                    </div>
-                                    <div>
-                                        <span>Codigo Postal</span>
-                                        <p>1234</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span>Ciudad</span>
-                                        <p>Springfield</p>
-                                    </div>
-                                    <div>
-                                        <span>Pais</span>
-                                        <p>EEUU</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-datos-pago">
-                                <div>
-                                    <span>Número de tarjeta</span>
-                                    <p>2486-3517-9522-8457</p>
-                                </div>
-                                <div>
-                                    <span>Código de seguridad</span>
-                                    <p>123</p>
-                                </div>
-                                <div>
-                                    <span>Nombre en tarjeta</span>
-                                    <p>Cosme Fulanito</p>
-                                </div>
-                                <div>
-                                    <span>Fecha de expiración</span>
-                                    <p>10/30</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
         <footer>
-            <p>Proyecto final MindHub</p>
-            <p>Cohort 41</p>
-            <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+            <p class="titulo-footer">Proyecto final MindHub - Cohort 41</p>
+            <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
         </footer>
     </div>
 </body>
