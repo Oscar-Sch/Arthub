@@ -13,6 +13,8 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(strategy = "native", name = "native")
     private Long id;
+
+    private String numeroDeCompra;
     private LocalDateTime fecha;
     private Double montoTotal;
     @ManyToOne(fetch = FetchType.EAGER)
@@ -22,11 +24,12 @@ public class Compra {
     private List<PaqueteDeProductos> productos = new ArrayList<>();
     public Compra(){};
 
-    public Compra(Usuario usuario, List<PaqueteDeProductos> productos, LocalDateTime fecha, Double montoTotal) {
+    public Compra(Usuario usuario, List<PaqueteDeProductos> productos, LocalDateTime fecha,  String numeroDeCompra) {
         this.usuario = usuario;
         this.productos = productos;
         this.fecha = fecha;
-        this.montoTotal = montoTotal;
+        for (PaqueteDeProductos producto : this.productos){ this.montoTotal += producto.getMontoTotal(); }
+        this.numeroDeCompra = numeroDeCompra;
     }
 
     public Long getId() {
@@ -63,6 +66,15 @@ public class Compra {
     public void setMontoTotal(Double montoTotal) {
         this.montoTotal = montoTotal;
     }
+
+    public String getNumeroDeCompra() {
+        return numeroDeCompra;
+    }
+
+    public void setNumeroDeCompra(String numeroDeCompra) {
+        this.numeroDeCompra = numeroDeCompra;
+    }
+
     public void addPaqueteDeProductos(PaqueteDeProductos paqueteDeProductos) {
         paqueteDeProductos.setCompra(this);
         productos.add(paqueteDeProductos);

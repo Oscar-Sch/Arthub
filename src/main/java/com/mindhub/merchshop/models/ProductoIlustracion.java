@@ -20,17 +20,50 @@ public class ProductoIlustracion {
     private Integer stock;
     private String descripcion;
     private Double precio;
+    private TipoProducto tipoProducto;
+    private TallaProducto talla;
+    private TamañoProducto tamaño;
+    private ColorProducto color;
 
     public ProductoIlustracion(){}
-    public ProductoIlustracion(String nombre, Ilustracion illustration, Producto producto, Integer stock, String descripcion, Double precio) {
-        this.nombre = nombre;
-        this.ilustracion = illustration;
-        this.producto = producto;
+
+    public ProductoIlustracion( Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
+        this.nombre = this.tipoProducto + ", "+ this.talla+", "+this.color;
+        this.ilustracion = ilustracion;
         this.stock = stock;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.talla = talla;
+        this.color = color;
+    }
+    public ProductoIlustracion(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
+        this.nombre = this.tipoProducto + ", "+ this.color;
+        this.ilustracion = ilustracion;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.color = color;
+    }
+    public ProductoIlustracion(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
+        this.nombre = this.tipoProducto +", cuadrado.";
+        this.ilustracion = ilustracion;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
     }
 
+    public ProductoIlustracion(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
+        this.nombre = this.tipoProducto +", "+this.tamaño;
+        this.ilustracion = ilustracion;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.tamaño = tamaño;
+    }
     public Long getId() {
         return id;
     }
@@ -42,7 +75,7 @@ public class ProductoIlustracion {
         this.nombre = nombre;
     }
 
-    public Ilustracion getIllustracion() {
+    public Ilustracion getIlustracion() {
         return ilustracion;
     }
 
@@ -80,5 +113,37 @@ public class ProductoIlustracion {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public TipoProducto getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(TipoProducto tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+
+    public TallaProducto getTalla() {
+        return talla;
+    }
+
+    public void setTalla(TallaProducto talla) {
+        this.talla = talla;
+    }
+
+    public TamañoProducto getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(TamañoProducto tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public ColorProducto getColor() {
+        return color;
+    }
+
+    public void setColor(ColorProducto color) {
+        this.color = color;
     }
 }
