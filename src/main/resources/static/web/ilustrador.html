@@ -8,100 +8,110 @@
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="./assets/scripts/ilustrador.js"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/styles/ilustrador.css">
     <script defer src="./assets/scripts/main.js"></script>
     <title>Shop | Ilustrador</title>
 </head>
 <body id="app">
-    <main>
-        <div class="tablet">
-            <div class="tablet-brand">
-                <span>ARTHUB</span>
-                <div><span></span><span></span><span></span></div>
-            </div>
-            <nav class="pc-nav">
-                <button class="tablet-button" @click="openMenu()">Menu</button>
-                <button class="tablet-button">Logout</button>
-            </nav>
-            <nav class="navbar mobile-nav">
-                <button class="mobile-tablet-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
-                            <a class="nav-link" href="./productos.html">Productos</a>
-                            <a class="nav-link" href="./artistas.html">Artistas</a>
-                            <a class="nav-link" href="./carrito.html">Carrito</a>
-                            <a class="nav-link" href="./contacto.html">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            
-            <div class="main-content">
-                <div class="menu-block">
-                    <div class="menu-container">
-                        <div class="menu-backround"></div>
-                        <nav class="menu-content">
-                            <ul>
-                                <li class="menu-list-item"><a href="./cuenta.html"><i class="fa-solid fa-circle-user fa-2xl menu-icon"></i><span>Mi cuenta</span></a></li>
-                                <li class="menu-list-item"><a href="./productos.html"><i class="fa-solid fa-store fa-2xl menu-icon"></i><span>Productos</span></a></li>
-                                <li class="menu-list-item"><a href="./artistas.html"><i class="fa-solid fa-palette fa-2xl menu-icon"></i><span>Artistas</span></a></li>
-                                <li class="menu-list-item"><a href="./carrito.html"><i class="fa-solid fa-cart-shopping fa-2xl menu-icon"></i><span>Carrito</span></a></li>
-                                <li class="menu-list-item"><a href="./contacto.html"><i class="fa-solid fa-envelope fa-2xl menu-icon"></i><span>Contacto</span></a></li>
-                            </ul>
-                        </nav>
+    <div class="contenedor-overflow">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container navegacion">
+                    <a class="navbar-brand" href="./index.html">ARTHUB</a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./productos.html">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./artistas.html">Artistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./carrito.html">Carrito</a>
+                            </li>
+                            <li class="nav-item link-bordeado">
+                                <a class="nav-link" href="">Logout</a>
+                            </li>                     
+                        </ul>
                     </div>
                 </div>
-                <section class="ilustrador-elementos-contenedor">
-                    <div class="ilustraciones-contenedor">
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                    </div>
+            </nav>    
+        </header>
+        <main>
+            <img class="ilustrador-blanca" src="./assets/images/ilustrador-blanca.png">
+            <img class="ilustrador-color" src="./assets/images/ilustrador-color.png">
+            <section class="ilustrador-elementos-contenedor">
+                <h2 class="titulo-seccion">Ilustrador</h2>
+                <div class="linea-titulo"></div>
+                <div class="ilustrador-contenido-contenedor">
                     <div class="ilustrador-contenedor">
                         <div class="imagen-ilustrador-contenedor">
                             <img v-cloak class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" :alt="nick" :title="nick">
                         </div>
-                        <div>
-                            <p v-cloak class="nick-ilustrador">{{nick}}</p>
+                        <div class="contenedor-informacion-ilustrador">
                             <div class="texto-ilustrador-contenedor">
+                                <p v-cloak class="nick-ilustrador">{{nick}}</p>
                                 <p class="texto-ilustrador-informacion">Ilustraciones: <b v-cloak>{{ilustracionesCantidad}}</b></p>
                                 <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudad}}</b></p>
                             </div>
                             <div class="redessociales-contenedor">
                                 <div class="redessociales">
                                     <img class="logo-redsocial" src="./assets/images/instagram.png" alt="Logo Instagram" title="Logo Instagram">
-                                    <p v-cloak class="texto-redsocial"><a href="https://www.instagram.com/" target="_blank"> {{redes[0]}}</a></p>
+                                    <p v-cloak class="texto-redsocial" ><a  class="texto-redsocial-a" href="https://www.instagram.com/" target="_blank"> {{redes[0]}}</a></p>
                                 </div>
                                 <div class="redessociales">
                                     <img class="logo-redsocial" src="./assets/images/twitter.png" alt="Logo Twitter" title="Logo Twitter">
-                                    <p v-cloak class="texto-redsocial"><a href="https://twitter.com/" target="_blank">{{redes[1]}}</a></p>
+                                    <p v-cloak class="texto-redsocial"><a class="texto-redsocial-a" href="https://twitter.com/" target="_blank">{{redes[1]}}</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                
-            </div>
-            <div class="tablet-footer">
-                <p class="tablet-footer-titulo">Proyecto final MindHub</p>
-                <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
-            </div>
-        </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./assets/scripts/ilustrador.js"></script>
+                    <div class="ilustraciones-contenedor">
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                        <div class="ilustracion-individual-contenedor">
+                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
+                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
+                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p class="titulo-footer">Proyecto final MindHub - Cohort 41</p>
+            <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+        </footer>
+    </div>
 </body>
 </html>
