@@ -7,7 +7,7 @@ createApp( {
         }
     },
     created(){
-
+        
     },
     methods: {
         openMenu() {
