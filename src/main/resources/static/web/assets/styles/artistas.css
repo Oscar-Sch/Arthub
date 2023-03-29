@@ -1,0 +1,69 @@
+.main_artistas{
+    min-height: 50rem;
+    width: 90%;
+    margin: 0 auto;
+}
+.titulo-artistas {
+    margin-left: inherit;
+    width: max-content;
+    text-align: end;
+    letter-spacing: .15rem;
+    font-family: 'Bangers',cursive;
+    font-size: 4rem;
+    color: blueviolet;
+    /* margin: 0; */
+    /* margin-right: .7rem; */
+    text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff,
+               2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+    border-bottom: 2px solid white;
+}
+.ilustrador_artistas {
+    width: 8rem;
+    height: 12rem;
+    border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 1% 95% 1% 95%/95% 4% 92% 5%;
+    background-color: white;
+}
+.ilustrador_artistas img {
+    width: 8rem;
+    height: 11rem;
+    bottom: 0;
+}
+.card{
+    margin: 5% 0%;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 1% 95% 1% 95%/95% 4% 92% 5%;
+    background-color: white;
+    border: 2px solid black;
+}
+.card:hover{
+    transform: scale(1.1);
+    transition: all .3s;
+}
+
+.card-body{
+    margin: 0% 0% 0% 3%;
+    padding: 6% 0%;
+}
+.cards-container_artistas{
+    width: 45%;
+}
+.overlay{
+    background-color: #878787;
+}
+
+@media (min-width: 992px){
+    #contenedor_artistas{
+        width: 60%;
+        margin-right: 0;
+    }
+    .cards-container_artistas{
+        width: 30%;
+    }
+    .ilustracion_artistas{
+        width: 8rem;
+        height: 8rem;
+        left: -10rem;
+    }
+}

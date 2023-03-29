@@ -1,0 +1,14 @@
+.overlay{
+    background-color: #878787;
+}
+
+@media (min-width: 992px){
+    .ilustracion_productos{
+        left: -5rem;
+        bottom: 0;
+    }
+    .ilustracion_productos img {
+        width: 40rem;
+        height: 54rem;
+    }
+}
