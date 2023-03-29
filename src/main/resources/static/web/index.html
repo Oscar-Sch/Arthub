@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <script defer src="./assets/scripts/main.js"></script>
+    <script defer src="./assets/scripts/index.js"></script>
     <title>Shop | Inicio</title>
 </head>
 <body id="app">
@@ -38,6 +38,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
+                            <li class="nav-item link-bordeado" @click="cerrarModal()">
+                                <a class="nav-link">Login</a>
+                            </li>
                             <li class="nav-item link-bordeado">
                                 <a class="nav-link" href="">Logout</a>
                             </li>
@@ -49,6 +52,67 @@
             
         </header>
         <main>
+            <div class="contenedor-inicioSesionRegistro ocultar-modal" id="inicioSesionRegistro">
+                <div class="contenedor-inicioSesion" id="inicioSesion">
+                    <div class="boton-cerrar" >
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <p class="titulo-registroInicio">Inicia sesion</p>
+                    <p>Usuario</p>
+                    <input type="text" v-model="emailONick">
+                    <p>Contraseña</p>
+                    <input type="password" v-model="contraseña">
+                    <p class="error-texto" v-cloak>{{error}}</p>
+                    <div class="boton-contenedor">
+                        <p>Iniciar sesion</p>
+                    </div>
+                    <div class="contenedor-texto-extra-inicioSesion">
+                        <p>No tienes cuenta?</p>
+                        <p @click="mostrarRegistro()" class="texto-extra-color">Registrate</p>
+                    </div>
+                    
+                </div>
+                <div class="contenedor-Registro ocultar-modal" id="registro">
+                    <div class="boton-cerrar" >
+                        <p></p>
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <p class="titulo-registroInicio">Registrate</p>
+                    <div class="contenedor-registro-formulario">
+                        <div>
+                            <p>Nombre</p>
+                            <input type="text" v-model="nombre">
+                            <p>Nick</p>
+                            <input type="text" v-model="nick">
+                            <p>Ciudad</p>
+                            <input type="text" v-model="ciudad">
+                            <p>Pais</p>
+                            <input type="text" v-model="pais">
+                            <p>Email</p>
+                            <input type="text" v-model="email">
+                        </div>
+                        <div>
+                            <p>Apellido</p>
+                            <input type="text" v-model="nombre">
+                            <p>Direccion</p>
+                            <input type="text" v-model="direccion">
+                            <p>Codigo Postal</p>
+                            <input type="text" v-model="codigoPostal">
+                            <p>Descripcion direccion</p>
+                            <input type="text" v-model="descripcionExtra">
+                            <p>Contraseña</p>
+                            <input type="password" v-model="contraseña">
+                        </div>
+                    </div>
+                    <p class="error-texto" v-cloak>{{error}}</p>
+                    <div class="boton-contenedor">
+                        <p>Registrate</p>
+                    </div>
+                    <div class="contenedor-texto-extra-inicioSesion">
+                        <p @click="mostrarRegistro()" class="texto-extra-color">Inicia sesion</p>
+                    </div>
+                </div>
+            </div>
             <div class="index-llamada-a-la-accion">
                 <a class="boton-llamada-a-la-accion">Productos</a>
             </div>
@@ -58,13 +122,13 @@
                 <h2 class="titulo-seccion">El mundo <br> es sobre arte.</h2>
                 <div class="contenedor-dialogo">
                     <div class="caja-dialogo dialogo-derecha">
-                        <p>Conocerás nuevos ilustradores que se encuentran en la biblioteca de nuestra página. Podrás ver sus obras y los productos que venden.</p>
+                        <p class="texto-caja-dialogo">Conocerás nuevos ilustradores que se encuentran en la biblioteca de nuestra página. Podrás ver sus obras y los productos que venden.</p>
                     </div>
                     <h3 class="subtitulo-seccion subtitulo-derecha"><span>Conoce</span> nuevos artistas</h3>
                 </div>
                 <div class="contenedor-dialogo">
                     <div class="caja-dialogo dialogo-izquierda">
-                        <p>Como ilustrador podrás vender tus obras ya sean en formato digital como físico, ya sean remeras, tazas, llaveros, cuadernos y posters.</p>
+                        <p class="texto-caja-dialogo">Como ilustrador podrás vender tus obras ya sean en formato digital como físico, ya sean remeras, tazas, llaveros, cuadernos y posters.</p>
                     </div>
                     <h3 class="subtitulo-seccion subtitulo-izquierda"><span>Gestiona</span> tus productos</h3>
                 </div>
