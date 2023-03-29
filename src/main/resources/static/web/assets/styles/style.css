@@ -11,6 +11,7 @@
     --pink: #b73980ff;
 }
 body{
+    
     background-image:  linear-gradient(#efb8fd22,#efb8fd22),url(../images/background.jpg);
     line-height: normal !important;
     font-family: Arial, Helvetica, sans-serif !important;
@@ -29,13 +30,43 @@ body{
     font-weight: bolder;
 }
 .nav-link{
+    font-family: 'Bangers',cursive;
+    font-weight: 400;
     font-size: 1.3rem;
+    letter-spacing: .15rem;
+    color: white !important;
 }
+
+.nav-link:hover{
+    color: rgb(0, 0, 0) !important;
+    border: 1px solid rgb(0, 0, 0);
+    border-width: 2px 1px 3px 5px;
+    border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+    background-color: aquamarine;
+}
+
+.link-bordeado{
+    border-radius: 1rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    margin-top: .1rem;
+    margin-left: .5rem;
+    border: 1px solid rgb(113, 231, 247);
+    border-width: 2px 1px 3px 5px;
+    border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+}
+
+.link-bordeado:hover{
+    border: 2px solid rgb(148, 233, 212) !important;
+}
+
 footer{
-    min-height: 15vh;
-    background: linear-gradient(#0005,#000 70%);
+    min-height: 10vh;
+    /*background: linear-gradient(#0005,#000 70%);*/
+    background-color: rgb(0, 0, 0, .3);
     color: white;
-    border-bottom: 10px solid black;
+    /*border-bottom: 10px solid black;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,9 +75,18 @@ footer{
     gap: 1rem;
 }
 footer p{
-    font-weight: bolder;
-    font-size: 1.3rem;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    font-size: 1rem;
     margin: 0;
+    text-align: center;
+}
+.titulo-footer{
+    font-size: 1.3rem;
+}
+.texto-footer{
+    margin-top: -1rem;
+    font-weight: 400;
 }
 /* @media (max-width:1000px){
     .tablet-footer p{
