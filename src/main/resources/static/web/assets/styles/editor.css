@@ -9,18 +9,64 @@
 .body_editor{
     position: relative;
 }
+.editor-blanca,.editor-color{
+    height: 90%;
+    /* width: 50%; */
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 0;
+    transform: rotateY(180deg);
+    position: absolute;
+    bottom: 0rem;
+    left: -20rem;
+}
+.editor-blanca{
+    transform: rotateY(180deg);
+    filter: grayscale();
+    /* filter: hue-rotate(20deg); */
+    mix-blend-mode: hard-light;
+    z-index: -2;
+    animation: imagen-deslizar-carrito 1s forwards;
+}
+.editor-color{
+    z-index: -1;
+    -webkit-mask-image: url(../images/hero-mask-inverse.png);
+    mask-image: url(../images/hero-mask-inverse.png);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    animation: animacion-pintar 1s steps(32) forwards 1s, imagen-deslizar-carrito 1s forwards;
+}
+@keyframes imagen-deslizar-carrito {
+    80%{
+        left: -5rem;
+    }
+    100%{
+        left: -5rem;
+        opacity: .8;
+    }
+}
 .main__editor{
-    width: 90%;
+    /* width: 90%;
     min-height: 50rem;
     margin: 0 auto;
-    font-family: 'bahnschrift';
+    font-family: 'bahnschrift'; */
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    justify-content: flex-end;
+    padding: 0rem 2rem 1rem 2rem;
 }
-.customizalo{
-    margin: 0 auto;
-    width: 78%;
-    color: var(--violet);
-    font-size: 3rem;
-    border-bottom: 1px solid white;
+.contenedor-editor{
+    width: 70%;
+    min-height: 73vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo-seccion{
+    border-bottom: 4px solid white;
+    width: 100%;
+    text-align: right;
 }
 .contenedor-info-carrusel_editor{
     margin: 2rem auto;
@@ -54,8 +100,8 @@
 }
 .texto-guia{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 85%;
-    margin: 1.5rem 0 auto;
+    width: 100%;
+    text-align: center;
     font-size: 10px;
 }
 .info-texto__editor{
@@ -263,8 +309,9 @@
         width: 45%;
     }
     .contenedor-principal_editor{
-        width: 60%;
-        margin-left: 28rem;
+        /* width: 60%;
+        margin-left: 28rem; */
+        gap: 3rem;
     }
     .contenedor-info-carrusel_editor {
         width: 68%;
