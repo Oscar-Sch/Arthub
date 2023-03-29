@@ -3,18 +3,24 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
-            nick: "Pepi",
-            ilustraciones: [],
-            ilustracionesCantidad: "5",
-            imagenIlustrador: "",
-            ciudad: "Springfield",
-            redes: ['pepita', 'pepitadelmaiz'],
-            nombreIlustracion: "Nombre de la ilu",
-            auxCambiarDatos: false 
+            nombre: "",
+            nickTitulo: "",
+            nick: "",
+            nickOEmail: "",
+            apellido: "",
+            email: "",
+            direccion: "",
+            codigoPostal: "",
+            ciudad: "",
+            pais: "",
+            descripcionExtra: "",
+            imagenUsuario: "",
+            auxCambiarDatos: false,
+            error: ""
         }
     },
     created(){
-        this.informacion()
+       
     },
     methods: {
         cerrarModal(movimiento) {
@@ -23,6 +29,13 @@ createApp( {
         mostrarRegistro(){
             document.getElementById('inicioSesion').classList.toggle('ocultar-modal')
             document.getElementById('registro').classList.toggle('ocultar-modal')
+        },
+        informacion(){
+            axios.get(`/api/clients`)
+                .then(res=> {
+                    this.nickTitulo = res.data.nick
+                })
+                .catch(error => console.log(error))
         },
         register(){
             axios.post('/api/clients',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
@@ -49,29 +62,6 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {})
-        },
-        informacion(){
-            axios.get(`/api/clients`)
-                .then(res=> {
-                    this.nick = res.data.nick
-                    this.imagenIlustrador = res.data.imagenUsuario
-                    this.ilustracionesCantidad = res.data.ilustraciones.length
-                    this.ilustraciones = res.data.ilustraciones
-                    this.ciudad = res.data.ciudad
-                    this.redes = res.data.redes
-                })
-                .catch(error => console.log(error))
-        },
-        logOut(){
-            axios.post('/api/logout')
-            .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
-            })
         }
     }
 }).mount("#app")

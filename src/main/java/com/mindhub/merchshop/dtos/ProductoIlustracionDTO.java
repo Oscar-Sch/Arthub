@@ -19,7 +19,7 @@ public class ProductoIlustracionDTO {
     public ProductoIlustracionDTO(ProductoIlustracion productoIlustracion){
         this.id = productoIlustracion.getId();
         this.nombre = productoIlustracion.getNombre();
-        this.ilustracionId = productoIlustracion.getIllustracion().getId();
+        this.ilustracionId = productoIlustracion.getIlustracion().getId();
         this.productoId = productoIlustracion.getProducto().getId();
         this.stock = productoIlustracion.getStock();
         this.descripcion = productoIlustracion.getDescripcion();

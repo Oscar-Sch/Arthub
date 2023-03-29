@@ -21,11 +21,11 @@ public class PaqueteDeProductos {
 
 
     public PaqueteDeProductos(){}
-    public PaqueteDeProductos(Compra compra, ProductoIlustracion productoIlustracion, Byte cantidad, Double montoTotal) {
+    public PaqueteDeProductos(Compra compra, ProductoIlustracion productoIlustracion, Byte cantidad) {
         this.compra = compra;
         this.productoIlustracion = productoIlustracion;
         this.cantidad = cantidad;
-        this.montoTotal = montoTotal;
+        this.montoTotal = this.productoIlustracion.getPrecio() * this.cantidad;
     }
 
     public Long getId() {

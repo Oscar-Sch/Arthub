@@ -58,6 +58,7 @@ body{
     border: 1px solid rgb(113, 231, 247);
     border-width: 2px 1px 3px 5px;
     border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+    cursor: pointer;
 }
 
 .link-bordeado:hover{
