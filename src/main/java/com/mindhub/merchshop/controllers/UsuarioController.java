@@ -2,7 +2,7 @@ package com.mindhub.merchshop.controllers;
 
 import com.mindhub.merchshop.dtos.UsuarioDTO;
 import com.mindhub.merchshop.models.Usuario;
-import com.mindhub.merchshop.servicios.ServicioEmail;
+//import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

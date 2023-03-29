@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
+//import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
 
 @SpringBootApplication
 public class MerchshopApplication {
@@ -233,21 +233,21 @@ public class MerchshopApplication {
 
 			Usuario usuario1 = new Usuario("asd@gmail.com", "Julio Perez", "Nick", "123");
 
-			Compra compra1 = new Compra(usuario1, List.of(), LocalDateTime.now(), generarNumeroCompra());
-
-			PaqueteDeProductos paqueteDeProductos1 = new PaqueteDeProductos(compra1, productoIlustracion1, (byte) 2);
-			PaqueteDeProductos paqueteDeProductos2 = new PaqueteDeProductos(compra1, productoIlustracion2, (byte) 2);
-			PaqueteDeProductos paqueteDeProductos3 = new PaqueteDeProductos(compra1, productoIlustracion3, (byte) 2);
+//			Compra compra1 = new Compra(usuario1, List.of(), LocalDateTime.now(), generarNumeroCompra());
+//
+//			PaqueteDeProductos paqueteDeProductos1 = new PaqueteDeProductos(compra1, productoIlustracion1, (byte) 2);
+//			PaqueteDeProductos paqueteDeProductos2 = new PaqueteDeProductos(compra1, productoIlustracion2, (byte) 2);
+//			PaqueteDeProductos paqueteDeProductos3 = new PaqueteDeProductos(compra1, productoIlustracion3, (byte) 2);
 
 
 
 
 
 			usuarioRepository.save(usuario1);
-			compraRepository.save(compra1);
-			paqueteDeProductosRepository.save(paqueteDeProductos1);
-			paqueteDeProductosRepository.save(paqueteDeProductos2);
-			paqueteDeProductosRepository.save(paqueteDeProductos3);
+//			compraRepository.save(compra1);
+//			paqueteDeProductosRepository.save(paqueteDeProductos1);
+//			paqueteDeProductosRepository.save(paqueteDeProductos2);
+//			paqueteDeProductosRepository.save(paqueteDeProductos3);
 
 			List<ProductoIlustracion> productoIlustraciones = productoIlustracionRepository.findAll();
 
