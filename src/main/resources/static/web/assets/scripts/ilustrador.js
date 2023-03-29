@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
+            id: "",
             nick: "Pepi",
             ilustraciones: [],
             ilustracionesCantidad: "5",
@@ -14,10 +15,13 @@ createApp( {
         }
     },
     created(){
+        this.paramLocation = location.search
+        this.params = new URLSearchParams(this.paramLocation)
+        this.id = this.params.get("id")
         this.informacion()
     },
     methods: {
-        cerrarModal(movimiento) {
+        cerrarModal() {
             document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
         },
         mostrarRegistro(){
@@ -25,7 +29,7 @@ createApp( {
             document.getElementById('registro').classList.toggle('ocultar-modal')
         },
         register(){
-            axios.post('/api/clients',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
+            axios.post('/api/usuario/registro',`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
                         &codigoPostal=${this.codigoPostal}&pais=${this.pais}&ciudad=${this.ciudad}&nick=${this.nick}&descripcionExtra=${this.descripcionExtra}`,
                         {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response => {
@@ -51,16 +55,19 @@ createApp( {
             .then(response => {})
         },
         informacion(){
-            axios.get(`/api/clients`)
+            axios.get(`/api/ilustradores/${this.id}`)
                 .then(res=> {
                     this.nick = res.data.nick
-                    this.imagenIlustrador = res.data.imagenUsuario
+                    this.imagenIlustrador = res.data.avatarURL
                     this.ilustracionesCantidad = res.data.ilustraciones.length
                     this.ilustraciones = res.data.ilustraciones
                     this.ciudad = res.data.ciudad
                     this.redes = res.data.redes
                 })
                 .catch(error => console.log(error))
+        },
+        verProductos(id){
+            window.location.href = `./editor-producto.html?id=${id}`
         },
         logOut(){
             axios.post('/api/logout')

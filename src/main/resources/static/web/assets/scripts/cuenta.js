@@ -32,11 +32,11 @@ createApp( {
             }
         },
         informacion(){
-            axios.get(`/api/clients`)
+            axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    this.nombre = res.data.nombre
+                    this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
-                    this.apellido = res.data.apellido
+                    this.apellido = res.data.nombre.split("-")[1].trim()
                     this.email = res.data.email
                     this.imagenUsuario = res.data.imagenUsuario
                     this.ciudad = res.data.ciudad
@@ -44,7 +44,7 @@ createApp( {
                     this.direccion = res.data.direccion
                     this.codigoPostal = res.data.codigoPostal
                     this.descripcionExtra = res.data.descripcionExtra
-                    this.productos = res.data.productos
+                    this.productos = res.data.listaDeCompras
                 })
                 .catch(error => console.log(error))
         },
@@ -61,8 +61,8 @@ createApp( {
                 input.setAttribute("readonly", "")
                 input.classList.remove('formulario-input-bordebottom')
             }
-            axios.patch(`/api/clients/current`,`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.email}&nick=${this.nick}&direccion=${this.direccion}
-            &codigoPostal=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcionExtra=${this.descripcionExtra}&imagenUsuario=${this.imagenUsuario}`,
+            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&nick=${this.nick}&direccion=${this.direccion}
+            &codigoPostal=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcionExtra=${this.descripcionExtra}&avatarUrl=${this.imagenUsuario}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
                     this.informacion()

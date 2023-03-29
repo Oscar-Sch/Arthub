@@ -23,7 +23,7 @@ createApp( {
        
     },
     methods: {
-        cerrarModal(movimiento) {
+        cerrarModal() {
             document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
         },
         mostrarRegistro(){
@@ -38,7 +38,7 @@ createApp( {
                 .catch(error => console.log(error))
         },
         register(){
-            axios.post('/api/clients',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
+            axios.post('/api/usuario/registro',`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
                         &codigoPostal=${this.codigoPostal}&pais=${this.pais}&ciudad=${this.ciudad}&nick=${this.nick}&descripcionExtra=${this.descripcionExtra}`,
                         {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response => {
