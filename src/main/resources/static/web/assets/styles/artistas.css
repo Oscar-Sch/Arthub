@@ -49,6 +49,9 @@
 .cards-container_artistas{
     width: 45%;
 }
+.overlay{
+    background-color: cadetblue;
+}
 
 @media (min-width: 992px){
     #contenedor_artistas{
