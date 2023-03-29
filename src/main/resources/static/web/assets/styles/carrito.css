@@ -11,7 +11,7 @@
 }
 .carrito-blanca{
     transform: rotateY(180deg);
-    filter: grayscale();
+    filter: grayscale()  opacity(.7);
     /* filter: hue-rotate(20deg); */
     mix-blend-mode: hard-light;
     z-index: -2;
