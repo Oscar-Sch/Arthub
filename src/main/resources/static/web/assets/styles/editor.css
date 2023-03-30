@@ -10,18 +10,18 @@
     position: relative;
 }
 .editor-blanca,.editor-color{
-    height: 90%;
+    height: 100%;
     /* width: 50%; */
     object-fit: contain;
     object-position: bottom;
     opacity: 0;
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
     position: absolute;
     bottom: 0rem;
     left: -20rem;
 }
 .editor-blanca{
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
     filter: grayscale();
     /* filter: hue-rotate(20deg); */
     mix-blend-mode: hard-light;
@@ -50,6 +50,7 @@
     min-height: 50rem;
     margin: 0 auto;
     font-family: 'bahnschrift'; */
+    min-height: 85vh;
     display: flex;
     flex-direction: row !important;
     width: 100%;
