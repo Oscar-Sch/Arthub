@@ -58,185 +58,30 @@
             </div>
             <h2 class="titulo-seccion">Artistas</h2>
             <div class="d-flex flex-wrap justify-content-evenly mt-5">
+              <!-- contenedor -->
               <div class="container" id="contenedor_artistas">
-    
-                <!-- Card deck -->
+
+                <!-- artista -->
                 <div class="card-deck row justify-content-evenly">
-                
-                  <div data-aos="fade-up" data-aos-duration="800" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                  <!-- Card -->
+                  <div v-for="artista of data"  data-aos="fade-up" data-aos-duration="800" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
                   <div class="card">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
+                    <div class="view overlay position-relative">
+                      <img class="card-img position-absolute" :src="artista.ilustraciones[Math.floor(Math.random() * artista.ilustraciones.length)].imgURL" alt="Card image cap">
                       <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                     </div>
-                
-                    <!--Card content-->
                     <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
+                      <h4 class="card-title">{{artista.nick}}</h4>
+                      <button type="button" class="btn btn-light-blue btn-md">VER PERFIL</button>
                     </div>
-                
                   </div>
-                  <!-- Card -->
                   </div>
-                
-                  <div data-aos="fade-up" data-aos-duration="1000" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas">
-                  <!-- Card -->
-                  <div class="card mb-4">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
-                      <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-                
-                    <!--Card content-->
-                    <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
-                    </div>
-                
-                  </div>
-                  <!-- Card -->
                 </div>
-                
-                <div data-aos="fade-up" data-aos-duration="1200" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas">
-                  <!-- Card -->
-                  <div class="card mb-4">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
-                      <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-                
-                    <!--Card content-->
-                    <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
-                    </div>
-                
-                  </div>
-                  <!-- Card -->
-                </div>
-                
-                <div data-aos="fade-up" data-aos-duration="1400" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas">
-                  <!-- Card -->
-                  <div class="card">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
-                      <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-                
-                    <!--Card content-->
-                    <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
-                    </div>
-                
-                  </div>
-                  <!-- Card -->
-                </div>
-                 
-                <div data-aos="fade-up" data-aos-duration="1600" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                  <!-- Card -->
-                  <div class="card mb-4">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
-                      <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-                
-                    <!--Card content-->
-                    <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
-                    </div>
-                
-                  </div>
-                  <!-- Card -->
-                </div>
-                
-                <div data-aos="fade-up" data-aos-duration="1800" class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas">  
-                  <!-- Card -->
-                  <div class="card mb-4">
-                
-                    <!--Card image-->
-                    <div class="view overlay">
-                      <img class="card-img-top" src="../web/assets/images/illustrations/Illust_Joel/7.png" alt="Card image cap">
-                      <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-                
-                    <!--Card content-->
-                    <div class="card-body">
-                
-                      <!--Title-->
-                      <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                      <!--Text-->
-                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                      <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                
-                    </div>
-                
-                  </div>
-                  <!-- Card -->
-                </div>
-                
-                  
-                </div>
-                <!-- Card deck -->
-                  
-            </div>
-               
+                <!-- artista -->
+
+              </div>
+              <!-- contenedor -->
             </div>
         </div>
 

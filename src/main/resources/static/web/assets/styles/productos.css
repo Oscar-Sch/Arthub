@@ -1,3 +1,19 @@
+.precio_productos, .ilustrador_productos{
+    font-size: 12px;
+}
+.titulo_producto{
+    font-size: 16px;
+}
+.card_productos{
+    height: 27rem;
+    margin: 5% 0%;
+    border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 1% 95% 2% 95%/95% 2% 92% 3%;
+    background-color: white;
+    padding: 1rem;
+    overflow: hidden;
+}
 .productos-blanca,.productos-color{
     height: 90%;
     /* width: 50%; */

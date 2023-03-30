@@ -22,6 +22,7 @@
     bottom: 0;
 }
 .card{
+    height: 23rem;
     margin: 5% 0%;
     border: 2px solid black;
     border-width: 3px 3px 5px 5px;
@@ -30,10 +31,10 @@
     padding: 1rem;
     overflow: hidden;
 }
-.card:hover{
+/* .card:hover{
     transform: scale(1.05);
     transition: all .3s;
-}
+} */
 
 .card-body{
     margin: 0% 0% 0% 3%;
@@ -43,7 +44,12 @@
     width: 45%;
 }
 .overlay{
+    height: 100%;
     background-color: #878787;
+}
+.card-img{
+    height: 100%;
+    bottom: 0;
 }
 .card-deck{
     height: 65vh;
