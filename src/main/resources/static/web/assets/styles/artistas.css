@@ -22,7 +22,7 @@
     bottom: 0;
 }
 .card{
-    height: 23rem;
+    height: 22rem;
     margin: 5% 0%;
     border: 2px solid black;
     border-width: 3px 3px 5px 5px;
@@ -50,6 +50,9 @@
 .card-img{
     height: 100%;
     bottom: 0;
+}
+.overlay_artistas{
+    height: 70%;
 }
 .card-deck{
     height: 65vh;
