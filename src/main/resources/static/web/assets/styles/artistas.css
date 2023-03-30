@@ -60,6 +60,31 @@
     background: linear-gradient(#fffa, #fff3);
     margin-bottom: 2rem;
 }
+.artistas-blanca,.artistas-color{
+    height: 90%;
+    /* width: 50%; */
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 0;
+    position: absolute;
+    bottom: 0rem;
+    left: -20rem;
+}
+.artistas-blanca{
+    filter: grayscale()  opacity(.7);
+    /* filter: hue-rotate(20deg); */
+    mix-blend-mode: hard-light;
+    z-index: -2;
+    animation: imagen-deslizar-productos 1s forwards;
+}
+.artistas-color{
+    z-index: -1;
+    -webkit-mask-image: url(../images/hero-mask-inverse.png);
+    mask-image: url(../images/hero-mask-inverse.png);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    animation: animacion-pintar 1s steps(32) forwards 1s, imagen-deslizar-productos 1s forwards;
+}
 
 @media (min-width: 768px){
     .main_artistas{
