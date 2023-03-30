@@ -18,18 +18,20 @@ public class Usuario {
     private String nick;
     private String avatarUrl;
     private String contraseña;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "direccion_id", referencedColumnName = "id")
+    private Direccion direccion;
+
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Compra> listaDeCompras = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
-//    private List<Direccion> direcciones = new ArrayList<>();
-
     public Usuario(){};
-    public Usuario(String email, String nombre, String nick, String contraseña) {
+    public Usuario(String email, String nombre, String nick, String contraseña, Direccion direccion) {
         this.email = email;
         this.nombre = nombre;
         this.nick = nick;
         this.contraseña = contraseña;
+        this.direccion = direccion;
     }
 
     public String getEmail() {
@@ -46,6 +48,14 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 
     public String getNick() {
@@ -80,19 +90,9 @@ public class Usuario {
         this.listaDeCompras = listaDeCompras;
     }
 
-//    public List<Direccion> getDirecciones() {
-//        return direcciones;
-//    }
-//
-//    public void setDirecciones(List<Direccion> direcciones) {
-//        this.direcciones = direcciones;
-//    }
     public void addListaDeCompras(Compra compra) {
         compra.setUsuario(this);
         listaDeCompras.add(compra);
     }
-//    public void addDirecciones(Direccion direccion) {
-//        direccion.setUsuario(this);
-//        direcciones.add(direccion);
-//    }
+
 }

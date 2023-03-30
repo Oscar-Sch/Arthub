@@ -10,23 +10,17 @@ public class Direccion {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(strategy = "native", name = "native")
     private Long id;
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "usuario_id")
-//    private Usuario usuario;
     private String pais;
     private String ciudad;
-    private String calle;
-    private Integer numero;
+    private String direccion;
     private String zipCode;
     private String descripcion;
     public Direccion(){};
 
-    public Direccion(Usuario usuario, String pais, String ciudad, String calle, Integer numero, String zipCode, String descripcion) {
-//        this.usuario = usuario;
+    public Direccion(String pais, String ciudad, String direccion, String zipCode, String descripcion) {
         this.pais = pais;
         this.ciudad = ciudad;
-        this.calle = calle;
-        this.numero = numero;
+       this.direccion = direccion;
         this.zipCode = zipCode;
         this.descripcion = descripcion;
     }
@@ -34,13 +28,6 @@ public class Direccion {
     public Long getId() {
         return id;
     }
-//    public Usuario getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(Usuario usuario) {
-//        this.usuario = usuario;
-//    }
 
     public String getPais() {
         return pais;
@@ -58,20 +45,16 @@ public class Direccion {
         this.ciudad = ciudad;
     }
 
-    public String getCalle() {
-        return calle;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setCalle(String calle) {
-        this.calle = calle;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getZipCode() {

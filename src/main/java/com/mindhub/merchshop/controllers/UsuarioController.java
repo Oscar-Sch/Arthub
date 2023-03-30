@@ -1,7 +1,11 @@
 package com.mindhub.merchshop.controllers;
 
+import com.mindhub.merchshop.dtos.DireccionDTO;
+import com.mindhub.merchshop.dtos.RegisterDTO;
 import com.mindhub.merchshop.dtos.UsuarioDTO;
+import com.mindhub.merchshop.models.Direccion;
 import com.mindhub.merchshop.models.Usuario;
+import com.mindhub.merchshop.servicios.ServicioDireccion;
 import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,9 @@ public class UsuarioController {
     @Autowired
     ServicioUsuario serviciosUsuario;
 
+    @Autowired
+    ServicioDireccion servicioDireccion;
+
 
     @GetMapping("/api/usuarios")
     public List<UsuarioDTO> getClients() {
@@ -46,12 +53,13 @@ public class UsuarioController {
 
 
         if (nombre.isEmpty() && nick.isEmpty() && email.isEmpty() && contraseña.isEmpty()) {
-            return new ResponseEntity<>("Los campos no pueden estar vacios",HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.FORBIDDEN);
         }
 
-          if (nombre.isEmpty()) {
-              return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.BAD_REQUEST);
-        }usuarioModificado.setNombre(nombre);
+        if (nombre.isEmpty()) {
+            return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.BAD_REQUEST);
+        }
+        usuarioModificado.setNombre(nombre);
 
         if (nick.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByNick(nick);
@@ -71,7 +79,8 @@ public class UsuarioController {
 
         if (contraseña.isEmpty()) {
             return new ResponseEntity<>("La contraseña no puede estar vacía", HttpStatus.BAD_REQUEST);
-        } usuarioModificado.setContraseña(contraseña);
+        }
+        usuarioModificado.setContraseña(contraseña);
 
 
         serviciosUsuario.save(usuarioModificado);
@@ -81,11 +90,17 @@ public class UsuarioController {
 
     @PostMapping("/api/usuario/registro")
     public ResponseEntity<Object> register(
+            @RequestBody RegisterDTO registerDTO) {
 
-            @RequestParam String nombre,
-            @RequestParam String nick,
-            @RequestParam String email,
-            @RequestParam String contraseña) {
+        String nombre = registerDTO.getNombre();
+        String nick = registerDTO.getNick();
+        String email = registerDTO.getEmail();
+        String contraseña = registerDTO.getContraseña();
+        String pais = registerDTO.getPais();
+        String ciudad = registerDTO.getCiudad();
+        String direccion = registerDTO.getDireccion();
+        String zipcode = registerDTO.getZipCode();
+        String descripcion = registerDTO.getDescripcion();
 
 
         if (nombre.isEmpty()) {
@@ -97,25 +112,43 @@ public class UsuarioController {
         if (email.isEmpty()) {
             return new ResponseEntity<>("Email Incompleto", HttpStatus.FORBIDDEN);
         }
+        if (pais.isEmpty()) {
+            return new ResponseEntity<>("País Incompleto", HttpStatus.FORBIDDEN);
+        }
+        if (ciudad.isEmpty()) {
+            return new ResponseEntity<>("Ciudad Incompleta", HttpStatus.FORBIDDEN);
+        }
+        if (direccion.isEmpty()) {
+            return new ResponseEntity<>("Direccion Incompleta", HttpStatus.FORBIDDEN);
+        }
+        if (zipcode.isEmpty()) {
+            return new ResponseEntity<>("Codigo Postal Incompleto", HttpStatus.FORBIDDEN);
+        }
+        if (descripcion.isEmpty()) {
+            return new ResponseEntity<>("Descripcion Incompleta", HttpStatus.FORBIDDEN);
+        }
         if (contraseña.isEmpty()) {
-            return new ResponseEntity<>("Password Incompleta", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Contraseña Incompleta", HttpStatus.FORBIDDEN);
         }
         if (serviciosUsuario.findByEmail(email) != null) {
-
             return new ResponseEntity<>("Email existente", HttpStatus.FORBIDDEN);
         }
         if (serviciosUsuario.findByNick(nick) != null) {
             return new ResponseEntity<>("Nick existente", HttpStatus.FORBIDDEN);
         }
 
-        Usuario usuario = new Usuario(email,nombre, nick,  passwordEncoder.encode(contraseña));
-        serviciosUsuario.save(usuario);
+        Direccion nuevaDireccion = new Direccion(pais,ciudad,direccion,descripcion,zipcode);
+        Usuario nuevoUsuario = new Usuario(email,nombre,nick, passwordEncoder.encode(contraseña), nuevaDireccion);
+
+        servicioDireccion.save(nuevaDireccion);
+        serviciosUsuario.save(nuevoUsuario);
 
         return new ResponseEntity<>("Usuario creado correctamente", HttpStatus.CREATED);
+    }
+
+
 
     }
 
 
 
-
-}
