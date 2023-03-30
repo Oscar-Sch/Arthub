@@ -12,7 +12,7 @@ main{
 }
 .index-llamada-a-la-accion{
     width: 45%;
-    height: 75vh;
+    height: 80vh;
     flex-grow: 0;
     flex-shrink: 0;
     display: flex;
