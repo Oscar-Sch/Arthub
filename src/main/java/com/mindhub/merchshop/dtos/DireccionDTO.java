@@ -6,8 +6,7 @@ public class DireccionDTO {
     private Long id;
     private String pais;
     private String ciudad;
-    private String calle;
-    private Integer numero;
+    private String direccion;
     private String zipCode;
     private String descripcion;
 
@@ -16,8 +15,7 @@ public class DireccionDTO {
         this.id = direccion.getId();
         this.pais = direccion.getPais();
         this.ciudad = direccion.getCiudad();
-        this.calle = direccion.getCalle();
-        this.numero = direccion.getNumero();
+        this.direccion = direccion.getDireccion();
         this.zipCode = direccion.getZipCode();
         this.descripcion = direccion.getDescripcion();
     }
@@ -34,12 +32,8 @@ public class DireccionDTO {
         return ciudad;
     }
 
-    public String getCalle() {
-        return calle;
-    }
-
-    public Integer getNumero() {
-        return numero;
+    public String getDireccion() {
+        return direccion;
     }
 
     public String getZipCode() {
