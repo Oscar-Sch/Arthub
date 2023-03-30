@@ -72,7 +72,6 @@
                                     <p class="informacion-navegar informacion-navegar-activo" @click="mostrarDatos('datosEditar','historialCompras', 'datosTexto', 'historialTexto')" id="datosTexto">Mis datos</p>
                                     <p class="informacion-navegar"  @click="mostrarDatos('historialCompras', 'datosEditar', 'historialTexto', 'datosTexto')" id="historialTexto">Mis compras</p>
                                 </div>
-                                
                             </div>
                         </div>
                         <div  id="datosEditar">
@@ -126,8 +125,13 @@
                                     </div>
                                     <p class="precioTotal-compra"  v-cloak >TOTAL {{producto.montoTotal.toLocaleString('en-US', {style:"currency", currency:"USD"})}}</p>
                                 </div>
-                                <div v-if="!productos">
-                                    <p>No copmpraste productos.</p>
+                                <div v-if="productos.length == 0" class="sin-compras">
+                                    <p>No compraste productos.</p>
+                                    <div class="contenedor-boton">
+                                        <div class="boton-actualizarDatos boton-actualizarDatos-bordenegro" @click="actualizar()">
+                                            <p class="boton-texto">Ver productos</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
