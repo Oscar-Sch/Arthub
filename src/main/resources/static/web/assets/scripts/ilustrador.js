@@ -25,6 +25,7 @@ createApp( {
             ciudad: "",
             pais: "",
             descripcionExtra: "",
+            loginAux: false
         }
     },
     created(){
@@ -47,13 +48,17 @@ createApp( {
                         {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response => {
                 axios.post('/api/login',`email=${this.email}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
-                .then(res => { this.informacion()}) 
+                .then(res => { 
+                    this.loginAux = true
+                    this.informacion()
+                }) 
                 .catch(error => {})
             })
         },
         logIn(){
             axios.post('/api/login',`email=${this.emailONick}&password=${this.contraseña}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(res => {
+                this.loginAux = true
                 if(this.email === "admin@mindhub.com"){
                     window.location.href = "../admin/create-loan.html"
                 }else{
@@ -62,10 +67,6 @@ createApp( {
                 this.informacion()
             }) 
             .catch(error => {})
-        },
-        logOut(){
-            axios.post('/api/logout')
-            .then(response => {})
         },
         informacion(){
             axios.get(`/api/ilustradores/${this.id}`)
@@ -85,6 +86,7 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
+                this.loginAux = false
                 if(this.email === "admin@mindhub.com"){
                     window.location.href = "../web/index.html"
                 }else{

@@ -18,7 +18,8 @@ createApp( {
             descripcionExtra: "",
             imagenUsuario: "",
             auxCambiarDatos: false,
-            error: ""
+            error: "",
+            loginAux: false
         }
     },
     created(){
@@ -46,15 +47,18 @@ createApp( {
                         {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response => {
                 axios.post('/api/login',`email=${this.email}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
-                .then(res => { this.informacion() 
+                .then(res => { 
+                    this.loginAux = true
+                    this.informacion() 
                     }) 
-                .catch(error => {})
+                .catch(error => {console.log(error)})
             })
         },
         logIn(){
             console.log("pucha")
             axios.post('/api/login',`email=${this.emailONick}&password=${this.contraseña}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(res => {
+                this.loginAux = true
                 if(this.email === "admin@mindhub.com"){
                     window.location.href = "../admin/create-loan.html"
                 }else{
@@ -68,7 +72,9 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {})
+            .then(response => {
+                this.loginAux = false
+            })
         }
     }
 }).mount("#app")
