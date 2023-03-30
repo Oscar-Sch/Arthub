@@ -36,6 +36,7 @@ createApp( {
                 .then(res=> {
                     this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
+                    this.nick = this.nickTitulo
                     this.apellido = res.data.nombre.split("-")[1].trim()
                     this.email = res.data.email
                     this.imagenUsuario = res.data.imagenUsuario

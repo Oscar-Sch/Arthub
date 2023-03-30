@@ -37,7 +37,7 @@
 
 main{
     display: flex;
-    height: 81.5vh;
+    min-height: 81.5vh;
     justify-content: end;
 }
 
@@ -68,7 +68,9 @@ main{
     height: 95%;
     margin-top: -.8rem;
     padding: 1rem;
-    padding-left: 0;
+    padding-left: 0rem;
+    padding-right: 3rem;
+    
 }
 
 .titulo-pagina{
@@ -97,30 +99,31 @@ main{
     margin-top: 3rem;
 }
 
+
 .titulo-imagen-contenedor{
     width: 14vw;
     height: 59vh;
     margin-left: 1rem;
     margin-right: 3rem;
-    box-shadow: -1rem -1rem 0 white;
+    box-shadow: 0rem 0rem 0rem 1.5rem white;
     background-color: rgb(104, 199, 175);
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: .5rem 0;
-    border: 2px solid black;
+    border: 2px solid black;    
     border-width: 3px 3px 5px 5px;
-    border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+    border-radius: 1% 95% 2% 95%/95% 2% 92% 3%;
     overflow: hidden;
 }
+
 .imagen-datos-contenedor{
     height: 100%;
-    
 }
+
 .imagen-datos{
     height: 105%;
 }
-
 
 .titulos-contenedor{
     text-align: center;
@@ -307,7 +310,7 @@ label{
 }
 
 .compra-contenedor{
-    height: 43vh;
+    height: 50.45vh;
     background-color: white;
     padding: 1rem;
     overflow-y: scroll;
@@ -374,6 +377,22 @@ label{
     letter-spacing: .15rem;
 }
 
+.sin-compras{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    font-size: 1.6rem;
+}
+
+.boton-actualizarDatos-bordenegro{
+    border: 3px solid rgb(0, 0, 0);
+}
+
 @media (max-width:1700px){
     .imagen-principal-contenedor{
         margin-left: -2rem;
@@ -384,7 +403,7 @@ label{
         height: 54vh;
         margin-left: 1rem;
         margin-right: 3rem;
-        box-shadow: -1rem -1rem 0 white;
+        box-shadow: 0rem 0rem 0rem 1.5rem white;
         background-color: rgb(104, 199, 175);
         display: flex;
         align-items: center;
@@ -392,7 +411,7 @@ label{
         padding: .5rem 0;
         border: 2px solid black;
         border-width: 3px 3px 5px 5px;
-        border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+        border-radius: 1% 95% 2% 95%/95% 2% 92% 3%;
     }
 
     .contenedor-formulario-nombre{
