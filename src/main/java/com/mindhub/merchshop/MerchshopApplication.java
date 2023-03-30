@@ -231,7 +231,7 @@ public class MerchshopApplication {
 			productoIlustracionRepository.save(productoIlustracion80);
 
 
-			Usuario usuario1 = new Usuario("asd@gmail.com", "Julio Perez", "Nick", "123");
+			Usuario usuario1 = new Usuario("niettpls@gmail.com", "Julio Perez", "Nick", "123");
 
 			Compra compra1 = new Compra(usuario1, List.of(), LocalDateTime.now(), generarNumeroCompra());
 

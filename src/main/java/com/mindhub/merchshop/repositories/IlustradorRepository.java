@@ -8,4 +8,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface IlustradorRepository extends JpaRepository<Ilustrador, String> {
 
     Ilustrador findByEmail(String email);
+    Ilustrador findByNick(String nick);
 }

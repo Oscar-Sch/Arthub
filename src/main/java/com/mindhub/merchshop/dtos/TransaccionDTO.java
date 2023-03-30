@@ -39,11 +39,11 @@ public class TransaccionDTO {
         this.cvv = cvv;
     }
 
-    public static void setDescripcion(String descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public static void setMontoAPagar(Double montoAPagar) {
+    public void setMontoAPagar(Double montoAPagar) {
         this.montoAPagar = montoAPagar;
     }
 }

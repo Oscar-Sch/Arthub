@@ -3,6 +3,7 @@ package com.mindhub.merchshop.controllers;
 import com.mindhub.merchshop.dtos.IlustradorDTO;
 import com.mindhub.merchshop.models.Ilustrador;
 import com.mindhub.merchshop.repositories.IlustradorRepository;
+import com.mindhub.merchshop.servicios.ServicioIlustrador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +17,21 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/api")
 public class IlustradorController {
     @Autowired
-    IlustradorRepository ilustradorRepository;
+    ServicioIlustrador servicioIlustrador;
+
+    @GetMapping("/ilustradores/{nick}")
+    public IlustradorDTO getAccount(@PathVariable String nick){
+        return new IlustradorDTO(servicioIlustrador.findByNick(nick));
+    }
 
     @GetMapping("/ilustradores")
     public Set<IlustradorDTO> listaIlustradores(){
-        return ilustradorRepository.findAll().stream().map(IlustradorDTO::new).collect(Collectors.toSet());
+        return servicioIlustrador.findAll().stream().map(IlustradorDTO::new).collect(Collectors.toSet());
     }
     @PostMapping("/admin/illustradores")
     public ResponseEntity<Object> crearIlustrador (@RequestBody IlustradorDTO ilustradorDTO){
 
-        Ilustrador ilustradorExistente = ilustradorRepository.findByEmail(ilustradorDTO.getEmail());
+        Ilustrador ilustradorExistente = servicioIlustrador.findByEmail(ilustradorDTO.getEmail());
         String mail = ilustradorDTO.getEmail();
         String nombre = ilustradorDTO.getNombre();
         String nick = ilustradorDTO.getNick();
@@ -47,7 +53,7 @@ public class IlustradorController {
             return new ResponseEntity<>("Este campo no puede estar vacío", HttpStatus.BAD_REQUEST);}
 
         Ilustrador nuevoIlustrador = new Ilustrador(mail, nombre, nick, avatar, contrasenia, List.of());
-        ilustradorRepository.save(nuevoIlustrador);
+        servicioIlustrador.save(nuevoIlustrador);
 
         return new ResponseEntity<>("Ilustrador creado!", HttpStatus.CREATED);
     }

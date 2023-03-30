@@ -20,15 +20,17 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+//import java.text.DateFormat;
+//import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
+//import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
 import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
+//import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
 
 @RestController
 @RequestMapping("/api")
@@ -42,17 +44,9 @@ public class CompraController {
     ServicioCompra servicioCompra;
     @Autowired
     ServicioProductoIlustracion servicioProductoIlustracion;
+
     @Autowired
     RestTemplate restTemplate;
-
-    @PostMapping("/email/pdf")
-    public void enviarEmailPdf(Authentication authentication){
-        Usuario usuario = servicioUsuario.findByEmail(authentication.getName());
-        servicioEmail.EnviarEmail(usuario.getEmail());
-    }
-
-
-
 
     //si se genera se envia el mail
 
@@ -66,20 +60,25 @@ public class CompraController {
             productoIlustracion.setStock(productoIlustracion.getStock() - paquete.getCantidad());
         }
         //Recibir pago
+        List<PaqueteDeProductosDTO> paqueteDeProductos = compraDataDTO.getPaqueteDeProductosDTOS();
+        Double montoTotal = null;
+        for (PaqueteDeProductosDTO paquete : paqueteDeProductos){
+            montoTotal += paquete.getMontoTotal();
+        }
         String numero = compraDataDTO.getTransaccionDTO().getNumero();
         String cvv = compraDataDTO.getTransaccionDTO().getCvv();
         String descripcion = compraDataDTO.getTransaccionDTO().getDescripcion();
         Double montoAPagar = compraDataDTO.getTransaccionDTO().getMontoAPagar();
+        TransaccionDTO transaccionDTO = compraDataDTO.getTransaccionDTO();
 
+        final String URL = "https://mindhub-brothers-bank.up.railway.app/api/cards/transaction";
 
-        final String URL = "https://mindhub-brothers-bank.up.railway.app/web/index.html";
-
-        TransaccionDTO.setMontoAPagar(compraDataDTO.get);
-        TransaccionDTO.setDescripcion("compra en ArtHub");
+        transaccionDTO.setMontoAPagar(montoTotal);
+        transaccionDTO.setDescripcion("compra en ArtHub");
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        HttpEntity<TransaccionDTO> entidad = new HttpEntity<>(TransaccionDTO, headers);
+        HttpEntity<TransaccionDTO> entidad = new HttpEntity<>(transaccionDTO, headers);
 
         ResponseEntity<?> respuesta = restTemplate.exchange(URL, HttpMethod.POST, entidad, String.class);
 
@@ -87,19 +86,25 @@ public class CompraController {
         //sino se genera compra, devolver stock
 
         //Generar Compra
-        List<PaqueteDeProductos> paqueteDeProductos = compraDataDTO.getPaqueteDeProductosDTOS().stream().map(PaqueteDeProductos::new).collect(Collectors.toList());
-        Double montoTotal = null;
-        for (PaqueteDeProductos paquete : paqueteDeProductos){
-            montoTotal += paquete.getMontoTotal();
+        List<PaqueteDeProductos> listaNueva = new ArrayList<>();
+        for(PaqueteDeProductosDTO productos : paqueteDeProductos){
+            PaqueteDeProductos lista = new PaqueteDeProductos();
+            lista.setMontoTotal(lista.getMontoTotal());
+            lista.setCantidad(lista.getCantidad());
+            lista.setCompra(lista.getCompra());
+            lista.setProductoIlustracion(lista.getProductoIlustracion());
+            listaNueva.add(lista);
         }
+
         Usuario usuarioAutenticado = servicioUsuario.findByEmail(authentication.getName());
-        Compra nuevaCompra = new Compra(usuarioAutenticado, paqueteDeProductos , LocalDateTime.now(),generarNumeroCompra());
+        Compra nuevaCompra = new Compra(usuarioAutenticado, listaNueva , LocalDateTime.now(),generarNumeroCompra());
         servicioCompra.save(nuevaCompra);
 
         //Generar PDF
-        generarPDF(authentication, response, nuevaCompra);
+       generarPDF(authentication, response, nuevaCompra);
+
+        servicioEmail.EnviarEmail(usuarioAutenticado.getEmail(), authentication, nuevaCompra, response);
 
         return new ResponseEntity<>("Compra efectuada exitosamente" , HttpStatus.CREATED);
     }
-
 }

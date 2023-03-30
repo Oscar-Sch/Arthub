@@ -32,8 +32,8 @@ public class ServicioEmail implements com.mindhub.merchshop.servicios.ServicioEm
     @Value("${spring.mail.username}")
     private String email;
 
-
-    public void EnviarEmail (String emailA, Authentication authentication, HttpServletResponse response, Compra compra){
+    @Override
+    public void EnviarEmail(String emailA, Authentication authentication, Compra compra, HttpServletResponse response) {
         MimeMessage mensaje = javaMailSender.createMimeMessage();
 
         try {
