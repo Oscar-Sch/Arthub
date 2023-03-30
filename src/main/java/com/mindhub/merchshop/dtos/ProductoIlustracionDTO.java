@@ -35,7 +35,6 @@ public class ProductoIlustracionDTO {
     public Long getIlustracionId() {
         return ilustracionId;
     }
-
     public Integer getStock() {
         return stock;
     }

@@ -7,15 +7,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <script defer src="./assets/scripts/index.js"></script>
+    
     <title>Shop | Inicio</title>
 </head>
 <body id="app">
-    <div class="contenedor-overflow">
+    <div class="contenedor-overflow" >
         <header>
             <nav class="navbar navbar-expand-md navbar-dark">
                 <div class="container navegacion">
@@ -26,7 +26,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
+                            <li class="nav-item" v-if="loginAux">
                                 <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
                             </li>
                             <li class="nav-item">
@@ -35,13 +35,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./artistas.html">Artistas</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" v-if="loginAux">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
-                            <li class="nav-item link-bordeado" @click="cerrarModal()">
+                            <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux">
                                 <a class="nav-link">Login</a>
                             </li>
-                            <li class="nav-item link-bordeado">
+                            <li class="nav-item link-bordeado" v-if="loginAux">
                                 <a class="nav-link" href="">Logout</a>
                             </li>
                             
@@ -58,12 +58,14 @@
                         <p @click="cerrarModal()" class="equis-boton">X</p>
                     </div>
                     <p class="titulo-registroInicio">Inicia sesion</p>
-                    <p>Usuario</p>
-                    <input type="text" v-model="emailONick">
-                    <p>Contraseña</p>
-                    <input type="password" v-model="contraseña">
+                    <form>
+                        <label>Usuario</label>
+                        <input type="text" v-model="emailONick">
+                        <label>Contraseña</label>
+                        <input type="password" v-model="contraseña">
+                    </form>
                     <p class="error-texto" v-cloak>{{error}}</p>
-                    <div class="boton-contenedor">
+                    <div class="boton-contenedor" @click="logIn()">
                         <p>Iniciar sesion</p>
                     </div>
                     <div class="contenedor-texto-extra-inicioSesion">
@@ -78,34 +80,34 @@
                         <p @click="cerrarModal()" class="equis-boton">X</p>
                     </div>
                     <p class="titulo-registroInicio">Registrate</p>
-                    <div class="contenedor-registro-formulario">
+                    <form class="contenedor-registro-formulario">
                         <div>
-                            <p>Nombre</p>
+                            <label>Nombre</label>
                             <input type="text" v-model="nombre">
-                            <p>Nick</p>
+                            <label>Nick</label>
                             <input type="text" v-model="nick">
-                            <p>Ciudad</p>
+                            <label>Ciudad</label>
                             <input type="text" v-model="ciudad">
-                            <p>Pais</p>
+                            <label>Pais</label>
                             <input type="text" v-model="pais">
-                            <p>Email</p>
+                            <label>Email</label>
                             <input type="text" v-model="email">
                         </div>
                         <div>
-                            <p>Apellido</p>
-                            <input type="text" v-model="nombre">
-                            <p>Direccion</p>
+                            <label>Apellido</label>
+                            <input type="text" v-model="apellido">
+                            <label>Direccion</label>
                             <input type="text" v-model="direccion">
-                            <p>Codigo Postal</p>
+                            <label>Codigo Postal</label>
                             <input type="text" v-model="codigoPostal">
-                            <p>Descripcion direccion</p>
+                            <label>Descripcion direccion</label>
                             <input type="text" v-model="descripcionExtra">
-                            <p>Contraseña</p>
-                            <input type="password" v-model="contraseña">
+                            <label>Contraseña</label>
+                            <input type="password" v-model="contraseñaRegistro">
                         </div>
-                    </div>
+                    </form>
                     <p class="error-texto" v-cloak>{{error}}</p>
-                    <div class="boton-contenedor">
+                    <div class="boton-contenedor" @click="registro()">
                         <p>Registrate</p>
                     </div>
                     <div class="contenedor-texto-extra-inicioSesion">
@@ -139,5 +141,7 @@
             <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
         </footer>
     </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/scripts/index.js"></script>
 </body>
 </html>

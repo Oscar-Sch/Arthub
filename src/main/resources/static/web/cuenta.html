@@ -113,34 +113,23 @@
                         
                         <div class="compra-granTitulo-contenedor ocultar-capa" id="historialCompras">
                             <div class="compra-contenedor">
-                                <div class="detalleCompra-contenedor">
-                                    <h3 class="compra-titulo">COMPRA #9894</h3>
+                                <div class="detalleCompra-contenedor" v-for="producto of productos" v-if="productos">
+                                    <h3 class="compra-titulo"  v-cloak >COMPRA #{{producto.numeroDeCompra}}</h3>
                                     <div class="productos-descripcion-contenedor">
-                                        <img class="imagen-producto" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" alt="" >
+                                        <img class="imagen-producto" :src="producto.productos.productoIlustracionId.ilustracionId.imgURL" :alt="producto.productos.productoIlustracionId.nombre" >
                                         <div>
-                                            <h3 class="titulo-producto">REMERA NOMBRE</h3>
-                                            <p class="informacion-producto-texto">TALLA: L</p>
-                                            <p class="informacion-producto-texto">CANTIDAD: 1</p>
-                                            <P class="informacion-producto-texto">DESCRIPCION: Remera blanca de fibrana</P>
+                                            <h3 class="titulo-producto"  v-cloak >REMERA  {{producto.productos.productoIlustracionId.nombre}}</h3>
+                                            <p class="informacion-producto-texto"  v-cloak >TALLA:  {{producto.productos.productoIlustracionId.descripcion}}</p>
+                                            <p class="informacion-producto-texto"  v-cloak >CANTIDAD: {{producto.productos.cantidad}}</p>
+                                            <P class="informacion-producto-texto"  v-cloak >DESCRIPCION: {{producto.productos.productoIlustracionId.descripcion}}</P>
                                         </div>
                                     </div>
-                                    <p class="precioTotal-compra">TOTAL $1222</p>
+                                    <p class="precioTotal-compra"  v-cloak >TOTAL {{producto.montoTotal.toLocaleString('en-US', {style:"currency", currency:"USD"})}}</p>
                                 </div>
-                                <div class="detalleCompra-contenedor">
-                                    <h3 class="compra-titulo">COMPRA #9894</h3>
-                                    <div class="productos-descripcion-contenedor">
-                                        <img class="imagen-producto" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" alt="" >
-                                        <div>
-                                            <h3 class="titulo-producto">REMERA NOMBRE</h3>
-                                            <p class="informacion-producto-texto">TALLA: L</p>
-                                            <p class="informacion-producto-texto">CANTIDAD: 1</p>
-                                            <P class="informacion-producto-texto">DESCRIPCION: Remera blanca de fibrana</P>
-                                        </div>
-                                    </div>
-                                    <p class="precioTotal-compra">TOTAL $1222</p>
+                                <div v-if="!productos">
+                                    <p>No copmpraste productos.</p>
                                 </div>
                             </div>
-                            <p class="precioTotal-compra">TOTAL $1222</p>
                         </div>
                     </div>
                 </div>

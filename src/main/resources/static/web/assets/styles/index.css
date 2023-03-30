@@ -218,7 +218,10 @@ main{
     justify-content: center;
     flex-direction: column;
 }
-
+label{
+    display: block;
+    font-family: 'Bangers',cursive;
+}
 .contenedor-inicioSesion p, .contenedor-Registro p{
     margin: 0;
     padding: 0;
@@ -241,6 +244,7 @@ input{
     margin-bottom: 1rem;
     font-family: 'Bangers',cursive;
     letter-spacing: .15rem;
+    width: 100%;
 }
 
 .boton-cerrar{
