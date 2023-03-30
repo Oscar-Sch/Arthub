@@ -1,6 +1,6 @@
 .main_artistas{
     min-height: 75;
-    width: 60%;
+    /* width: 60%; */
     margin: 0 auto;
     margin: 0 2rem 0 auto;
 }
@@ -60,6 +60,13 @@
     background: linear-gradient(#fffa, #fff3);
     margin-bottom: 2rem;
 }
+
+@media (min-width: 768px){
+    .main_artistas{
+        width: 60%;
+    }
+}
+
 @media (min-width: 992px){
     #contenedor_artistas{
         width: 100%;
