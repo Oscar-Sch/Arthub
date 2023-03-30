@@ -40,6 +40,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
+                            <li class="nav-item link-bordeado" @click="cerrarModal()">
+                                <a class="nav-link">Login</a>
+                            </li>
                             <li class="nav-item link-bordeado">
                                 <a class="nav-link" href="">Logout</a>
                             </li>                     
@@ -49,6 +52,67 @@
             </nav>    
         </header>
         <main>
+            <div class="contenedor-inicioSesionRegistro ocultar-modal" id="inicioSesionRegistro">
+                <div class="contenedor-inicioSesion" id="inicioSesion">
+                    <div class="boton-cerrar" >
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <p class="titulo-registroInicio">Inicia sesion</p>
+                    <p>Usuario</p>
+                    <input type="text" v-model="emailONick">
+                    <p>Contraseña</p>
+                    <input type="password" v-model="contraseña">
+                    <p class="error-texto" v-cloak>{{error}}</p>
+                    <div class="boton-contenedor">
+                        <p>Iniciar sesion</p>
+                    </div>
+                    <div class="contenedor-texto-extra-inicioSesion">
+                        <p>No tienes cuenta?</p>
+                        <p @click="mostrarRegistro()" class="texto-extra-color">Registrate</p>
+                    </div>
+                    
+                </div>
+                <div class="contenedor-Registro ocultar-modal" id="registro">
+                    <div class="boton-cerrar" >
+                        <p></p>
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <p class="titulo-registroInicio">Registrate</p>
+                    <div class="contenedor-registro-formulario">
+                        <div>
+                            <p>Nombre</p>
+                            <input type="text" v-model="nombre">
+                            <p>Nick</p>
+                            <input type="text" v-model="nick">
+                            <p>Ciudad</p>
+                            <input type="text" v-model="ciudad">
+                            <p>Pais</p>
+                            <input type="text" v-model="pais">
+                            <p>Email</p>
+                            <input type="text" v-model="email">
+                        </div>
+                        <div>
+                            <p>Apellido</p>
+                            <input type="text" v-model="nombre">
+                            <p>Direccion</p>
+                            <input type="text" v-model="direccion">
+                            <p>Codigo Postal</p>
+                            <input type="text" v-model="codigoPostal">
+                            <p>Descripcion direccion</p>
+                            <input type="text" v-model="descripcionExtra">
+                            <p>Contraseña</p>
+                            <input type="password" v-model="contraseña">
+                        </div>
+                    </div>
+                    <p class="error-texto" v-cloak>{{error}}</p>
+                    <div class="boton-contenedor">
+                        <p>Registrate</p>
+                    </div>
+                    <div class="contenedor-texto-extra-inicioSesion">
+                        <p @click="mostrarRegistro()" class="texto-extra-color">Inicia sesion</p>
+                    </div>
+                </div>
+            </div>
             <img class="ilustrador-blanca" src="./assets/images/ilustrador-blanca.png">
             <img class="ilustrador-color" src="./assets/images/ilustrador-color.png">
             <section class="ilustrador-elementos-contenedor">

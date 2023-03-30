@@ -1,5 +1,5 @@
 .carrito-blanca,.carrito-color{
-    height: 90%;
+    height: 100%;
     /* width: 50%; */
     object-fit: contain;
     object-position: bottom;
@@ -58,6 +58,8 @@
     flex-direction: column;
 }
 .boton-checkout{
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
     margin-top: 1rem;
     align-self: flex-end;
     font-size: 1.5rem;
@@ -68,6 +70,9 @@
     border-radius: .5rem;
     padding: .5rem 4rem;
     transition: all .3s;
+    border: 2px solid rgb(0, 0, 0);
+    border-width: 3px 2px 1px 2px;
+    border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
 }
 .boton-checkout:hover{
     background-color: rgb(68, 176, 124);
@@ -232,6 +237,175 @@
     justify-content: space-between;
     align-items: center;
 }
+/*MODAL*/
+.contenedor-modalCarrito{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modal-deslizar 1s forwards;
+}
+
+@keyframes modal-deslizar {
+    0%{
+        left: -10rem;
+        opacity: 0;
+    }
+    100%{
+        left: 0rem;
+        opacity: 1;
+    }
+}
+
+.contenedor-modal{
+    background-color: white;
+    padding: 2rem;
+    padding-bottom: 0;
+    min-width:50vw;
+    border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius:1% 95% 1% 95%/95% 2% 98% 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contenedor-modal p{
+    margin: 0;
+    padding: 0;
+    letter-spacing: .15rem;
+    font-family: 'Bangers',cursive;
+}
+.titulo-modal{
+    font-size: 1.8rem;
+    text-align: center;
+    color: rgb(218, 20, 63);
+}
+
+input{
+    border: 2px solid rgb(0, 0, 0);
+    border-width: 3px 3px 5px 5px;
+    border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
+    padding-left: .3rem;
+    height: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    width: 100%;
+}
+
+.tarjeta-datos{
+    width: 90%;
+}
+
+.boton-cerrar{
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: end;
+    margin-top: -1.4rem;
+    margin-right: -1rem;
+}
+
+.boton-cerrar:hover{
+    color: rgb(148, 147, 147);
+}
+
+.equis-boton{
+    display: inline;
+    cursor: pointer;
+}
+.ocultar-modal{
+    display: none;
+}
+
+.contenedor-texto-extra-modal p{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: .2rem;
+}
+.texto-extra-color{
+    color: rgb(18, 136, 67);
+    cursor: pointer;
+}
+
+.texto-extra-color:hover{
+    color: rgb(82, 82, 82);
+    cursor: pointer;
+}
+.texto-extra-contraseña{
+    margin-bottom: 0;
+    padding: 0;
+    margin-top: .8rem !important;
+    font-size: .8rem !important; 
+    cursor: pointer;
+}
+
+.texto-extra-contraseña:hover{
+    color: rgb(82, 82, 82);
+}
+.boton-contenedor{
+    border: 2px solid rgb(0, 0, 0);
+    border-width: 3px 2px 1px 2px;
+    border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
+    background-color: aqua;
+    padding: .5rem;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.boton-contenedor:hover{
+    border-width: 3px 12px 6px 7px;
+    border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
+    background-color: rgb(85, 58, 128);
+    color: white;
+}
+.contenedor-datos-personales{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.contenedor-datos{
+    width: 60%;
+    margin-right: 1rem;
+}
+.icono-editar{
+    margin-left: .5rem;
+    margin-top: .4rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+.titulo-editardatos-contenedor{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.input-extra{
+    width: 100%;
+}
+.error-texto{
+    color: red;
+    font-size: 1.4rem;
+    text-align: center;
+    height: 1rem;
+}
+.contenedor-modal-tarjeta-datosPersonales{
+    display: flex;
+}
+
+.datos-tarjeta-contenedor{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* .modal-checkout{} */
 @media (max-width:1300px) {
     main{
@@ -287,6 +461,21 @@
     .producto-wrap + .producto-wrap{
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .contenedor-modal-tarjeta-datosPersonales{
+        flex-direction: column;
+    }
+    .contenedor-modal{
+        width: 90%;
+        border-radius:1% 95% 1% 95%/95% 2% 98% 2%;
+    }
+    .contenedor-datos{
+        width: 100%;
+    }
+
+    .datos-tarjeta-contenedor{
+        width: 100%;
     }
 }
 /* @media (max-width:750px) {

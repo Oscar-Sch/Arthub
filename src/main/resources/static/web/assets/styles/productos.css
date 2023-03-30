@@ -1,8 +1,60 @@
-.overlay{
-    background-color: #878787;
+.productos-blanca,.productos-color{
+    height: 100%;
+    /* width: 50%; */
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 0;
+    position: absolute;
+    bottom: 0rem;
+    left: -20rem;
 }
-
-@media (min-width: 992px){
+.productos-blanca{
+    filter: grayscale()  opacity(.7);
+    /* filter: hue-rotate(20deg); */
+    mix-blend-mode: hard-light;
+    z-index: -2;
+    animation: imagen-deslizar-productos 1s forwards;
+}
+.productos-color{
+    z-index: -1;
+    -webkit-mask-image: url(../images/hero-mask-inverse.png);
+    mask-image: url(../images/hero-mask-inverse.png);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    animation: animacion-pintar 1s steps(32) forwards 1s, imagen-deslizar-productos 1s forwards;
+}
+@keyframes imagen-deslizar-productos {
+    80%{
+        left: -5rem;
+    }
+    100%{
+        left: -5rem;
+        opacity: .8;
+    }
+}
+.overlay{
+    background-color: #0003;
+    border: 2px solid black;
+    border-width: 2px 2px 3px 3px;
+    border-radius: 1% 95% 1% 95%/95% 2% 92% 1%;
+    position: relative;
+}
+.card-img-top{
+    filter: drop-shadow(5px 5px 5px black);
+    z-index: 1;
+}
+.estampado-remera{
+    position: absolute;
+    width: 50%;
+    top: 18%;
+    left: 50%;
+    translate: -50% 0;
+    object-fit: contain;
+    z-index: 2;
+    mask-image: url(../images/mascara-producto.png);
+    mask-size: cover;
+}
+/* @media (min-width: 992px){
     .ilustracion_productos{
         left: -5rem;
         bottom: 0;
@@ -11,4 +63,4 @@
         width: 40rem;
         height: 54rem;
     }
-}
+} */

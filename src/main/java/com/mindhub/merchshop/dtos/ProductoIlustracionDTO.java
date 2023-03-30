@@ -10,7 +10,6 @@ public class ProductoIlustracionDTO {
     private Long id;
     private String nombre;
     private Long ilustracionId; //traer la clase Ilustrador o solo el id ta bn?
-    private Long productoId; // lo mismo
     private Integer stock;
     private String descripcion;
     private Double precio;

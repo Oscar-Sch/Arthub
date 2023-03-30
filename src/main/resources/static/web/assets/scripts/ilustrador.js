@@ -10,20 +10,45 @@ createApp( {
             ciudad: "Springfield",
             redes: ['pepita', 'pepitadelmaiz'],
             nombreIlustracion: "Nombre de la ilu",
-            auxCambiarDatos: false
+            auxCambiarDatos: false 
         }
     },
     created(){
         this.informacion()
     },
     methods: {
-        openMenu() {
-            let container=document.querySelector(".menu-container");
-            if (container.style.width=="11rem"){
-                container.style.width = "4.2rem";
-            }else{
-                container.style.width = "11rem";
-            }
+        cerrarModal(movimiento) {
+            document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
+        },
+        mostrarRegistro(){
+            document.getElementById('inicioSesion').classList.toggle('ocultar-modal')
+            document.getElementById('registro').classList.toggle('ocultar-modal')
+        },
+        register(){
+            axios.post('/api/clients',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.email}&contraseña=${this.contraeña}&direccion=${this.direccion}
+                        &codigoPostal=${this.codigoPostal}&pais=${this.pais}&ciudad=${this.ciudad}&nick=${this.nick}&descripcionExtra=${this.descripcionExtra}`,
+                        {headers:{'content-type':'application/x-www-form-urlencoded'}})
+            .then(response => {
+                axios.post('/api/login',`email=${this.email}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
+                .then(res => { this.informacion()}) 
+                .catch(error => {})
+            })
+        },
+        logIn(){
+            axios.post('/api/login',`email=${this.email}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
+            .then(res => {
+                if(this.email === "admin@mindhub.com"){
+                    window.location.href = "../admin/create-loan.html"
+                }else{
+                    window.location.href = "./index.html"
+                }
+                this.informacion()
+            }) 
+            .catch(error => {})
+        },
+        logOut(){
+            axios.post('/api/logout')
+            .then(response => {})
         },
         informacion(){
             axios.get(`/api/clients`)
