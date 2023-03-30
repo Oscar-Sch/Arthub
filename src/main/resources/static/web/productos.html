@@ -11,63 +11,270 @@
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <script defer src="./assets/scripts/main.js"></script>
+    <link rel="stylesheet" href="./assets/styles/artistas.css">
+    <link rel="stylesheet" href="./assets/styles/productos.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="./assets/scripts/productos.js"></script>
     <title>Shop | Productos</title>
 </head>
 <body id="app">
-    <main>
-        <div class="tablet">
-            <div class="tablet-brand">
-                <span>ARTHUB</span>
-                <div><span></span><span></span><span></span></div>
-            </div>
-            <nav class="pc-nav">
-                <button class="tablet-button" @click="openMenu()">Menu</button>
-                <button class="tablet-button">Logout</button>
-            </nav>
-            <nav class="navbar mobile-nav">
-                <button class="mobile-tablet-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
-                            <a class="nav-link" href="./productos.html">Productos</a>
-                            <a class="nav-link" href="./artistas.html">Artistas</a>
-                            <a class="nav-link" href="./carrito.html">Carrito</a>
-                            <a class="nav-link" href="./contacto.html">Contacto</a>
-                        </li>
-                    </ul>
+    <div class="contenedor-overflow">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container navegacion">
+                    <a class="navbar-brand" href="./index.html">ARTHUB</a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./artistas.html">Artistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./carrito.html">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Logout</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </nav>
             
-            <div class="main-content">
-                <div class="menu-block">
-                    <div class="menu-container">
-                        <div class="menu-backround"></div>
-                        <nav class="menu-content">
-                            <ul>
-                                <li class="menu-list-item"><a href="./cuenta.html"><i class="fa-solid fa-circle-user fa-2xl menu-icon"></i><span>Mi cuenta</span></a></li>
-                                <li class="menu-list-item"><a href=""><i class="fa-solid fa-store fa-2xl menu-icon"></i><span>Productos</span></a></li>
-                                <li class="menu-list-item"><a href="./artistas.html"><i class="fa-solid fa-palette fa-2xl menu-icon"></i><span>Artistas</span></a></li>
-                                <li class="menu-list-item"><a href="./carrito.html"><i class="fa-solid fa-cart-shopping fa-2xl menu-icon"></i><span>Carrito</span></a></li>
-                                <li class="menu-list-item"><a href="./contacto.html"><i class="fa-solid fa-envelope fa-2xl menu-icon"></i><span>Contacto</span></a></li>
-                            </ul>
-                        </nav>
+        </header>
+        <main>
+          <img class="productos-blanca" src="./assets/images/productos-blanca.png">
+          <img class="productos-color" src="./assets/images/productos-color.png">
+            <div class="main_artistas position-relative">
+                <h2 class="titulo-seccion">Productos</h2>
+                <div class="d-flex flex-wrap justify-content-evenly mt-5">
+                    <div class="container" id="contenedor_artistas">
+                        <div class="card-deck row justify-content-evenly">           
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/269715848_331511375217708_928283997295606897_n_493424.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/117811586_171719334476803_1337973533433460834_n_493253.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                          <!-- Card -->
+                          <div class="card">                       
+                            <!--Card image-->
+                            <div class="view overlay">
+                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
+                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                              <!--Title-->
+                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
+                              <!--Text-->
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                          </div>
+                        
+                          
+                        </div>
+                        <!-- Card deck -->
+                          
                     </div>
+                   
                 </div>
-                
             </div>
-            <div class="tablet-footer">
-                <p>Proyecto final MindHub</p>
-                <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
-            </div>
-        </div>
-    </main>
+        </main>
+        <footer>
+            <p>Proyecto final MindHub</p>
+            <p>Cohort 41</p>
+            <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+        </footer>
+    </div>
 </body>
 </html>

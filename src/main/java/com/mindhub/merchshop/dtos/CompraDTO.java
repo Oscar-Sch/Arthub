@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class CompraDTO {
     private Long id;
+
+    private String numeroDeCompra;
     private LocalDateTime fecha;
     private Double montoTotal;
     private List<PaqueteDeProductosDTO> productos;
@@ -19,6 +21,7 @@ public class CompraDTO {
         this.fecha = compra.getFecha();
         this.montoTotal = compra.getMontoTotal();
         this.productos = compra.getProductos().stream().map(PaqueteDeProductosDTO::new).collect(Collectors.toList());
+        this.numeroDeCompra = compra.getNumeroDeCompra();
     }
 
     public Long getId() {
@@ -35,5 +38,9 @@ public class CompraDTO {
 
     public List<PaqueteDeProductosDTO> getProductos() {
         return productos;
+    }
+
+    public String getNumeroDeCompra() {
+        return numeroDeCompra;
     }
 }

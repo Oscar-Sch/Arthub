@@ -10,7 +10,6 @@ public class ProductoIlustracionDTO {
     private Long id;
     private String nombre;
     private Long ilustracionId; //traer la clase Ilustrador o solo el id ta bn?
-    private Long productoId; // lo mismo
     private Integer stock;
     private String descripcion;
     private Double precio;
@@ -19,8 +18,7 @@ public class ProductoIlustracionDTO {
     public ProductoIlustracionDTO(ProductoIlustracion productoIlustracion){
         this.id = productoIlustracion.getId();
         this.nombre = productoIlustracion.getNombre();
-        this.ilustracionId = productoIlustracion.getIllustracion().getId();
-        this.productoId = productoIlustracion.getProducto().getId();
+        this.ilustracionId = productoIlustracion.getIlustracion().getId();
         this.stock = productoIlustracion.getStock();
         this.descripcion = productoIlustracion.getDescripcion();
         this.precio = productoIlustracion.getPrecio();
@@ -37,11 +35,6 @@ public class ProductoIlustracionDTO {
     public Long getIlustracionId() {
         return ilustracionId;
     }
-
-    public Long getProductoId() {
-        return productoId;
-    }
-
     public Integer getStock() {
         return stock;
     }

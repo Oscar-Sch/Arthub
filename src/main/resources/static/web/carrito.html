@@ -11,63 +11,323 @@
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
-    <script defer src="./assets/scripts/main.js"></script>
+    <link rel="stylesheet" href="./assets/styles/carrito.css">
+    <script defer src="./assets/scripts/carrito.js"></script>
     <title>Shop | Carrito</title>
 </head>
 <body id="app">
-    <main>
-        <div class="tablet">
-            <div class="tablet-brand">
-                <span>ARTHUB</span>
-                <div><span></span><span></span><span></span></div>
-            </div>
-            <nav class="pc-nav">
-                <button class="tablet-button" @click="openMenu()">Menu</button>
-                <button class="tablet-button">Logout</button>
-            </nav>
-            <nav class="navbar mobile-nav">
-                <button class="mobile-tablet-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
-                            <a class="nav-link" href="./productos.html">Productos</a>
-                            <a class="nav-link" href="./artistas.html">Artistas</a>
-                            <a class="nav-link active" href="" aria-current="page">Carrito</a>
-                            <a class="nav-link" href="./contacto.html">Contacto</a>
-                        </li>
-                    </ul>
+    <div class="contenedor-overflow">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container navegacion">
+                    <a class="navbar-brand" href="./index.html">ARTHUB</a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./productos.html">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./artistas.html">Artistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Logout</a>
+                            </li>                       
+                        </ul>
+                    </div>
                 </div>
-            </nav>
-            
-            <div class="main-content">
-                <div class="menu-block">
-                    <div class="menu-container">
-                        <div class="menu-backround"></div>
-                        <nav class="menu-content">
-                            <ul>
-                                <li class="menu-list-item"><a href="./cuenta.html"><i class="fa-solid fa-circle-user fa-2xl menu-icon"></i><span>Mi cuenta</span></a></li>
-                                <li class="menu-list-item"><a href="./productos.html"><i class="fa-solid fa-store fa-2xl menu-icon"></i><span>Productos</span></a></li>
-                                <li class="menu-list-item"><a href="./artistas.html"><i class="fa-solid fa-palette fa-2xl menu-icon"></i><span>Artistas</span></a></li>
-                                <li class="menu-list-item"><a href=""><i class="fa-solid fa-cart-shopping fa-2xl menu-icon"></i><span>Carrito</span></a></li>
-                                <li class="menu-list-item"><a href="./contacto.html"><i class="fa-solid fa-envelope fa-2xl menu-icon"></i><span>Contacto</span></a></li>
-                            </ul>
-                        </nav>
+            </nav>         
+        </header>
+        <main>
+            <div class="contenedor-modalCarrito ocultar-modal" id="modalCarrito">
+                <div class="contenedor-modal" id="compraDatos">
+                    <div class="boton-cerrar" >
+                        <p @click="cerrarModal()" class="equis-boton">X</p>
+                    </div>
+                    <div class="contenedor-modal-tarjeta-datosPersonales">
+                        <div class="contenedor-datos">
+                            <div class="titulo-editardatos-contenedor">
+                                <p class="titulo-modal">MIS DATOS</p>
+                                <img v-cloak class="icono-editar" src="./assets/images/pen.png" alt="Editar" @click="activarFormulario()" id="iconoEditar">
+                            </div>
+                            <div class="contenedor-datos-personales">
+                                <div>
+                                    <p>Nombre</p>
+                                    <input type="text" v-model="nombre" readonly>
+                                    <p>Direccion</p>
+                                    <input type="text" v-model="direccion" readonly>
+                                    <p>Pais</p>
+                                    <input type="text" v-model="pais" readonly>
+                                </div>
+                                <div>
+                                    <p>Apellido</p>
+                                    <input type="text" v-model="nombre" readonly>
+                                    <p>Codigo Postal</p>
+                                    <input type="text" v-model="codigoPostal" readonly>
+                                    <p>Ciudad</p>
+                                    <input type="text" v-model="ciudad" readonly>
+                                </div>
+                            </div>
+                            <p>Descripcion direccion</p>
+                            <input type="text" class="input-extra" v-model="descripcionExtra" readonly>
+                            <div class="boton-contenedor input-extra ocultar-modal" id="actualizarDatosBoton" @click="actualizar()">
+                                <p>Actualizar datos</p>
+                            </div>
+                        </div>
+                        <div class="datos-tarjeta-contenedor">
+                            <div class="titulo-editardatos-contenedor">
+                                <p class="titulo-modal">DATOS DE PAGO</p>
+                            </div>
+                            <div class="tarjeta-datos">
+                                <p>Numero de tarjeta</p>
+                                <input type="text" v-model="numeroTarjeta">
+                                <p>Codigo de seguridad</p>
+                                <input type="number" v-model="cvvTarjeta">
+                                <p>Nombre tarjeta</p>
+                                <input type="text" v-model="nombreTarjeta">
+                                <p>Fecha de expiracion</p>
+                                <input type="text" v-model="expiracionTarjeta" >
+                            </div>
+                            <div class="boton-contenedor input-extra">
+                                <p>Pagar</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
             </div>
-            <div class="tablet-footer">
-                <p>Proyecto final MindHub</p>
-                <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+            <img class="carrito-blanca" src="./assets/images/carrito-blanco.png">
+            <img class="carrito-color" src="./assets/images/carrito-color.png">
+            <div class="contenedor-carrito">
+                <h2 class="titulo-seccion">Carrito</h2>
+                <div class="contenedor-compra">
+                    <div class="contenedor-productos">
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_roja.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>     
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_amarilla.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_azul.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/call-to-action.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_blanca.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/269715848_331511375217708_928283997295606897_n_493424.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_verde.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="producto-wrap">
+                                <div class="producto-imagen">
+                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_roja.png">
+                                    <img class="producto-imagen_estampa" src="./assets/images/117811586_171719334476803_1337973533433460834_n_493253.png">
+                                </div>
+                                <div class="producto-detalles">
+                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
+                                    <div>
+                                        <p>TALLA: <span>L</span></p>
+                                        <p>CANTIDAD: <span>3</span></p>
+                                        <p>PRECIO C/U: <span>$3000</span></p>
+                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="producto-wrap">
+                                <div class="producto-cantidad">
+                                    <div class="agregar-quitar-productos">
+                                        <button class="cambiar-cantidad">-</button>
+                                        <p class="mostrar-cantidad">3</p>
+                                        <button class="cambiar-cantidad">+</button>
+                                    </div>
+                                    <p>10 disponibles</p>
+                                </div>
+                                <div class="producto-eliminar">
+                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
+                                    <p>Eliminar</p>
+                                </div>
+                                <div class="producto-monto">
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total-compra">
+                        <p>Total: <span>$25000</span></p>
+                    </div>
+                </div>
+                <button class="boton-checkout" data-bs-toggle="modal" data-bs-target="#checkout" @click="cerrarModal()">Checkout</button>
             </div>
-        </div>
-    </main>
+            
+        </main>
+        <footer>
+            <p class="titulo-footer">Proyecto final MindHub - Cohort 41</p>
+            <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+        </footer>
+    </div>
 </body>
 </html>
