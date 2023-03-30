@@ -55,9 +55,18 @@ createApp( {
             document.getElementById('registro').classList.toggle('ocultar-modal')
         },
         registro(){
-            axios.post('/api/usuario/registro',`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&contraseña=${this.contraseñaRegistro}&direccion=${this.direccion}
-                        &codigoPostal=${this.codigoPostal}&pais=${this.pais}&ciudad=${this.ciudad}&nick=${this.nick}&descripcionExtra=${this.descripcionExtra}`,
-                        {headers:{'content-type':'application/x-www-form-urlencoded'}})
+            axios.post('/api/usuario/registro',
+                {
+                    nombre: this.nombre + "-" + this.apellido,
+                    email: this.email,
+                    contraseña: this.contraseñaRegistro,
+                    direccion: this.direccion,
+                    zipCode: this.codigoPostal,
+                    pais: this.pais,
+                    ciudad: this.ciudad,
+                    nick: this.nick,
+                    descripcionExtra:this.descripcionExtra
+                })
             .then(res => {
                 let mensajeTexto = res.data
                 document.getElementById('registro').classList.toggle('ocultar-modal')
