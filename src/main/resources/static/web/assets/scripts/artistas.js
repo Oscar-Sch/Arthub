@@ -3,13 +3,26 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
+            data: [],        
             nombreIlustrador: ""
+
         }
     },
     created(){
-
+        this.getData();
     },
     methods: {
+        getData(){
+            axios.get('/api/ilustradores')
+                .then(response => {
+                    this.data = response.data;
+                    console.log(this.data)
+                    
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
         openMenu() {
             let container=document.querySelector(".menu-container");
             if (container.style.width=="11rem"){

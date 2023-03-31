@@ -48,6 +48,9 @@
             </nav>         
         </header>
         <main>
+            <div class="position-absolute d-flex justify-content-center align-items-center" :class="{ 'cartelPago' : pagoExitoso }">
+                <p class="mb-0">El pago se realizó con éxito</p>
+            </div>
             <div class="contenedor-modalCarrito ocultar-modal" id="modalCarrito">
                 <div class="contenedor-modal" id="compraDatos">
                     <div class="boton-cerrar" >
@@ -97,7 +100,7 @@
                                 <p>Fecha de expiracion</p>
                                 <input type="text" v-model="expiracionTarjeta" >
                             </div>
-                            <div class="boton-contenedor input-extra">
+                            <div @click="pagar" class="boton-contenedor input-extra">
                                 <p>Pagar</p>
                             </div>
                         </div>
@@ -105,8 +108,8 @@
                 </div>
                 
             </div>
-            <img class="carrito-blanca" src="./assets/images/carrito-blanco.png">
-            <img class="carrito-color" src="./assets/images/carrito-color.png">
+            <img class="carrito-blanca" src="./assets/images/6.png">
+            <img class="carrito-color" src="./assets/images/7.png">
             <div class="contenedor-carrito">
                 <h2 class="titulo-seccion">Carrito</h2>
                 <div class="contenedor-compra">
