@@ -14,7 +14,13 @@
     <script defer src="./assets/scripts/main.js"></script>
     <title>Shop | Admin</title>
 </head>
-<body id="app">
+<body id="app" style="background-color: black;">
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
     <div class="contenedor-overflow">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark">
@@ -27,7 +33,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                                <a class="nav-link" href="./cuenta.html" v-if="!loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
@@ -36,12 +42,14 @@
                                 <a class="nav-link" href="./artistas.html">Artistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./carrito.html">Carrito</a>
+                                <a class="nav-link" href="./carrito.html" v-if="!loginAux" v-cloak>Carrito</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux" v-cloak>
+                                <a class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item link-bordeado" v-if="loginAux"  @click="logOut()" v-cloak>
                                 <a class="nav-link" href="">Logout</a>
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -50,9 +58,8 @@
         <main>
         </main>
         <footer>
-            <p>Proyecto final MindHub</p>
-            <p>Cohort 41</p>
-            <p>Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
+            <p class="titulo-footer">Proyecto final MindHub - Cohort 41</p>
+            <p class="texto-footer">Oscar Schwerdt - Joel Trinidad - Cameron Velasquez - Alejo Lozano - Emilia Sosa</p>
         </footer>
     </div>
 </body>

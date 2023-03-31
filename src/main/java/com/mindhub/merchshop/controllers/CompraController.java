@@ -1,25 +1,9 @@
-
-
 package com.mindhub.merchshop.controllers;
 
-import com.mindhub.merchshop.dtos.CompraDataDTO;
-import com.mindhub.merchshop.dtos.PaqueteDeProductosDTO;
-import com.mindhub.merchshop.dtos.TransaccionDTO;
-import com.mindhub.merchshop.models.Compra;
-import com.mindhub.merchshop.models.PaqueteDeProductos;
-import com.mindhub.merchshop.models.ProductoIlustracion;
-import com.mindhub.merchshop.models.Usuario;
 import com.mindhub.merchshop.servicios.ServicioCompra;
-import com.mindhub.merchshop.servicios.ServicioEmail;
-import com.mindhub.merchshop.servicios.ServicioProductoIlustracion;
+//import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.security.core.Authentication;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -54,6 +38,7 @@ public class CompraController {
     Compra nuevaCompra = new Compra(user , LocalDateTime.now(), generarNumeroCompra());
     servicioEmail.EnviarEmail(user.getEmail(), nuevaCompra);
 }
+
 
 
 //    @Transactional

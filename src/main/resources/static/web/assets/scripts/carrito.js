@@ -20,10 +20,15 @@ createApp( {
             expiracionTarjeta: "00/00",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            loginAux: false
+            pagoExitoso: false
         }
     },
     created(){
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
         this.informacion()
     },
     methods: {
@@ -43,6 +48,24 @@ createApp( {
                     this.productos = res.data.productos
                 })
                 .catch(error => console.log(error))
+        },
+        pagar(){
+            axios.post('https://mindhub-brothers-bank.up.railway.app/api/cards/transaction',{
+                number : this.numeroTarjeta,
+                cvv: this.cvvTarjeta,
+                description : "Items bought on Arthub",
+                amount: 1
+            }).then(response => {
+                    this.cerrarModal()
+                    this.pagoExitoso = true
+                    setTimeout(() => {
+                        this.pagoExitoso = false
+                    }, 3000)
+                    console.log(response)
+                })
+                .catch(error => {
+                    this.error = error.response.data
+                })
         },
         activarFormulario(){
             document.getElementById('actualizarDatosBoton').classList.remove('ocultar-modal')
@@ -72,12 +95,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
+                sessionStorage.setItem('logIn', false)
+                this.loginAux = false
             })
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
@@ -89,6 +108,7 @@ createApp( {
         },
         cerrarModal() {
             document.getElementById('modalCarrito').classList.toggle('ocultar-modal')
+            this.error="";
         },
     }
 }).mount("#app")

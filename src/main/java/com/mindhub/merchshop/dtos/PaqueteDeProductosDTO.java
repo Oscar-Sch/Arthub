@@ -8,8 +8,8 @@ public class PaqueteDeProductosDTO {
     private Long id;
     private Byte cantidad;
     private Double montoTotal;
-    private Long compraId; //me traigo la clase Compra? o solo el id ta bn?
-    private Long productoIlustracionId; //lo mismo
+    private Long compraId;
+
     public PaqueteDeProductosDTO(){}
     public PaqueteDeProductosDTO(PaqueteDeProductos paqueteDeProductos){
         this.id = paqueteDeProductos.getId();
@@ -34,7 +34,5 @@ public class PaqueteDeProductosDTO {
         return compraId;
     }
 
-    public Long getProductoIlustracionId() {
-        return productoIlustracionId;
-    }
+
 }

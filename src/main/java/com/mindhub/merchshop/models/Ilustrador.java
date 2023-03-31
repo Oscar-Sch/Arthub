@@ -86,7 +86,7 @@ public class Ilustrador {
         this.ilustraciones = ilustraciones;
     }
     public void addIlustraciones(Ilustracion ilustracion) {
-        ilustracion.setIllustrator(this);
+        ilustracion.setIlustrador(this);
         ilustraciones.add(ilustracion);
     }
 }

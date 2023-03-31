@@ -33,6 +33,9 @@ createApp( {
         this.params = new URLSearchParams(this.paramLocation)
         this.nickBusquedaIlustrados = this.params.get("nick")
         this.informacion()
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
     },
     methods: {
         informacion(){
@@ -65,7 +68,7 @@ createApp( {
                     pais: this.pais,
                     ciudad: this.ciudad,
                     nick: this.nick,
-                    descripcionExtra:this.descripcionExtra
+                    descripcion:this.descripcionExtra
                 })
             .then(res => {
                 let mensajeTexto = res.data
@@ -113,13 +116,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
+                sessionStorage.setItem('logIn', false)
                 this.loginAux = false
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
             })
         }
     }

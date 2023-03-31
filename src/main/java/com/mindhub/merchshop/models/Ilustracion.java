@@ -52,21 +52,10 @@ public class Ilustracion {
         return ilustrador;
     }
 
-    public void setIllustrator(Ilustrador ilustrador) {
-        this.ilustrador = ilustrador;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Ilustrador getIlustrador() {
-        return ilustrador;
-    }
-
     public void setIlustrador(Ilustrador ilustrador) {
         this.ilustrador = ilustrador;
     }
+
 
     public List<PaqueteDeProductos> getPaqueteDeProductos() {
         return paqueteDeProductos;
@@ -74,6 +63,11 @@ public class Ilustracion {
 
     public void setPaqueteDeProductos(List<PaqueteDeProductos> paqueteDeProductos) {
         this.paqueteDeProductos = paqueteDeProductos;
+    }
+
+    public void addPaqueteDeProductos(PaqueteDeProductos paqueteDeProductoss) {
+        paqueteDeProductoss.setIlustracion(this);
+        paqueteDeProductos.add(paqueteDeProductoss);
     }
 
 }

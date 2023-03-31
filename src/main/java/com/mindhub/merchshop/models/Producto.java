@@ -25,6 +25,7 @@ public class Producto {
 
     public Producto(){}
 
+
     public Producto( Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
         this.nombre = this.tipoProducto + ", "+ this.talla+", "+this.color;
         this.stock = stock;
@@ -34,6 +35,7 @@ public class Producto {
         this.talla = talla;
         this.color = color;
     }
+
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
         this.nombre = this.tipoProducto + ", "+ this.color;
         this.stock = stock;
@@ -42,7 +44,9 @@ public class Producto {
         this.tipoProducto = tipoProducto;
         this.color = color;
     }
+
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
+
         this.nombre = this.tipoProducto +", cuadrado.";
         this.stock = stock;
         this.descripcion = descripcion;
@@ -50,7 +54,9 @@ public class Producto {
         this.tipoProducto = tipoProducto;
     }
 
+
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
+
         this.nombre = this.tipoProducto +", "+this.tamaño;
         this.stock = stock;
         this.descripcion = descripcion;
@@ -59,13 +65,8 @@ public class Producto {
         this.tamaño = tamaño;
     }
 
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -139,7 +140,6 @@ public class Producto {
     public void setPaqueteDeProductos(List<PaqueteDeProductos> paqueteDeProductos) {
         this.paqueteDeProductos = paqueteDeProductos;
     }
-
     public void addListaDePaqueteDeProductos(PaqueteDeProductos paqueteDeProductoss) {
         paqueteDeProductoss.setProducto(this);
         paqueteDeProductos.add(paqueteDeProductoss);
