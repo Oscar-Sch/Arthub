@@ -4,6 +4,8 @@ createApp( {
     data(){
         return {
             data: [],        
+            nombreIlustrador: ""
+
         }
     },
     created(){
@@ -39,6 +41,10 @@ createApp( {
                 }
                 
             })
+        },
+        filtroNombreIlustrador(){
+            let filtro = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
+            this.ilustradores = filtro
         }
     },
     mounted() {

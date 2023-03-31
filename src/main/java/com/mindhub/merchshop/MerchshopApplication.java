@@ -39,9 +39,19 @@ public class MerchshopApplication {
 			Ilustracion ilustracion7 = new Ilustracion("C2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronD.PNG?alt=media&token=857bc98f-7784-46d2-b8fd-e822c24b659a", ilustrador2, List.of());
 			Ilustracion ilustracion8 = new Ilustracion("D2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronA.JPG?alt=media&token=e2fed519-dbae-4c2e-bba0-43a7bdd8e392", ilustrador2, List.of());
 
+			//Ilustradora3 y sus ilustraciones
+			Ilustrador ilustrador3 = new Ilustrador("toffitafoffita@gmail.com", "Sofia Gomelsky", "ToffaG", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/panaretrato.png?alt=media&token=c8734b0c-61a3-4c9e-afe6-9f29982e21b0", "123", List.of());
+
+			Ilustracion ilustracion9 = new Ilustracion("BTS pelo rojo", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana5.png?alt=media&token=ae0ce714-3307-49e4-a410-0a98b1b466e8", ilustrador3, List.of());
+			Ilustracion ilustracion10 = new Ilustracion("Hobbi", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana6.png?alt=media&token=752989be-b0c1-470f-8914-325f142c6583", ilustrador3, List.of());
+			Ilustracion ilustracion11 = new Ilustracion("Rin sapito", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana4.png?alt=media&token=3e91f417-b7bb-4bd7-9215-e493ee25d4d8", ilustrador3, List.of());
+			Ilustracion ilustracion12 = new Ilustracion("Bennet pompompurin", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana3.png?alt=media&token=6e10713a-74f4-432f-acc5-ee2f33c6b75a", ilustrador3, List.of());
+			Ilustracion ilustracion13 = new Ilustracion("Otro bts", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana2.png?alt=media&token=12efda3b-e850-4f8d-963b-db0ff38d4cbd", ilustrador3, List.of());
+			Ilustracion ilustracion14 = new Ilustracion("Piba de twice", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana1.png?alt=media&token=e0ddab29-ce4e-4806-b54e-4cfe2afacf21", ilustrador3, List.of());
 
 			ilustradorRepository.save(ilustrador1);
 			ilustradorRepository.save(ilustrador2);
+			ilustradorRepository.save(ilustrador3);
 
 			ilustracionRepository.save(ilustracion1);
 			ilustracionRepository.save(ilustracion2);
@@ -51,7 +61,12 @@ public class MerchshopApplication {
 			ilustracionRepository.save(ilustracion6);
 			ilustracionRepository.save(ilustracion7);
 			ilustracionRepository.save(ilustracion8);
-
+			ilustracionRepository.save(ilustracion9);
+			ilustracionRepository.save(ilustracion10);
+			ilustracionRepository.save(ilustracion11);
+			ilustracionRepository.save(ilustracion12);
+			ilustracionRepository.save(ilustracion13);
+			ilustracionRepository.save(ilustracion14);
 
 			//Productos equis(stock del ilustrador1)
 
@@ -231,7 +246,7 @@ public class MerchshopApplication {
 			productoIlustracionRepository.save(productoIlustracion80);
 
 
-			Usuario usuario1 = new Usuario("asd@gmail.com", "Julio Perez", "Nick", "123");
+			Usuario usuario1 = new Usuario("niettpls@gmail.com", "Julio Perez", "Nick", "123");
 
 //			Compra compra1 = new Compra(usuario1, List.of(), LocalDateTime.now(), generarNumeroCompra());
 //

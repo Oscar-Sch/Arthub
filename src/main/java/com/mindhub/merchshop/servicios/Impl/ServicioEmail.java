@@ -32,12 +32,12 @@
 //    @Value("${spring.mail.username}")
 //    private String email;
 //
-//
-//    public void EnviarEmail (String emailA, Authentication authentication, HttpServletResponse response, Compra compra){
+//    @Override
+//    public void EnviarEmail(String emailA, Authentication authentication, Compra compra, HttpServletResponse response) {
 //        MimeMessage mensaje = javaMailSender.createMimeMessage();
 //
 //        try {
-//            MimeMessageHelper helper =new MimeMessageHelper(mensaje, true);
+//            MimeMessageHelper helper = new MimeMessageHelper(mensaje, true);
 //
 //            Utilidades.generarPDF(authentication, response, compra);
 //            helper.setFrom(email);
@@ -46,15 +46,14 @@
 //            helper.setText("Estimado cliente adjuntamos el ticket de compra");
 //
 //            javaMailSender.send(mensaje);
-//        }
-//        catch (Exception exception){
+//        } catch (Exception exception) {
 //            throw new RuntimeException(exception);
 //        }
 //    }
 //
-//    public void exportar(HttpServletResponse response, Compra compra ) throws IOException {
+//    public void exportar(HttpServletResponse response, Compra compra) throws IOException {
 //
-//        Document documento =  new Document(PageSize.A4);
+//        Document documento = new Document(PageSize.A4);
 //        PdfWriter.getInstance(documento, response.getOutputStream());
 //
 //        documento.open();
@@ -88,7 +87,8 @@
 //        documento.close();
 //
 //    }
-//    public void cuerpoTabla(PdfPTable tabla, Compra compra){
+//
+//    public void cuerpoTabla(PdfPTable tabla, Compra compra) {
 //
 //        ArrayList<PaqueteDeProductos> listaCompra = new ArrayList<PaqueteDeProductos>(compra.getProductos());
 //        com.lowagie.text.Font fuente = FontFactory.getFont(FontFactory.HELVETICA, 8);
@@ -104,7 +104,8 @@
 //
 //
 //    }
-//    public void cabeceraTabla(PdfPTable tabla){
+//
+//    public void cabeceraTabla(PdfPTable tabla) {
 //        PdfPCell celda = new PdfPCell();
 //        celda.setBackgroundColor(Color.ORANGE);
 //        celda.setPadding(5);
@@ -124,7 +125,8 @@
 //        celda.setPhrase(new Phrase("Usuario mail", fuente));
 //        tabla.addCell(celda);
 //    }
-//    public void pieTabla(PdfPTable tabla, Compra compra){
+//
+//    public void pieTabla(PdfPTable tabla, Compra compra) {
 //        // pie de la tabla
 //        PdfPCell celdaTotal = new PdfPCell(new Phrase("Monto Total: "));
 //        celdaTotal.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -136,22 +138,22 @@
 //        tabla.addCell(celdaMontoTotal);
 //    }
 //
-
-
-//    public void EnviarEmail (String emailA){
-//        MimeMessage mensaje = javaMailSender.createMimeMessage();
-//        try {
-//            MimeMessageHelper helper =new MimeMessageHelper(mensaje, true);
-//  File file = pdfService.(METODO DE CAMERON)
-//              helper.setFrom(email);
-//              helper.setTo(emailA);
-//              helper.setSubject("Ticket de Compra");
-//              helper.setText("Estimado cliente adjuntamos el ticket de compra");
- //  helper.addAttachment("Ticket",file); Esperar al pdf
-//              javaMailSender.send(mensaje);
-//        }
-//        catch (Exception exception){
-//            throw new RuntimeException(exception);
-//        }
-//    }
+//
+////    public void EnviarEmail (String emailA){
+////        MimeMessage mensaje = javaMailSender.createMimeMessage();
+////        try {
+////            MimeMessageHelper helper =new MimeMessageHelper(mensaje, true);
+////  File file = pdfService.(METODO DE CAMERON)
+////              helper.setFrom(email);
+////              helper.setTo(emailA);
+////              helper.setSubject("Ticket de Compra");
+////              helper.setText("Estimado cliente adjuntamos el ticket de compra");
+//    //  helper.addAttachment("Ticket",file); Esperar al pdf
+////              javaMailSender.send(mensaje);
+////        }
+////        catch (Exception exception){
+////            throw new RuntimeException(exception);
+////        }
+////    }
+////}
 //}

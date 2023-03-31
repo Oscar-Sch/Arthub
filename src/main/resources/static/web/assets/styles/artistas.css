@@ -1,3 +1,39 @@
+.artistas-blanca,.artistas-color{
+    height: 100%;
+    /* width: 50%; */
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 0;
+    transform: rotateY(180deg);
+    position: absolute;
+    bottom: 0rem;
+    left: -20rem;
+}
+.artistas-blanca{
+    transform: rotateY(180deg);
+    filter: grayscale();
+    /* filter: hue-rotate(20deg); */
+    mix-blend-mode: exclusion;
+    z-index: -2;
+    animation: imagen-deslizar-artistas 1s forwards;
+}
+.artistas-color{
+    z-index: -1;
+    -webkit-mask-image: url(../images/hero-mask-inverse.png);
+    mask-image: url(../images/hero-mask-inverse.png);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    animation: animacion-pintar 1s steps(32) forwards 1s, imagen-deslizar-artistas 1s forwards;
+}
+@keyframes imagen-deslizar-artistas {
+    80%{
+        left: -5rem;
+    }
+    100%{
+        left: -5rem;
+        opacity: .8;
+    }
+}
 .main_artistas{
     min-height: 75;
     /* width: 60%; */
@@ -30,6 +66,9 @@
     background-color: white;
     padding: 1rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* .card:hover{
     transform: scale(1.05);
@@ -37,8 +76,26 @@
 } */
 
 .card-body{
-    margin: 0% 0% 0% 3%;
-    padding: 6% 0%;
+    margin: 0;
+    padding: .5rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-body button{
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 1.4rem;
+    border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 1% 95% 2% 95%/95% 2% 92% 3%;
+}
+.card-title{
+    font-family: 'Bangers',cursive;
+    font-size: 1.5rem;
+    letter-spacing: .08em;
+    text-align: center;
+    width: 100%;
 }
 .cards-container_artistas{
     width: 45%;
@@ -46,6 +103,7 @@
 .overlay{
     height: 100%;
     background-color: #878787;
+    position: relative;
 }
 .card-img{
     height: 100%;
@@ -60,9 +118,10 @@
     background: linear-gradient(#fffa, #fff3);
     margin-bottom: 2rem;
 }
+/*
 .artistas-blanca,.artistas-color{
     height: 90%;
-    /* width: 50%; */
+    
     object-fit: contain;
     object-position: bottom;
     opacity: 0;
@@ -72,7 +131,7 @@
 }
 .artistas-blanca{
     filter: grayscale()  opacity(.7);
-    /* filter: hue-rotate(20deg); */
+    
     mix-blend-mode: hard-light;
     z-index: -2;
     animation: imagen-deslizar-productos 1s forwards;
@@ -90,6 +149,32 @@
     .main_artistas{
         width: 60%;
     }
+
+*/
+
+/*FILTRO*/
+.filtro-contenedor{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    width: 20vw;
+    height: 2rem;
+}
+
+.ilustradorNombre-input{
+    background-color: aquamarine;
+    height: 2rem;
+    width: 20vw;
+}
+
+.lupa-imagen{
+    position: absolute;
+    height: 1rem;
+    cursor: pointer;
+    margin-top: -1.2rem;
+    margin-right: .4rem;
+
 }
 
 @media (min-width: 992px){
@@ -104,5 +189,14 @@
         width: 8rem;
         height: 8rem;
         left: -10rem;
+    }
+}
+@media (max-width: 992px){
+    .main_artistas{
+        width: 96%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
