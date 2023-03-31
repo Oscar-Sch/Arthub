@@ -19,7 +19,6 @@ public class IlustracionDTO {
         this.nombre = ilustracion.getNombre();
         this.imgURL = ilustracion.getImgURL();
         this.paqueteDeProductosDTOS = ilustracion.getPaqueteDeProductos().stream().map(PaqueteDeProductosDTO::new).collect(Collectors.toList());
-
     }
 
     public Long getId() {

@@ -26,7 +26,6 @@ public class Ilustracion {
         this.imgURL = imgURL;
         this.ilustrador = ilustrador;
         this.paqueteDeProductos = paqueteDeProductos;
-
     }
 
     public Long getId() {
@@ -57,6 +56,7 @@ public class Ilustracion {
         this.ilustrador = ilustrador;
     }
 
+
     public List<PaqueteDeProductos> getPaqueteDeProductos() {
         return paqueteDeProductos;
     }
@@ -69,4 +69,5 @@ public class Ilustracion {
         paqueteDeProductoss.setIlustracion(this);
         paqueteDeProductos.add(paqueteDeProductoss);
     }
+
 }

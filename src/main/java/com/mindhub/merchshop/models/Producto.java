@@ -25,7 +25,8 @@ public class Producto {
 
     public Producto(){}
 
-    public Producto(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
+
+    public Producto( Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
         this.nombre = this.tipoProducto + ", "+ this.talla+", "+this.color;
         this.stock = stock;
         this.descripcion = descripcion;
@@ -34,7 +35,8 @@ public class Producto {
         this.talla = talla;
         this.color = color;
     }
-    public Producto(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
         this.nombre = this.tipoProducto + ", "+ this.color;
         this.stock = stock;
         this.descripcion = descripcion;
@@ -42,7 +44,9 @@ public class Producto {
         this.tipoProducto = tipoProducto;
         this.color = color;
     }
-    public Producto(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
+
         this.nombre = this.tipoProducto +", cuadrado.";
         this.stock = stock;
         this.descripcion = descripcion;
@@ -50,7 +54,9 @@ public class Producto {
         this.tipoProducto = tipoProducto;
     }
 
-    public Producto(Ilustracion ilustracion, Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
+
         this.nombre = this.tipoProducto +", "+this.tamaño;
         this.stock = stock;
         this.descripcion = descripcion;
@@ -58,9 +64,11 @@ public class Producto {
         this.tipoProducto = tipoProducto;
         this.tamaño = tamaño;
     }
+
     public Long getId() {
         return id;
     }
+
     public String getNombre() {
         return nombre;
     }

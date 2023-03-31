@@ -3,7 +3,7 @@ package com.mindhub.merchshop.Utilidades;
 
 import com.mindhub.merchshop.models.Compra;
 import com.mindhub.merchshop.servicios.ServicioCompra;
-//import com.mindhub.merchshop.servicios.ServicioEmail;
+import com.mindhub.merchshop.servicios.ServicioEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 
@@ -15,9 +15,9 @@ import java.util.Date;
 import java.util.Random;
 
 public class Utilidades {
-//    @Autowired
-//    static
-//    ServicioEmail servicioEmail;
+    @Autowired
+    static
+    ServicioEmail servicioEmail;
     @Autowired
     static
     ServicioCompra servicioCompra;

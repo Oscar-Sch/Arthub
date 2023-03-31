@@ -75,3 +75,4 @@ public class PaqueteDeProductos {
         this.ilustracion = ilustracion;
     }
 }
+
