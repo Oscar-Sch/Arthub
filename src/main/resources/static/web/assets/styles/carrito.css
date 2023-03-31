@@ -395,7 +395,10 @@ input{
     font-size: 1.4rem;
     text-align: center;
     height: 1rem;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-weight: bolder;
 }
+
 .contenedor-modal-tarjeta-datosPersonales{
     display: flex;
 }

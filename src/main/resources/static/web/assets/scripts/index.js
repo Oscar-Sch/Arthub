@@ -24,7 +24,9 @@ createApp( {
         }
     },
     created(){
-       
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
     },
     methods: {
         cerrarModal() {
@@ -46,7 +48,7 @@ createApp( {
                             pais: this.pais,
                             ciudad: this.ciudad,
                             nick: this.nick,
-                            descripcionExtra:this.descripcionExtra
+                            descripcion:this.descripcionExtra
                         })
             .then(res => {
                 let mensajeTexto = res.data
@@ -59,6 +61,7 @@ createApp( {
                 setTimeout(()=>{
                     axios.post('/api/login',`email=${this.nick}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
                     .then(res => { 
+                        sessionStorage.setItem('logIn', true)
                         this.loginAux = true
                         mensaje.innerHTML = `${mensajeTexto} <p class="mt-2">Iniciaste sesion...</p>`
 
@@ -79,7 +82,8 @@ createApp( {
                 let mensaje = document.getElementById('mensaje')
                 mensaje.classList.toggle('ocultar-modal')
                 mensaje.innerText = `Iniciaste sesion correctamente.`
-
+                sessionStorage.setItem('logIn', true)
+                this.loginAux = true
                 setTimeout(()=>{
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
                 },2000)
@@ -89,7 +93,11 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {this.loginAux = false})
+            .then(response => {
+                sessionStorage.setItem('logIn', 'false')
+                this.loginAux = false
+            })
+            .catch(erro => console.log(erro))
         }
     }
 }).mount("#app")

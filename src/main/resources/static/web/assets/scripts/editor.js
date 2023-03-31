@@ -16,7 +16,9 @@ createApp({
         }
     },
     created(){
-       
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
 
     },
     methods:{

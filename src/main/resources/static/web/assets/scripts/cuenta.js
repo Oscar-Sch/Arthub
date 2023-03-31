@@ -16,21 +16,17 @@ createApp( {
             imagenUsuario: "",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            loginAux: false
         }
     },
     created(){
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
         this.informacion()
     },
     methods: {
-        openMenu() {
-            let container=document.querySelector(".menu-container");
-            if (container.style.width=="11rem"){
-                container.style.width = "4.2rem";
-            }else{
-                container.style.width = "11rem";
-            }
-        },
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
@@ -75,13 +71,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
-            })
+                this.loginAux = false
+                sessionStorage.setItem('logIn', false)})
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')
