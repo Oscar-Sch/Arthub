@@ -2,7 +2,7 @@
 
 package com.mindhub.merchshop.controllers;
 
-import com.mindhub.merchshop.dtos.CompraDataDTO;
+//import com.mindhub.merchshop.dtos.CompraDataDTO;
 import com.mindhub.merchshop.dtos.PaqueteDeProductosDTO;
 import com.mindhub.merchshop.dtos.TransaccionDTO;
 import com.mindhub.merchshop.models.Compra;
@@ -30,8 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.util.stream.Collectors;
 
-import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
-import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
+//import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
+//import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
 //import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
 ////import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
 //

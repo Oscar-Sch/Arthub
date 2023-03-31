@@ -21,10 +21,14 @@ createApp( {
             auxCambiarDatos: false,
             productos: [],
             error: "",
+            loginAux: false
             pagoExitoso: false
         }
     },
     created(){
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
         this.informacion()
     },
     methods: {
@@ -91,12 +95,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
+                sessionStorage.setItem('logIn', false)
+                this.loginAux = false
             })
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
