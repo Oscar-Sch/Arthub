@@ -48,6 +48,9 @@
             </nav>         
         </header>
         <main>
+            <div class="position-absolute d-flex justify-content-center align-items-center" :class="{ 'cartelPago' : pagoExitoso }">
+                <p class="mb-0">El pago se realizó con éxito</p>
+            </div>
             <div class="contenedor-modalCarrito ocultar-modal" id="modalCarrito">
                 <div class="contenedor-modal" id="compraDatos">
                     <div class="boton-cerrar" >
@@ -97,7 +100,8 @@
                                 <p>Fecha de expiracion</p>
                                 <input type="text" v-model="expiracionTarjeta" >
                             </div>
-                            <div class="boton-contenedor input-extra">
+                            <div v-if="error" class="error-texto">{{error}}</div>
+                            <div @click="pagar" class="boton-contenedor input-extra">
                                 <p>Pagar</p>
                             </div>
                         </div>

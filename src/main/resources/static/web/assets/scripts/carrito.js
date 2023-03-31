@@ -20,7 +20,8 @@ createApp( {
             expiracionTarjeta: "00/00",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            pagoExitoso: false
         }
     },
     created(){
@@ -43,6 +44,24 @@ createApp( {
                     this.productos = res.data.productos
                 })
                 .catch(error => console.log(error))
+        },
+        pagar(){
+            axios.post('https://mindhub-brothers-bank.up.railway.app/api/cards/transaction',{
+                number : this.numeroTarjeta,
+                cvv: this.cvvTarjeta,
+                description : "Items bought on Arthub",
+                amount: 1
+            }).then(response => {
+                    this.cerrarModal()
+                    this.pagoExitoso = true
+                    setTimeout(() => {
+                        this.pagoExitoso = false
+                    }, 3000)
+                    console.log(response)
+                })
+                .catch(error => {
+                    this.error = error.response.data
+                })
         },
         activarFormulario(){
             document.getElementById('actualizarDatosBoton').classList.remove('ocultar-modal')
@@ -89,6 +108,7 @@ createApp( {
         },
         cerrarModal() {
             document.getElementById('modalCarrito').classList.toggle('ocultar-modal')
+            this.error="";
         },
     }
 }).mount("#app")
