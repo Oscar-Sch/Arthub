@@ -110,7 +110,6 @@ createApp( {
             console.log(error)})
         },
         verProductos(id){
-            console.log("hola")
             window.location.href = `./editor-producto.html?id=${id}`
         },
         logOut(){
