@@ -16,7 +16,6 @@ public class PaqueteDeProductosDTO {
         this.cantidad = paqueteDeProductos.getCantidad();
         this.montoTotal = paqueteDeProductos.getMontoTotal();
         this.compraId = paqueteDeProductos.getCompra().getId();
-        this.productoIlustracionId = paqueteDeProductos.getProductoIlustracion().getId();
     }
 
     public Long getId() {

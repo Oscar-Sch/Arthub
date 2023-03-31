@@ -22,85 +22,59 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-//import java.text.DateFormat;
-//import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-//import java.util.Date;
+import java.util.Date;
 import java.util.List;
-//import java.util.stream.Collectors;
+import java.util.stream.Collectors;
 
 import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
-import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
-//import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
-////import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
-//
-//@RestController
-//@RequestMapping("/api")
-//public class CompraController {
-//
-//    @Autowired
-//    ServicioUsuario servicioUsuario;
-//    @Autowired
-//    ServicioEmail servicioEmail;
-//    @Autowired
-//    ServicioCompra servicioCompra;
-//    @Autowired
-//    ServicioProductoIlustracion servicioProductoIlustracion;
-//
-//    @Autowired
-//    RestTemplate restTemplate;
-//
-//    //si se genera se envia el mail
-//
+
+
+@RestController
+@RequestMapping("/api")
+public class CompraController {
+
+    @Autowired
+    ServicioUsuario servicioUsuario;
+    @Autowired
+    ServicioEmail servicioEmail;
+    @Autowired
+    ServicioCompra servicioCompra;
+    @Autowired
+    ServicioProductoIlustracion servicioProductoIlustracion;
+
+
+@PostMapping("/email/pdf")
+    public void enviarpdf(Authentication authentication){
+    Usuario user = servicioUsuario.findByEmail(authentication.getName());
+
+    Compra nuevaCompra = new Compra(user , LocalDateTime.now(), generarNumeroCompra());
+    servicioEmail.EnviarEmail("fxargentinoinvestment@gmail.com", nuevaCompra);
+}
+
+
 //    @Transactional
 //    @PostMapping("/comprar")
-//    public ResponseEntity<?> realizarCompra(@RequestBody CompraDataDTO compraDataDTO, Authentication authentication, HttpServletResponse response) throws IOException {
-//        //descontar stock
-//        List<PaqueteDeProductosDTO> paqueteDeProductosElegidos = compraDataDTO.getPaqueteDeProductosDTOS();
-//        for (PaqueteDeProductosDTO paquete : paqueteDeProductosElegidos){
-//            ProductoIlustracion productoIlustracion =  servicioProductoIlustracion.findById(paquete.getProductoIlustracionId());
+//    public ResponseEntity<?> realizarCompra(@RequestBody List<PaqueteDeProductosDTO> paquetes, Authentication authentication, HttpServletResponse response) throws IOException {
+//
+//        // Descontar stock
+//        for (PaqueteDeProductosDTO paquete : paquetes) {
+//            ProductoIlustracion productoIlustracion = servicioProductoIlustracion.findById(paquete.getProductoIlustracionId());
 //            productoIlustracion.setStock(productoIlustracion.getStock() - paquete.getCantidad());
 //        }
-//        //Recibir pago
-//        List<PaqueteDeProductosDTO> paqueteDeProductos = compraDataDTO.getPaqueteDeProductosDTOS();
-//        Double montoTotal = null;
-//        for (PaqueteDeProductosDTO paquete : paqueteDeProductos){
+//
+//        // Calcular el monto total de la compra
+//        Double montoTotal = 0.0;
+//        for (PaqueteDeProductosDTO paquete : paquetes) {
 //            montoTotal += paquete.getMontoTotal();
 //        }
-//        String numero = compraDataDTO.getTransaccionDTO().getNumero();
-//        String cvv = compraDataDTO.getTransaccionDTO().getCvv();
-//        String descripcion = compraDataDTO.getTransaccionDTO().getDescripcion();
-//        Double montoAPagar = compraDataDTO.getTransaccionDTO().getMontoAPagar();
-//        TransaccionDTO transaccionDTO = compraDataDTO.getTransaccionDTO();
 //
-//        final String URL = "https://mindhub-brothers-bank.up.railway.app/api/cards/transaction";
-//
-//        transaccionDTO.setMontoAPagar(montoTotal);
-//        transaccionDTO.setDescripcion("compra en ArtHub");
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-//        HttpEntity<TransaccionDTO> entidad = new HttpEntity<>(transaccionDTO, headers);
-//
-//        ResponseEntity<?> respuesta = restTemplate.exchange(URL, HttpMethod.POST, entidad, String.class);
-//
-//        //comprobar transaccion exitosa
-//        //sino se genera compra, devolver stock
-//
-//        //Generar Compra
-//        List<PaqueteDeProductos> listaNueva = new ArrayList<>();
-//        for(PaqueteDeProductosDTO productos : paqueteDeProductos){
-//            PaqueteDeProductos lista = new PaqueteDeProductos();
-//            lista.setMontoTotal(lista.getMontoTotal());
-//            lista.setCantidad(lista.getCantidad());
-//            lista.setCompra(lista.getCompra());
-//            lista.setProductoIlustracion(lista.getProductoIlustracion());
-//            listaNueva.add(lista);
-//        }
-//
+//        // Generar la compra
 //        Usuario usuarioAutenticado = servicioUsuario.findByEmail(authentication.getName());
-//        Compra nuevaCompra = new Compra(usuarioAutenticado, listaNueva , LocalDateTime.now(),generarNumeroCompra());
+//        Compra nuevaCompra = new Compra(usuarioAutenticado, paquetes, LocalDateTime.now(), generarNumeroCompra());
 //        servicioCompra.save(nuevaCompra);
 //
 //        //Generar PDF
@@ -110,4 +84,4 @@ import static com.mindhub.merchshop.Utilidades.Utilidades.generarPDF;
 //
 //        return new ResponseEntity<>("Compra efectuada exitosamente" , HttpStatus.CREATED);
 //    }
-//}
+}
