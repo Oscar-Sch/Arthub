@@ -162,8 +162,8 @@
 .vista-previa__editor-producto-taza {
     background-image: url(../images/productos/taza_2.png);
 }
-.vista-previa_editor{
-    width: 15rem;
+.vista-previa_editor {
+    width: 21rem;
     height: 17rem;
 }
 .colores-editor{
@@ -258,8 +258,8 @@
         padding: .8rem;
     }
     .img-template {
-        width: 44%;
-        height: 12rem;
+        width: 48%;
+        height: 11rem;
     }
     #carrousel {
         display: flex;
@@ -292,7 +292,7 @@
         width: 9rem;
     }
     .vista-previa_editor {
-        width: 20rem;
+        width: 23rem;
         height: 27rem;
     }
     .vista-talles{
@@ -344,7 +344,7 @@
     .vista-previa__editor-producto-retrato,
     .vista-previa__editor-producto-taza
     {
-        background-size: calc(112%);
+        background-size: calc(102%);
         width: 14rem;
         height: 27rem;
     }
@@ -361,7 +361,7 @@
         margin-left: 0rem;
     }
     .vista-prev-colores-remera {
-        background-size: calc(112%);
+        background-size: calc(102%);
         width: 14rem;
         height: 27rem;
     }
@@ -379,8 +379,8 @@
         left: -8rem;
     }
     .img-template {
-        width: 55%;
-        height: 10rem;
+        width: 54%;
+        height: 9.5rem;
     }
     #carrousel img {
         height: 9rem;

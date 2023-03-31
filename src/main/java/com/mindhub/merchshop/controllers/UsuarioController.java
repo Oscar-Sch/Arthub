@@ -6,7 +6,7 @@ import com.mindhub.merchshop.dtos.UsuarioDTO;
 import com.mindhub.merchshop.models.Direccion;
 import com.mindhub.merchshop.models.Usuario;
 import com.mindhub.merchshop.servicios.ServicioDireccion;
-import com.mindhub.merchshop.servicios.ServicioEmail;
+//import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
