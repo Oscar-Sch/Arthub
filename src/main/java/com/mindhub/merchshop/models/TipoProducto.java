@@ -1,7 +1,7 @@
 package com.mindhub.merchshop.models;
 
 public enum TipoProducto {
-    RAMERA,
+    REMERA,
     TAZA,
     LLAVERO,
     LIBRETA,

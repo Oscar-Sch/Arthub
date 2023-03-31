@@ -7,10 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-//import static com.mindhub.merchshop.Utilidades.Utilidades.generarNumeroCompra;
 
 @SpringBootApplication
 public class MerchshopApplication {
@@ -20,7 +18,7 @@ public class MerchshopApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(UsuarioRepository usuarioRepository, CompraRepository compraRepository, PaqueteDeProductosRepository paqueteDeProductosRepository, ProductoRepository productoRepository, IlustradorRepository ilustradorRepository, IlustracionRepository ilustracionRepository, ProductoIlustracionRepository productoIlustracionRepository) {
+	public CommandLineRunner initData(UsuarioRepository usuarioRepository, CompraRepository compraRepository, PaqueteDeProductosRepository paqueteDeProductosRepository, ProductoRepository productoRepository, IlustradorRepository ilustradorRepository, IlustracionRepository ilustracionRepository, ProductoRepository productoIlustracionRepository) {
 		return (args) -> {
 
 			//Ilustrador1 y sus ilustraciones
@@ -39,9 +37,19 @@ public class MerchshopApplication {
 			Ilustracion ilustracion7 = new Ilustracion("C2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronD.PNG?alt=media&token=857bc98f-7784-46d2-b8fd-e822c24b659a", ilustrador2, List.of());
 			Ilustracion ilustracion8 = new Ilustracion("D2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronA.JPG?alt=media&token=e2fed519-dbae-4c2e-bba0-43a7bdd8e392", ilustrador2, List.of());
 
+			//Ilustradora3 y sus ilustraciones
+			Ilustrador ilustrador3 = new Ilustrador("toffitafoffita@gmail.com", "Sofia Gomelsky", "ToffaG", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/panaretrato.png?alt=media&token=c8734b0c-61a3-4c9e-afe6-9f29982e21b0", "123", List.of());
+
+			Ilustracion ilustracion9 = new Ilustracion("BTS pelo rojo", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana5.png?alt=media&token=ae0ce714-3307-49e4-a410-0a98b1b466e8", ilustrador3, List.of());
+			Ilustracion ilustracion10 = new Ilustracion("Hobbi", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana6.png?alt=media&token=752989be-b0c1-470f-8914-325f142c6583", ilustrador3, List.of());
+			Ilustracion ilustracion11 = new Ilustracion("Rin sapito", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana4.png?alt=media&token=3e91f417-b7bb-4bd7-9215-e493ee25d4d8", ilustrador3, List.of());
+			Ilustracion ilustracion12 = new Ilustracion("Bennet pompompurin", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana3.png?alt=media&token=6e10713a-74f4-432f-acc5-ee2f33c6b75a", ilustrador3, List.of());
+			Ilustracion ilustracion13 = new Ilustracion("Otro bts", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana2.png?alt=media&token=12efda3b-e850-4f8d-963b-db0ff38d4cbd", ilustrador3, List.of());
+			Ilustracion ilustracion14 = new Ilustracion("Piba de twice", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana1.png?alt=media&token=e0ddab29-ce4e-4806-b54e-4cfe2afacf21", ilustrador3, List.of());
 
 			ilustradorRepository.save(ilustrador1);
 			ilustradorRepository.save(ilustrador2);
+			ilustradorRepository.save(ilustrador3);
 
 			ilustracionRepository.save(ilustracion1);
 			ilustracionRepository.save(ilustracion2);
@@ -51,187 +59,114 @@ public class MerchshopApplication {
 			ilustracionRepository.save(ilustracion6);
 			ilustracionRepository.save(ilustracion7);
 			ilustracionRepository.save(ilustracion8);
-
+			ilustracionRepository.save(ilustracion9);
+			ilustracionRepository.save(ilustracion10);
+			ilustracionRepository.save(ilustracion11);
+			ilustracionRepository.save(ilustracion12);
+			ilustracionRepository.save(ilustracion13);
+			ilustracionRepository.save(ilustracion14);
 
 			//Productos equis(stock del ilustrador1)
+			//il1 RAMERA
+			Producto ramera1 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.AMARILLO);
+			Producto ramera2 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.AMARILLO);
+			Producto ramera3 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.AMARILLO);
+			Producto ramera4 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.AMARILLO);
+			Producto ramera5 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.AMARILLO);
 
-			ProductoIlustracion productoIlustracion1 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XS, ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion2 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.S, ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion3 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.M ,ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion4 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.L,  ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion5 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion6 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XS,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion7 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.S,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion8 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.M,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion9 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.L,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion10 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion11 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AZUL);
-			ProductoIlustracion productoIlustracion12 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.LILA);
-			ProductoIlustracion productoIlustracion13 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AMARILLO);
-			ProductoIlustracion productoIlustracion14 = new ProductoIlustracion( ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.VERDE);
-			ProductoIlustracion productoIlustracion15 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AZUL);
-			ProductoIlustracion productoIlustracion16 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.LILA);
-			ProductoIlustracion productoIlustracion17 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AMARILLO);
-			ProductoIlustracion productoIlustracion18 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.VERDE);
-			ProductoIlustracion productoIlustracion19 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion20 = new ProductoIlustracion( ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.NEGRO);
+			Producto ramera6 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.AZUL);
+			Producto ramera7 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.AZUL);
+			Producto ramera8 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.AZUL);
+			Producto ramera9 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.AZUL);
+			Producto ramera10 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.AZUL);
 
-			ProductoIlustracion productoIlustracion21 = new ProductoIlustracion(ilustracion3, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion22 = new ProductoIlustracion(ilustracion4, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion23 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion24 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
+			Producto ramera11 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.LILA);
+			Producto ramera12 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.LILA);
+			Producto ramera13 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.LILA);
+			Producto ramera14 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.LILA);
+			Producto ramera15 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.LILA);
 
-			ProductoIlustracion productoIlustracion25 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion26 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion27 = new ProductoIlustracion(ilustracion3, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion28 = new ProductoIlustracion(ilustracion4, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
+			Producto ramera16 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.VERDE);
+			Producto ramera17 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.VERDE);
+			Producto ramera18 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.VERDE);
+			Producto ramera19 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.VERDE);
+			Producto ramera20 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.VERDE);
 
-			ProductoIlustracion productoIlustracion29 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion30 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion31 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.GRANDE);
-			ProductoIlustracion productoIlustracion32 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion33 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion34 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.GRANDE);
+			Producto ramera21 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.BLANCO);
+			Producto ramera22 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.BLANCO);
+			Producto ramera23 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.BLANCO);
+			Producto ramera24 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.BLANCO);
+			Producto ramera25 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.BLANCO);
 
-			ProductoIlustracion productoIlustracion35 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion36 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion37 = new ProductoIlustracion(ilustracion2, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.GRANDE);
-			ProductoIlustracion productoIlustracion38 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion39 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion40 = new ProductoIlustracion(ilustracion1, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.GRANDE);
+			Producto ramera26 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.NEGRO);
+			Producto ramera27 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.NEGRO);
+			Producto ramera28 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.NEGRO);
+			Producto ramera29 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.NEGRO);
+			Producto ramera30 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.NEGRO);
 
+			productoRepository.save(ramera1);
+			productoRepository.save(ramera2);
+			productoRepository.save(ramera3);
+			productoRepository.save(ramera4);
+			productoRepository.save(ramera5);
+			productoRepository.save(ramera6);
+			productoRepository.save(ramera7);
+			productoRepository.save(ramera8);
+			productoRepository.save(ramera9);
+			productoRepository.save(ramera10);
+			productoRepository.save(ramera11);
+			productoRepository.save(ramera12);
+			productoRepository.save(ramera13);
+			productoRepository.save(ramera14);
+			productoRepository.save(ramera15);
+			productoRepository.save(ramera16);
+			productoRepository.save(ramera17);
+			productoRepository.save(ramera18);
+			productoRepository.save(ramera19);
+			productoRepository.save(ramera20);
+			productoRepository.save(ramera21);
+			productoRepository.save(ramera22);
+			productoRepository.save(ramera23);
+			productoRepository.save(ramera24);
+			productoRepository.save(ramera25);
+			productoRepository.save(ramera26);
+			productoRepository.save(ramera27);
+			productoRepository.save(ramera28);
+			productoRepository.save(ramera29);
+			productoRepository.save(ramera30);
 
-			productoIlustracionRepository.save(productoIlustracion1);
-			productoIlustracionRepository.save(productoIlustracion2);
-			productoIlustracionRepository.save(productoIlustracion3);
-			productoIlustracionRepository.save(productoIlustracion4);
-			productoIlustracionRepository.save(productoIlustracion5);
-			productoIlustracionRepository.save(productoIlustracion6);
-			productoIlustracionRepository.save(productoIlustracion7);
-			productoIlustracionRepository.save(productoIlustracion8);
-			productoIlustracionRepository.save(productoIlustracion9);
-			productoIlustracionRepository.save(productoIlustracion10);
-			productoIlustracionRepository.save(productoIlustracion11);
-			productoIlustracionRepository.save(productoIlustracion12);
-			productoIlustracionRepository.save(productoIlustracion13);
-			productoIlustracionRepository.save(productoIlustracion14);
-			productoIlustracionRepository.save(productoIlustracion15);
-			productoIlustracionRepository.save(productoIlustracion16);
-			productoIlustracionRepository.save(productoIlustracion17);
-			productoIlustracionRepository.save(productoIlustracion18);
-			productoIlustracionRepository.save(productoIlustracion19);
-			productoIlustracionRepository.save(productoIlustracion20);
-			productoIlustracionRepository.save(productoIlustracion21);
-			productoIlustracionRepository.save(productoIlustracion22);
-			productoIlustracionRepository.save(productoIlustracion23);
-			productoIlustracionRepository.save(productoIlustracion24);
-			productoIlustracionRepository.save(productoIlustracion25);
-			productoIlustracionRepository.save(productoIlustracion26);
-			productoIlustracionRepository.save(productoIlustracion27);
-			productoIlustracionRepository.save(productoIlustracion28);
-			productoIlustracionRepository.save(productoIlustracion29);
-			productoIlustracionRepository.save(productoIlustracion30);
-			productoIlustracionRepository.save(productoIlustracion31);
-			productoIlustracionRepository.save(productoIlustracion32);
-			productoIlustracionRepository.save(productoIlustracion33);
-			productoIlustracionRepository.save(productoIlustracion34);
-			productoIlustracionRepository.save(productoIlustracion35);
-			productoIlustracionRepository.save(productoIlustracion36);
-			productoIlustracionRepository.save(productoIlustracion37);
-			productoIlustracionRepository.save(productoIlustracion38);
-			productoIlustracionRepository.save(productoIlustracion39);
-			productoIlustracionRepository.save(productoIlustracion40);
+			//TAZA
+			Producto taza1 = new Producto(30, "stock marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
+
+			productoRepository.save(taza1);
 
 
-			//stock ilustrador 2
-			ProductoIlustracion productoIlustracion41 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XS, ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion42 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.S, ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion43 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.M ,ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion44 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.L,  ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion45 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.NEGRO);
-			ProductoIlustracion productoIlustracion46 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XS,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion47 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.S,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion48 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.M,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion49 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.L,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion50 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion51 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AZUL);
-			ProductoIlustracion productoIlustracion52 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.LILA);
-			ProductoIlustracion productoIlustracion53 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AMARILLO);
-			ProductoIlustracion productoIlustracion54 = new ProductoIlustracion( ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.VERDE);
-			ProductoIlustracion productoIlustracion55 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AZUL);
-			ProductoIlustracion productoIlustracion56 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.LILA);
-			ProductoIlustracion productoIlustracion57 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.AMARILLO);
-			ProductoIlustracion productoIlustracion58 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.VERDE);
-			ProductoIlustracion productoIlustracion59 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion60 = new ProductoIlustracion( ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.RAMERA, TallaProducto.XL,  ColorProducto.NEGRO);
-
-			ProductoIlustracion productoIlustracion61 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion62 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion63 = new ProductoIlustracion(ilustracion7, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-			ProductoIlustracion productoIlustracion64 = new ProductoIlustracion(ilustracion8, 50, "stock de marzo", 500.0, TipoProducto.TAZA, ColorProducto.BLANCO);
-
-			ProductoIlustracion productoIlustracion65 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion66 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion67 = new ProductoIlustracion(ilustracion7, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-			ProductoIlustracion productoIlustracion68 = new ProductoIlustracion(ilustracion8, 50, "stock de marzo", 500.0, TipoProducto.LLAVERO);
-
-			ProductoIlustracion productoIlustracion69 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion70 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion71 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.GRANDE);
-			ProductoIlustracion productoIlustracion72 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion73 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion74 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.LIBRETA, TamañoProducto.GRANDE);
-
-			ProductoIlustracion productoIlustracion75 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion76 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion77 = new ProductoIlustracion(ilustracion5, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.GRANDE);
-			ProductoIlustracion productoIlustracion78 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.PEQUEÑO);
-			ProductoIlustracion productoIlustracion79 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.MEDIANO);
-			ProductoIlustracion productoIlustracion80 = new ProductoIlustracion(ilustracion6, 50, "stock de marzo", 5000.0, TipoProducto.PRINT, TamañoProducto.GRANDE);
-
-			productoIlustracionRepository.save(productoIlustracion41);
-			productoIlustracionRepository.save(productoIlustracion42);
-			productoIlustracionRepository.save(productoIlustracion43);
-			productoIlustracionRepository.save(productoIlustracion44);
-			productoIlustracionRepository.save(productoIlustracion45);
-			productoIlustracionRepository.save(productoIlustracion46);
-			productoIlustracionRepository.save(productoIlustracion47);
-			productoIlustracionRepository.save(productoIlustracion48);
-			productoIlustracionRepository.save(productoIlustracion49);
-			productoIlustracionRepository.save(productoIlustracion50);
-			productoIlustracionRepository.save(productoIlustracion51);
-			productoIlustracionRepository.save(productoIlustracion52);
-			productoIlustracionRepository.save(productoIlustracion53);
-			productoIlustracionRepository.save(productoIlustracion54);
-			productoIlustracionRepository.save(productoIlustracion55);
-			productoIlustracionRepository.save(productoIlustracion56);
-			productoIlustracionRepository.save(productoIlustracion57);
-			productoIlustracionRepository.save(productoIlustracion58);
-			productoIlustracionRepository.save(productoIlustracion59);
-			productoIlustracionRepository.save(productoIlustracion60);
-			productoIlustracionRepository.save(productoIlustracion61);
-			productoIlustracionRepository.save(productoIlustracion62);
-			productoIlustracionRepository.save(productoIlustracion63);
-			productoIlustracionRepository.save(productoIlustracion64);
-			productoIlustracionRepository.save(productoIlustracion65);
-			productoIlustracionRepository.save(productoIlustracion66);
-			productoIlustracionRepository.save(productoIlustracion67);
-			productoIlustracionRepository.save(productoIlustracion68);
-			productoIlustracionRepository.save(productoIlustracion69);
-			productoIlustracionRepository.save(productoIlustracion70);
-			productoIlustracionRepository.save(productoIlustracion71);
-			productoIlustracionRepository.save(productoIlustracion72);
-			productoIlustracionRepository.save(productoIlustracion73);
-			productoIlustracionRepository.save(productoIlustracion74);
-			productoIlustracionRepository.save(productoIlustracion75);
-			productoIlustracionRepository.save(productoIlustracion76);
-			productoIlustracionRepository.save(productoIlustracion77);
-			productoIlustracionRepository.save(productoIlustracion78);
-			productoIlustracionRepository.save(productoIlustracion79);
-			productoIlustracionRepository.save(productoIlustracion80);
+			//LLAVERO
+			Producto llavero1 = new Producto( 30, "stock marzo", 500.0, TipoProducto.LLAVERO);
+			productoRepository.save(llavero1);
 
 
-			Usuario usuario1 = new Usuario("niettpls@gmail.com", "Julio Perez", "Nick", "123");
+			//LIBRETA
+			Producto libreta1 = new Producto(30, "stock marzo", 500.0, TipoProducto.LIBRETA, TamañoProducto.PEQUEÑO);
+			Producto libreta2 = new Producto(30, "stock marzo", 500.0, TipoProducto.LIBRETA, TamañoProducto.MEDIANO);
+			Producto libreta3 = new Producto( 30, "stock marzo", 500.0, TipoProducto.LIBRETA, TamañoProducto.GRANDE);
+
+			productoRepository.save(libreta1);
+			productoRepository.save(libreta2);
+			productoRepository.save(libreta3);
+
+			//PRINT
+			Producto print1 = new Producto(30, "stock marzo", 500.0, TipoProducto.PRINT, TamañoProducto.PEQUEÑO);
+			Producto print2 = new Producto(30, "stock marzo", 500.0, TipoProducto.PRINT, TamañoProducto.MEDIANO);
+			Producto print3 = new Producto(30, "stock marzo", 500.0, TipoProducto.PRINT, TamañoProducto.GRANDE);
+
+			productoRepository.save(print1);
+			productoRepository.save(print2);
+			productoRepository.save(print3);
+
+
+
+			//Usuario usuario1 = new Usuario("niettpls@gmail.com", "Julio Perez", "Nick", "123");
 
 //			Compra compra1 = new Compra(usuario1, List.of(), LocalDateTime.now(), generarNumeroCompra());
 //
@@ -243,13 +178,13 @@ public class MerchshopApplication {
 
 
 
-			usuarioRepository.save(usuario1);
+			//	usuarioRepository.save(usuario1);
 //			compraRepository.save(compra1);
 //			paqueteDeProductosRepository.save(paqueteDeProductos1);
 //			paqueteDeProductosRepository.save(paqueteDeProductos2);
 //			paqueteDeProductosRepository.save(paqueteDeProductos3);
 
-			List<ProductoIlustracion> productoIlustraciones = productoIlustracionRepository.findAll();
+			List<Producto> productoIlustraciones = productoIlustracionRepository.findAll();
 
 		};
 	}

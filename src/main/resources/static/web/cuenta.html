@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="./assets/styles/cuenta.css">
     <title>Shop | Mi Cuenta</title>
 </head>
-<body id="app">
+<body id="app" style="background-color: black;">
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
     <div class="contenedor-overflow">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark">
@@ -26,18 +32,18 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Mi cuenta</a>
+                                <a class="nav-link active" href="#" v-if="loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./artistas.html">Artistas</a>
+                                <a class="nav-link" href="./artistas.html" v-if="loginAux" v-cloak>Artistas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
-                            <li class="nav-item link-bordeado">
+                            <li class="nav-item link-bordeado "  @click="logOut()" v-cloak>
                                 <a class="nav-link" href="">Logout</a>
                             </li>                           
                         </ul>
@@ -54,7 +60,7 @@
                 <div class="datos-contenedor">
                     <div class="titulo-imagen-contenedor">                            
                         <div class="imagen-datos-contenedor">
-                            <img class="imagen-datos" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nick" :title="nick">
+                            <img class="imagen-datos" :src="avatarUrl" :alt="nick" :title="nick">
                         </div>
 
                     </div>
@@ -72,7 +78,6 @@
                                     <p class="informacion-navegar informacion-navegar-activo" @click="mostrarDatos('datosEditar','historialCompras', 'datosTexto', 'historialTexto')" id="datosTexto">Mis datos</p>
                                     <p class="informacion-navegar"  @click="mostrarDatos('historialCompras', 'datosEditar', 'historialTexto', 'datosTexto')" id="historialTexto">Mis compras</p>
                                 </div>
-                                
                             </div>
                         </div>
                         <div  id="datosEditar">
@@ -113,34 +118,28 @@
                         
                         <div class="compra-granTitulo-contenedor ocultar-capa" id="historialCompras">
                             <div class="compra-contenedor">
-                                <div class="detalleCompra-contenedor">
-                                    <h3 class="compra-titulo">COMPRA #9894</h3>
+                                <div class="detalleCompra-contenedor" v-for="producto of productos" v-if="productos">
+                                    <h3 class="compra-titulo"  v-cloak >COMPRA #{{producto.numeroDeCompra}}</h3>
                                     <div class="productos-descripcion-contenedor">
-                                        <img class="imagen-producto" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" alt="" >
+                                        <img class="imagen-producto" :src="producto.productos.productoIlustracionId.ilustracionId.imgURL" :alt="producto.productos.productoIlustracionId.nombre" >
                                         <div>
-                                            <h3 class="titulo-producto">REMERA NOMBRE</h3>
-                                            <p class="informacion-producto-texto">TALLA: L</p>
-                                            <p class="informacion-producto-texto">CANTIDAD: 1</p>
-                                            <P class="informacion-producto-texto">DESCRIPCION: Remera blanca de fibrana</P>
+                                            <h3 class="titulo-producto"  v-cloak >REMERA  {{producto.productos.productoIlustracionId.nombre}}</h3>
+                                            <p class="informacion-producto-texto"  v-cloak >TALLA:  {{producto.productos.productoIlustracionId.descripcion}}</p>
+                                            <p class="informacion-producto-texto"  v-cloak >CANTIDAD: {{producto.productos.cantidad}}</p>
+                                            <P class="informacion-producto-texto"  v-cloak >DESCRIPCION: {{producto.productos.productoIlustracionId.descripcion}}</P>
                                         </div>
                                     </div>
-                                    <p class="precioTotal-compra">TOTAL $1222</p>
+                                    <p class="precioTotal-compra"  v-cloak >TOTAL {{producto.montoTotal.toLocaleString('en-US', {style:"currency", currency:"USD"})}}</p>
                                 </div>
-                                <div class="detalleCompra-contenedor">
-                                    <h3 class="compra-titulo">COMPRA #9894</h3>
-                                    <div class="productos-descripcion-contenedor">
-                                        <img class="imagen-producto" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" alt="" >
-                                        <div>
-                                            <h3 class="titulo-producto">REMERA NOMBRE</h3>
-                                            <p class="informacion-producto-texto">TALLA: L</p>
-                                            <p class="informacion-producto-texto">CANTIDAD: 1</p>
-                                            <P class="informacion-producto-texto">DESCRIPCION: Remera blanca de fibrana</P>
+                                <div v-if="productos.length == 0" class="sin-compras">
+                                    <p>No compraste productos.</p>
+                                    <div class="contenedor-boton">
+                                        <div class="boton-actualizarDatos boton-actualizarDatos-bordenegro" @click="verProductos()">
+                                            <p class="boton-texto">Ver productos</p>
                                         </div>
                                     </div>
-                                    <p class="precioTotal-compra">TOTAL $1222</p>
                                 </div>
                             </div>
-                            <p class="precioTotal-compra">TOTAL $1222</p>
                         </div>
                     </div>
                 </div>

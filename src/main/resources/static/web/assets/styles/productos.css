@@ -1,3 +1,4 @@
+
 .productos-blanca,.productos-color{
     height: 100%;
     /* width: 50%; */
@@ -54,6 +55,34 @@
     mask-image: url(../images/mascara-producto.png);
     mask-size: cover;
 }
+
+/*FILTRO*/
+.ilustradorNombre-input{
+    background-color: aquamarine;
+    height: 2rem;
+    width: 20vw;
+    border: 2px solid black;
+    border-width: 2px 2px 3px 3px;
+    border-radius: 1% 95% 1% 95%/95% 2% 92% 1%;
+}
+
+.ilustradorNombre-input-select{
+    margin-left: 1rem;
+    margin-top: -1rem;
+    background-color: rgb(248, 143, 243);
+    height: 2rem;
+    width: 20vw;
+    border: 2px solid black;
+    border-width: 2px 2px 3px 3px;
+    border-radius: 1% 95% 1% 95%/95% 2% 92% 1%;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 1.5rem;
+}
+
+.ilustradorNombre-input-select option:hover{
+    box-shadow: 0 0 10px 100px #1882A8 inset;
+}
+
 /* @media (min-width: 992px){
     .ilustracion_productos{
         left: -5rem;

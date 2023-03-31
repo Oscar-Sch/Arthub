@@ -12,52 +12,77 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(strategy = "native", name = "native")
     private Long id;
-    private TipoProducto tipoProducto;
-    @ElementCollection
-    @Column(name = "tamaños")
-    private List<String> tamaños;
-    @ElementCollection
-    @Column(name = "colores")
-    private List<String> colores;
+    private String nombre;
+    private Integer stock;
     private String descripcion;
+    private Double precio;
+    private TipoProducto tipoProducto;
+    private TallaProducto talla;
+    private TamañoProducto tamaño;
+    private ColorProducto color;
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
-    private List<ProductoIlustracion> productoIlustraciones = new ArrayList<>();
+    List<PaqueteDeProductos> paqueteDeProductos = new ArrayList<>();
 
-    public  Producto (){};
+    public Producto(){}
 
-    public Producto(TipoProducto tipoProducto, List<String> tamaños, List<String> colores, String descripcion, List<ProductoIlustracion> productoIlustraciones) {
-        this.tipoProducto = tipoProducto;
-        this.tamaños = tamaños;
-        this.colores = colores;
+
+    public Producto( Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
+        this.nombre = this.tipoProducto + ", "+ this.talla+", "+this.color;
+        this.stock = stock;
         this.descripcion = descripcion;
-        this.productoIlustraciones = productoIlustraciones;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.talla = talla;
+        this.color = color;
+    }
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
+        this.nombre = this.tipoProducto + ", "+ this.color;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.color = color;
+    }
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
+
+        this.nombre = this.tipoProducto +", cuadrado.";
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+    }
+
+
+    public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
+
+        this.nombre = this.tipoProducto +", "+this.tamaño;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.tipoProducto = tipoProducto;
+        this.tamaño = tamaño;
     }
 
     public Long getId() {
         return id;
     }
-    public TipoProducto getTipoProducto() {
-        return tipoProducto;
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTipoProducto(TipoProducto tipoProducto) {
-        this.tipoProducto = tipoProducto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public List<String> getTamaños() {
-        return tamaños;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setTamaños(List<String> tamaños) {
-        this.tamaños = tamaños;
-    }
-
-    public List<String> getColores() {
-        return colores;
-    }
-
-    public void setColores(List<String> colores) {
-        this.colores = colores;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public String getDescripcion() {
@@ -68,15 +93,55 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public List<ProductoIlustracion> getProductoIlustraciones() {
-        return productoIlustraciones;
+    public Double getPrecio() {
+        return precio;
     }
 
-    public void setProductoIlustraciones(List<ProductoIlustracion> productoIlustraciones) {
-        this.productoIlustraciones = productoIlustraciones;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
-    public void addProductoIlustraciones(ProductoIlustracion productoIlustracion) {
-        productoIlustracion.setProducto(this);
-        productoIlustraciones.add(productoIlustracion);
+
+    public TipoProducto getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(TipoProducto tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+
+    public TallaProducto getTalla() {
+        return talla;
+    }
+
+    public void setTalla(TallaProducto talla) {
+        this.talla = talla;
+    }
+
+    public TamañoProducto getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(TamañoProducto tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public ColorProducto getColor() {
+        return color;
+    }
+
+    public void setColor(ColorProducto color) {
+        this.color = color;
+    }
+
+    public List<PaqueteDeProductos> getPaqueteDeProductos() {
+        return paqueteDeProductos;
+    }
+
+    public void setPaqueteDeProductos(List<PaqueteDeProductos> paqueteDeProductos) {
+        this.paqueteDeProductos = paqueteDeProductos;
+    }
+    public void addListaDePaqueteDeProductos(PaqueteDeProductos paqueteDeProductoss) {
+        paqueteDeProductoss.setProducto(this);
+        paqueteDeProductos.add(paqueteDeProductoss);
     }
 }

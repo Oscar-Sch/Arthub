@@ -24,7 +24,7 @@ public class Compra {
     private List<PaqueteDeProductos> productos = new ArrayList<>();
     public Compra(){};
 
-    public Compra(Usuario usuario, List<PaqueteDeProductos> productos, LocalDateTime fecha,  String numeroDeCompra) {
+    public Compra(Usuario usuario, LocalDateTime fecha,  String numeroDeCompra) {
         this.usuario = usuario;
         this.productos = productos;
         this.fecha = fecha;

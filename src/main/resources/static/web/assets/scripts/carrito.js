@@ -3,36 +3,41 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
-            nombre: "Pepita de maiz",
-            nickTitulo: "Pepi",
-            nick: "Pepi",
-            apellido: "Morello Pentesti",
-            email: "pepita@gmail.com",
-            direccion: "Av Siempre vivas",
-            codigoPostal: "9876",
-            ciudad: "Springfield",
-            pais: "Estados Unidos",
-            descripcionExtra: "Puerta amarilla con renacuajos multicolor",
+            nombre: "",
+            nickTitulo: "",
+            nick: "",
+            apellido: "",
+            email: "",
+            direccion: "",
+            codigoPostal: "",
+            ciudad: "",
+            pais: "",
+            descripcionExtra: "",
             imagenUsuario: "",
-            cvvTarjeta: 000,
-            numeroTarjeta: "****-****-****-****",
-            nombreTarjeta: "",
-            expiracionTarjeta: "00/00",
+            cvvTarjeta: 857,
+            numeroTarjeta: "2315-1535-5567-6548",
+            nombreTarjeta: "Melba Morel",
+            expiracionTarjeta: "30/07",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            loginAux: false,
+            pagoExitoso: false
         }
     },
     created(){
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
         this.informacion()
     },
     methods: {
         informacion(){
-            axios.get(`/api/clients`)
+            axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    this.nombre = res.data.nombre
+                    this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
-                    this.apellido = res.data.apellido
+                    this.apellido = res.data.nombre.split("-")[1].trim()
                     this.email = res.data.email
                     this.imagenUsuario = res.data.imagenUsuario
                     this.ciudad = res.data.ciudad
@@ -44,6 +49,24 @@ createApp( {
                 })
                 .catch(error => console.log(error))
         },
+        pagar(){
+            axios.post('https://mindhub-brothers-bank.up.railway.app/api/cards/transaction',{
+                number : this.numeroTarjeta,
+                cvv: this.cvvTarjeta,
+                description : "Items bought on Arthub",
+                amount: 1
+            }).then(response => {
+                    this.cerrarModal()
+                    this.pagoExitoso = true
+                    setTimeout(() => {
+                        this.pagoExitoso = false
+                    }, 3000)
+                    console.log(response)
+                })
+                .catch(error => {
+                    this.error = error.response.data
+                })
+        },
         activarFormulario(){
             document.getElementById('actualizarDatosBoton').classList.remove('ocultar-modal')
             for(let i = 0; i <= 9; i++){
@@ -53,7 +76,7 @@ createApp( {
             }
         },
         actualizar(){
-            axios.patch(`/api/clients/current`,`nombre=${this.nombre}&apellido=${this.apellido}&nick=${this.nick}&direccion=${this.direccion}
+            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre}&apellido=${this.apellido}&nick=${this.nick}&direccion=${this.direccion}
             &codigoPostal=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcionExtra=${this.descripcionExtra}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
@@ -72,12 +95,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
+                sessionStorage.setItem('logIn', false)
+                this.loginAux = false
             })
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
@@ -89,6 +108,7 @@ createApp( {
         },
         cerrarModal() {
             document.getElementById('modalCarrito').classList.toggle('ocultar-modal')
+            this.error="";
         },
     }
 }).mount("#app")

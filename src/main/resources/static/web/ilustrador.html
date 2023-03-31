@@ -13,10 +13,15 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/styles/ilustrador.css">
-    <script defer src="./assets/scripts/main.js"></script>
     <title>Shop | Ilustrador</title>
 </head>
-<body id="app">
+<body id="app" style="background-color: black;">
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>
     <div class="contenedor-overflow">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark">
@@ -29,7 +34,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="./cuenta.html">Mi cuenta</a>
+                                <a class="nav-link" href="./cuenta.html" v-if="loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
@@ -38,12 +43,12 @@
                                 <a class="nav-link" href="./artistas.html">Artistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./carrito.html">Carrito</a>
+                                <a class="nav-link" href="./carrito.html" v-if="loginAux" v-cloak>Carrito</a>
                             </li>
-                            <li class="nav-item link-bordeado" @click="cerrarModal()">
+                            <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux" v-cloak>
                                 <a class="nav-link">Login</a>
                             </li>
-                            <li class="nav-item link-bordeado">
+                            <li class="nav-item link-bordeado" v-if="loginAux"  @click="logOut()" v-cloak>
                                 <a class="nav-link" href="">Logout</a>
                             </li>                     
                         </ul>
@@ -53,17 +58,20 @@
         </header>
         <main>
             <div class="contenedor-inicioSesionRegistro ocultar-modal" id="inicioSesionRegistro">
+                <div class="contenedor-inicioSesion ocultar-modal texto-mensaje" id="mensaje"></div>
                 <div class="contenedor-inicioSesion" id="inicioSesion">
                     <div class="boton-cerrar" >
                         <p @click="cerrarModal()" class="equis-boton">X</p>
                     </div>
                     <p class="titulo-registroInicio">Inicia sesion</p>
-                    <p>Usuario</p>
-                    <input type="text" v-model="emailONick">
-                    <p>Contraseña</p>
-                    <input type="password" v-model="contraseña">
+                    <form>
+                        <label>Usuario</label>
+                        <input type="text" v-model="emailONick">
+                        <label>Contraseña</label>
+                        <input type="password" v-model="contraseña">
+                    </form>
                     <p class="error-texto" v-cloak>{{error}}</p>
-                    <div class="boton-contenedor">
+                    <div class="boton-contenedor" @click="logIn()">
                         <p>Iniciar sesion</p>
                     </div>
                     <div class="contenedor-texto-extra-inicioSesion">
@@ -78,34 +86,34 @@
                         <p @click="cerrarModal()" class="equis-boton">X</p>
                     </div>
                     <p class="titulo-registroInicio">Registrate</p>
-                    <div class="contenedor-registro-formulario">
+                    <form class="contenedor-registro-formulario">
                         <div>
-                            <p>Nombre</p>
+                            <label>Nombre</label>
                             <input type="text" v-model="nombre">
-                            <p>Nick</p>
+                            <label>Nick</label>
                             <input type="text" v-model="nick">
-                            <p>Ciudad</p>
+                            <label>Ciudad</label>
                             <input type="text" v-model="ciudad">
-                            <p>Pais</p>
+                            <label>Pais</label>
                             <input type="text" v-model="pais">
-                            <p>Email</p>
+                            <label>Email</label>
                             <input type="text" v-model="email">
                         </div>
                         <div>
-                            <p>Apellido</p>
-                            <input type="text" v-model="nombre">
-                            <p>Direccion</p>
+                            <label>Apellido</label>
+                            <input type="text" v-model="apellido">
+                            <label>Direccion</label>
                             <input type="text" v-model="direccion">
-                            <p>Codigo Postal</p>
+                            <label>Codigo Postal</label>
                             <input type="text" v-model="codigoPostal">
-                            <p>Descripcion direccion</p>
+                            <label>Descripcion direccion</label>
                             <input type="text" v-model="descripcionExtra">
-                            <p>Contraseña</p>
-                            <input type="password" v-model="contraseña">
+                            <label>Contraseña</label>
+                            <input type="password" v-model="contraseñaRegistro">
                         </div>
-                    </div>
+                    </form>
                     <p class="error-texto" v-cloak>{{error}}</p>
-                    <div class="boton-contenedor">
+                    <div class="boton-contenedor" @click="registro()">
                         <p>Registrate</p>
                     </div>
                     <div class="contenedor-texto-extra-inicioSesion">
@@ -121,13 +129,13 @@
                 <div class="ilustrador-contenido-contenedor">
                     <div class="ilustrador-contenedor">
                         <div class="imagen-ilustrador-contenedor">
-                            <img v-cloak class="imagen-ilustrador" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png" :alt="nick" :title="nick">
+                            <img v-cloak class="imagen-ilustrador" :src="imagenIlustrador" :alt="nick" :title="nick">
                         </div>
                         <div class="contenedor-informacion-ilustrador">
                             <div class="texto-ilustrador-contenedor">
-                                <p v-cloak class="nick-ilustrador">{{nick}}</p>
+                                <p v-cloak class="nick-ilustrador">{{nickTitulo}}</p>
                                 <p class="texto-ilustrador-informacion">Ilustraciones: <b v-cloak>{{ilustracionesCantidad}}</b></p>
-                                <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudad}}</b></p>
+                                <p class="texto-ilustrador-informacion">Ciudad: <b v-cloak>{{ciudadIlustrador}}</b></p>
                             </div>
                             <div class="redessociales-contenedor">
                                 <div class="redessociales">
@@ -141,33 +149,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ilustraciones-contenedor">
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
+                    <div v-cloak class="ilustraciones-contenedor"  v-if="ilustraciones">
+                        <div v-for="ilustracion of ilustraciones" >
+                            <div class="ilustracion-individual-contenedor" @click="verProductos(ilustracion.id)">
+                                <img v-cloak class="imagen-ilustracion" :src="ilustracion.imgURL" :title="ilustracion.nombre">
+                                <p v-cloak class="ilustracion-texto">{{ilustracion.nombre}}</p>
+                                <p v-cloak class="ilustracion-texto-secundario" >Ver productos</p>
+                            </div>
                         </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
-                        <div class="ilustracion-individual-contenedor">
-                            <img v-cloak class="imagen-ilustracion" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nombreIlustracion" :title="nombreIlustracion">
-                            <p v-cloak class="ilustracion-texto">{{nombreIlustracion}}</p>
-                            <p v-cloak class="ilustracion-texto-secundario">Ver productos</p>
-                        </div>
+                        
+                    </div>
+                    <div v-if="ilustraciones.length == 0">
+                        <p>No tienes ilustraciones</p>
                     </div>
                 </div>
             </section>
