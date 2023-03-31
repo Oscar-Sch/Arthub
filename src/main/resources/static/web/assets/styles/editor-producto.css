@@ -170,7 +170,7 @@
 }
 .carrusel__editor-producto{
     height: 9rem;
-    border: 2px solid var(--dark-grey);
+    border: 2px solid black;
 }
 .carrusel-info__editor-producto{
     color: var(--font-white);
