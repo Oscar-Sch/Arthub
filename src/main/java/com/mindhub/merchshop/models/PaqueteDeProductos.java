@@ -16,16 +16,20 @@ public class PaqueteDeProductos {
     @JoinColumn(name = "compra_id")
     private Compra compra;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "productoIlustracion_id")
-    private ProductoIlustracion productoIlustracion;
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ilustracion_id")
+    private Ilustracion ilustracion;
 
 
     public PaqueteDeProductos(){}
-    public PaqueteDeProductos(Compra compra, ProductoIlustracion productoIlustracion, Byte cantidad) {
+    public PaqueteDeProductos(Compra compra, Producto producto, Ilustracion ilustracion,Byte cantidad) {
         this.compra = compra;
-        this.productoIlustracion = productoIlustracion;
+        this.producto = producto;
+        this.ilustracion = ilustracion;
         this.cantidad = cantidad;
-        this.montoTotal = this.productoIlustracion.getPrecio() * this.cantidad;
+        this.montoTotal = this.producto.getPrecio() * this.cantidad;
     }
 
     public Long getId() {
@@ -39,12 +43,12 @@ public class PaqueteDeProductos {
         this.compra = compra;
     }
 
-    public ProductoIlustracion getProductoIlustracion() {
-        return productoIlustracion;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setProductoIlustracion(ProductoIlustracion productoIlustracion) {
-        this.productoIlustracion = productoIlustracion;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public Byte getCantidad() {
@@ -61,5 +65,13 @@ public class PaqueteDeProductos {
 
     public void setMontoTotal(Double montoTotal) {
         this.montoTotal = montoTotal;
+    }
+
+    public Ilustracion getIlustracion() {
+        return ilustracion;
+    }
+
+    public void setIlustracion(Ilustracion ilustracion) {
+        this.ilustracion = ilustracion;
     }
 }

@@ -18,14 +18,15 @@ public class Ilustracion {
     @JoinColumn(name = "ilustrador_id")
     private Ilustrador ilustrador;
     @OneToMany(mappedBy = "ilustracion", fetch = FetchType.EAGER)
-    private List<ProductoIlustracion> productoIlustraciones = new ArrayList<>();
+    private List<PaqueteDeProductos> paqueteDeProductos = new ArrayList<>();
 
     public Ilustracion(){}
-    public Ilustracion(String nombre, String imgURL, Ilustrador ilustrador, List<ProductoIlustracion> productoIlustraciones) {
+    public Ilustracion(String nombre, String imgURL, Ilustrador ilustrador, List<PaqueteDeProductos> paqueteDeProductos) {
         this.nombre = nombre;
         this.imgURL = imgURL;
         this.ilustrador = ilustrador;
-        this.productoIlustraciones = productoIlustraciones;
+        this.paqueteDeProductos = paqueteDeProductos;
+
     }
 
     public Long getId() {
@@ -52,19 +53,20 @@ public class Ilustracion {
         return ilustrador;
     }
 
-    public void setIllustrator(Ilustrador ilustrador) {
+    public void setIlustrador(Ilustrador ilustrador) {
         this.ilustrador = ilustrador;
     }
 
-    public List<ProductoIlustracion> getProductoIlustraciones() {
-        return productoIlustraciones;
+    public List<PaqueteDeProductos> getPaqueteDeProductos() {
+        return paqueteDeProductos;
     }
 
-    public void setProductoIlustraciones(List<ProductoIlustracion> productoIlustraciones) {
-        this.productoIlustraciones = productoIlustraciones;
+    public void setPaqueteDeProductos(List<PaqueteDeProductos> paqueteDeProductos) {
+        this.paqueteDeProductos = paqueteDeProductos;
     }
-    public void addProductoIlustraciones(ProductoIlustracion productoIlustracion) {
-        productoIlustracion.setIllustracion(this);
-        productoIlustraciones.add(productoIlustracion);
+
+    public void addPaqueteDeProductos(PaqueteDeProductos paqueteDeProductoss) {
+        paqueteDeProductoss.setIlustracion(this);
+        paqueteDeProductos.add(paqueteDeProductoss);
     }
 }
