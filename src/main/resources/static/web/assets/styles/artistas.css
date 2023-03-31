@@ -135,6 +135,11 @@
     margin-right: .4rem;
 }
 
+.card-img-top{
+    height: 13rem;
+    width: 13rem;
+    object-fit: cover;
+}
 @media (min-width: 992px){
     #contenedor_artistas{
         width: 100%;

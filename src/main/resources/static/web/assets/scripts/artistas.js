@@ -4,7 +4,7 @@ createApp( {
     data(){
         return {
             ilustradores: [],
-            ilustradoresFiltados: [],
+            ilustradoresFiltrados: [],
             nombreIlustrador: "",
             loginAux: false
         }
@@ -13,6 +13,7 @@ createApp( {
         if(sessionStorage.getItem('logIn') == 'true' ){
             this.loginAux = sessionStorage.getItem('logIn')
         }
+        this.informacion()
     },
     methods: {
         cerrarModal() {
@@ -84,9 +85,19 @@ createApp( {
                 this.loginAux = false
             })
         },
+        informacion(){
+            axios.get(`/api/ilustradores`)
+            .then(res=>{
+                this.ilustradores = res.data
+                this.ilustradoresFiltrados = [...this.ilustradores]
+            })
+        },
         filtroNombreIlustrador(){
             let filtro = this.ilustradores.filter(ilustrador => ilustrador.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase()))
-            this.ilustradoresFiltados = filtro
+            this.ilustradoresFiltrados = filtro
+        },
+        verPerfil(nick){
+            window.location.href = `./ilustrador.html?nick=${nick}`
         }
     },
     mounted() {
