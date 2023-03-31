@@ -32,13 +32,13 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#" v-if="!loginAux" v-cloak>Mi cuenta</a>
+                                <a class="nav-link active" href="#" v-if="loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./artistas.html" v-if="!loginAux" v-cloak>Artistas</a>
+                                <a class="nav-link" href="./artistas.html" v-if="loginAux" v-cloak>Artistas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
@@ -60,7 +60,7 @@
                 <div class="datos-contenedor">
                     <div class="titulo-imagen-contenedor">                            
                         <div class="imagen-datos-contenedor">
-                            <img class="imagen-datos" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nick" :title="nick">
+                            <img class="imagen-datos" :src="avatarUrl" :alt="nick" :title="nick">
                         </div>
 
                     </div>
@@ -134,7 +134,7 @@
                                 <div v-if="productos.length == 0" class="sin-compras">
                                     <p>No compraste productos.</p>
                                     <div class="contenedor-boton">
-                                        <div class="boton-actualizarDatos boton-actualizarDatos-bordenegro" @click="actualizar()">
+                                        <div class="boton-actualizarDatos boton-actualizarDatos-bordenegro" @click="verProductos()">
                                             <p class="boton-texto">Ver productos</p>
                                         </div>
                                     </div>

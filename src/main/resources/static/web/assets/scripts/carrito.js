@@ -21,7 +21,7 @@ createApp( {
             auxCambiarDatos: false,
             productos: [],
             error: "",
-            loginAux: false
+            loginAux: false,
             pagoExitoso: false
         }
     },
