@@ -20,38 +20,16 @@ createApp( {
             expiracionTarjeta: "00/00",
             auxCambiarDatos: false,
             productos: [],
-            error: "",
-            pagoExitoso: false
+            error: ""
         }
     },
     created(){
         this.informacion()
     },
     methods: {
-        pagar(){
-            console.log("holi")
-            axios.post('https://mindhub-brothers-bank.up.railway.app/api/cards/transaction',{
-                number : this.numeroTarjeta,
-                cvv: this.cvvTarjeta,
-                description : this.descripcionExtra,
-                amount: 1
-            }).then(response => {
-                    this.cerrarModal()
-                    this.pagoExitoso = true
-                    setTimeout(() => {
-                        this.pagoExitoso = false
-                    }, 3000)
-                    console.log(response)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        },
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    console.log(res)
-                  //  this.nombre = res.data.nombre
                     this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
                     this.apellido = res.data.nombre.split("-")[1].trim()
