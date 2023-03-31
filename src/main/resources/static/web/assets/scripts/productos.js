@@ -5,21 +5,14 @@ createApp( {
         return {
             nombreIlustrador: "",
             tipoDeProducto: false, 
-            productos: ["Remera", "Taza", "Cuaderno", "Llavero", "Poster"]
+            productos: ["Remera", "Taza", "Cuaderno", "Llavero", "Poster"],
+            productosFiltrados: []
         }
     },
     created(){
         
     },
     methods: {
-        openMenu() {
-            let container=document.querySelector(".menu-container");
-            if (container.style.width=="11rem"){
-                container.style.width = "4.2rem";
-            }else{
-                container.style.width = "11rem";
-            }
-        },
         logOut(){
             axios.post('/api/logout')
             .then(response => {
@@ -34,7 +27,7 @@ createApp( {
         filtroProducto(){
             let filtroInput = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
             let filtroSelect = filtroInput.filter(e => this.tipoDeProducto.includes(e.productos))
-            this.ilustradores = filtroSelect
+            this.productosFiltrados = filtroSelect
         }
     },
     mounted() {

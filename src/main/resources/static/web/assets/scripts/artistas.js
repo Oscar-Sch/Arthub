@@ -3,21 +3,14 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
+            ilustradores: [],
+            ilustradoresFiltados: [],
             nombreIlustrador: ""
         }
     },
     created(){
-
     },
     methods: {
-        openMenu() {
-            let container=document.querySelector(".menu-container");
-            if (container.style.width=="11rem"){
-                container.style.width = "4.2rem";
-            }else{
-                container.style.width = "11rem";
-            }
-        },
         logOut(){
             axios.post('/api/logout')
             .then(response => {
@@ -30,8 +23,8 @@ createApp( {
             })
         },
         filtroNombreIlustrador(){
-            let filtro = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
-            this.ilustradores = filtro
+            let filtro = this.ilustradores.filter(ilustrador => ilustrador.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase()))
+            this.ilustradoresFiltados = filtro
         }
     },
     mounted() {
