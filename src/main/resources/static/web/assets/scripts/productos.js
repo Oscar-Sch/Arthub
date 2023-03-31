@@ -3,7 +3,9 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
-           
+            nombreIlustrador: "",
+            tipoDeProducto: false, 
+            productos: ["Remera", "Taza", "Cuaderno", "Llavero", "Poster"]
         }
     },
     created(){
@@ -28,6 +30,11 @@ createApp( {
                 }
                 
             })
+        },
+        filtroProducto(){
+            let filtroInput = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
+            let filtroSelect = filtroInput.filter(e => this.tipoDeProducto.includes(e.productos))
+            this.ilustradores = filtroSelect
         }
     },
     mounted() {

@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
-           
+            nombreIlustrador: ""
         }
     },
     created(){
@@ -28,6 +28,10 @@ createApp( {
                 }
                 
             })
+        },
+        filtroNombreIlustrador(){
+            let filtro = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
+            this.ilustradores = filtro
         }
     },
     mounted() {
