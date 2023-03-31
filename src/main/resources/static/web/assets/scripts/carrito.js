@@ -27,9 +27,24 @@ createApp( {
         this.informacion()
     },
     methods: {
+        comprar(){
+            console.log("holi")
+            axios.post('https://mindhub-brothers-bank.up.railway.app/api/cards/transaction',{
+                number : this.numeroTarjeta,
+                cvv: this.cvvTarjeta,
+                description : this.descripcionExtra,
+                amount: 1
+            }).then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
         informacion(){
             axios.get(`/api/clients`)
                 .then(res=> {
+                    console.log(res)
                     this.nombre = res.data.nombre
                     this.nickTitulo = res.data.nick
                     this.apellido = res.data.apellido
