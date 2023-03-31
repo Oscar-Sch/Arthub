@@ -24,7 +24,7 @@ createApp( {
         }
     },
     created(){
-        if(sessionStorage.getItem('logIn') != null){
+        if(sessionStorage.getItem('logIn') == 'true' ){
             this.loginAux = sessionStorage.getItem('logIn')
         }
     },
@@ -61,7 +61,8 @@ createApp( {
                 setTimeout(()=>{
                     axios.post('/api/login',`email=${this.nick}&password=${this.password}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
                     .then(res => { 
-                        this.loginAux = sessionStorage.setItem('logIn', true)
+                        sessionStorage.setItem('logIn', true)
+                        this.loginAux = true
                         mensaje.innerHTML = `${mensajeTexto} <p class="mt-2">Iniciaste sesion...</p>`
 
                         setTimeout(()=>{
@@ -81,7 +82,8 @@ createApp( {
                 let mensaje = document.getElementById('mensaje')
                 mensaje.classList.toggle('ocultar-modal')
                 mensaje.innerText = `Iniciaste sesion correctamente.`
-                this.loginAux = sessionStorage.setItem('logIn', true)
+                sessionStorage.setItem('logIn', true)
+                this.loginAux = true
                 setTimeout(()=>{
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
                 },2000)
@@ -91,7 +93,11 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {this.loginAux = sessionStorage.setItem('logIn', false)})
+            .then(response => {
+                sessionStorage.setItem('logIn', 'false')
+                this.loginAux = false
+            })
+            .catch(erro => console.log(erro))
         }
     }
 }).mount("#app")

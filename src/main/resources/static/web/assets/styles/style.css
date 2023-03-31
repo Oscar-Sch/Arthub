@@ -140,16 +140,12 @@ body{
     height: 2rem;
     display: flex;
     align-items: center;
-    margin-top: .1rem;
+    margin-top: .5rem;
     margin-left: .5rem;
     border: 1px solid rgb(113, 231, 247);
     border-width: 2px 1px 3px 5px;
     border-radius:1% 95% 1% 95%/95% 4% 92% 5%;
     cursor: pointer;
-}
-
-.link-bordeado:hover{
-    border: 2px solid rgb(148, 233, 212) !important;
 }
 
 footer{

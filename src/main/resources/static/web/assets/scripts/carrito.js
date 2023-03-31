@@ -20,10 +20,14 @@ createApp( {
             expiracionTarjeta: "00/00",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            loginAux: false
         }
     },
     created(){
+        if(sessionStorage.getItem('logIn') == 'true' ){
+            this.loginAux = sessionStorage.getItem('logIn')
+        }
         this.informacion()
     },
     methods: {
@@ -71,7 +75,10 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {this.loginAux = sessionStorage.setItem('logIn', false)})
+            .then(response => {
+                sessionStorage.setItem('logIn', false)
+                this.loginAux = false
+            })
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')

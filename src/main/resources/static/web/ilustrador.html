@@ -48,7 +48,7 @@
                             <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux">
                                 <a class="nav-link">Login</a>
                             </li>
-                            <li class="nav-item link-bordeado" v-if="loginAux">
+                            <li class="nav-item link-bordeado" v-if="loginAux"  @click="logOut()">
                                 <a class="nav-link" href="">Logout</a>
                             </li>                     
                         </ul>
