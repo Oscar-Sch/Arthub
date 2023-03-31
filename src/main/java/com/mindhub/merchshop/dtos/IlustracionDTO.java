@@ -2,7 +2,7 @@ package com.mindhub.merchshop.dtos;
 
 
 import com.mindhub.merchshop.models.Ilustracion;
-import com.mindhub.merchshop.models.ProductoIlustracion;
+import com.mindhub.merchshop.models.PaqueteDeProductos;
 
 
 import java.util.List;
@@ -12,13 +12,13 @@ public class IlustracionDTO {
     private Long id;
     private String nombre;
     private String imgURL;
-    private List<ProductoIlustracionDTO> productoIlustraciones ;
+    private List<PaqueteDeProductosDTO> paqueteDeProductosDTOS;
     public IlustracionDTO(){}
     public IlustracionDTO(Ilustracion ilustracion){
         this.id = ilustracion.getId();
         this.nombre = ilustracion.getNombre();
         this.imgURL = ilustracion.getImgURL();
-        this.productoIlustraciones = ilustracion.getProductoIlustraciones().stream().map(ProductoIlustracionDTO::new).collect(Collectors.toList());
+        this.paqueteDeProductosDTOS = ilustracion.getPaqueteDeProductos().stream().map(PaqueteDeProductosDTO::new).collect(Collectors.toList());
     }
 
     public Long getId() {
@@ -33,7 +33,7 @@ public class IlustracionDTO {
         return imgURL;
     }
 
-    public List<ProductoIlustracionDTO> getProductoIlustraciones() {
-        return productoIlustraciones;
+    public List<PaqueteDeProductosDTO> getPaqueteDeProductosDTOS() {
+        return paqueteDeProductosDTOS;
     }
 }

@@ -1,3 +1,4 @@
+
 package com.mindhub.merchshop.servicios;
 
 import com.lowagie.text.pdf.PdfPTable;
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface ServicioEmail {
-    public void EnviarEmail(String emailA, Authentication authentication, Compra compra, HttpServletResponse response);
+    public void EnviarEmail(String emailA, Compra compra);
 
     public void exportar(HttpServletResponse response, Compra compra ) throws IOException;
 

@@ -47,24 +47,24 @@ public class UsuarioController {
     @PatchMapping("/api/usuario/modificar")
     public ResponseEntity<Object> update(Authentication authentication,
                                          @RequestParam String nombre, @RequestParam String nick,
-                                         @RequestParam String email, @RequestParam String contraseña) {
+                                         @RequestParam String email) {
 
         Usuario usuarioModificado = serviciosUsuario.findByEmail(authentication.getName());
 
 
-        if (nombre.isEmpty() && nick.isEmpty() && email.isEmpty() && contraseña.isEmpty()) {
+        if (nombre.isEmpty() && nick.isEmpty() && email.isEmpty()) {
             return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.FORBIDDEN);
         }
 
         if (nombre.isEmpty()) {
-            return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.FORBIDDEN);
         }
         usuarioModificado.setNombre(nombre);
 
         if (nick.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByNick(nick);
             if (usuarioExistente != null && !usuarioExistente.getNick().equals(usuarioModificado.getNick())) {
-                return new ResponseEntity<>("El nick ya está en uso", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("El nick ya está en uso", HttpStatus.FORBIDDEN);
             }
             usuarioModificado.setNick(nick);
         }
@@ -72,16 +72,10 @@ public class UsuarioController {
         if (email.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByEmail(email);
             if (usuarioExistente != null && !usuarioExistente.getEmail().equals(usuarioModificado.getEmail())) {
-                return new ResponseEntity<>("El correo electrónico ya está en uso", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("El correo electrónico ya está en uso", HttpStatus.FORBIDDEN);
             }
             usuarioModificado.setEmail(email);
         }
-
-        if (contraseña.isEmpty()) {
-            return new ResponseEntity<>("La contraseña no puede estar vacía", HttpStatus.BAD_REQUEST);
-        }
-        usuarioModificado.setContraseña(contraseña);
-
 
         serviciosUsuario.save(usuarioModificado);
         return new ResponseEntity<>("Los datos han sido modificados con éxito", HttpStatus.OK);
