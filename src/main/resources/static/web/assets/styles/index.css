@@ -88,8 +88,9 @@ main{
     border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
 }
 .boton-llamada-a-la-accion:hover{
-    background-color: rgb(68, 176, 124);
-    color: black;
+    border-color:  rgb(255, 255, 255);
+    background-color: rgb(176, 68, 167);
+    color: rgb(255, 255, 255);
 }
 .index-informacion{
     width: 55%;

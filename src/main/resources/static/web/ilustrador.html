@@ -157,11 +157,13 @@
                                 <p v-cloak class="ilustracion-texto-secundario" >Ver productos</p>
                             </div>
                         </div>
-                        
                     </div>
                     <div v-if="ilustraciones.length == 0">
                         <p>No tienes ilustraciones</p>
                     </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="boton-checkout" data-bs-toggle="modal" data-bs-target="#checkout" @click="volver()">Volver</button>
                 </div>
             </section>
         </main>

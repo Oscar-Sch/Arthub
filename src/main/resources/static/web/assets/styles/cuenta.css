@@ -393,6 +393,78 @@ label{
     border: 3px solid rgb(0, 0, 0);
 }
 
+/*MODAL*/
+.contenedor-inicioSesionRegistro{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modal-deslizar 1s forwards;
+}
+
+@keyframes modal-deslizar {
+    0%{
+        left: -10rem;
+        opacity: 0;
+    }
+    100%{
+        left: 0rem;
+        opacity: 1;
+    }
+}
+
+.contenedor-despedida{
+    animation: modal-deslizar-fuera 1s forwards;
+}
+
+@keyframes modal-deslizar-fuera {
+    0%{
+        left: 0rem;
+        opacity: 1;
+    }
+    100%{
+        left: 10rem;
+        opacity: 0;
+    }
+}
+
+.ocultar-modal{
+    display: none;
+}
+
+.contenedor-inicioSesion{
+    background-color: white;
+    padding: 2rem;
+    min-width: 25vw;
+    border: 2px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius:1% 95% 1% 95%/95% 2% 98% 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+label{
+    display: block;
+    font-family: 'Bangers',cursive;
+}
+.contenedor-inicioSesion p{
+    margin: 0;
+    padding: 0;
+    letter-spacing: .15rem;
+    font-family: 'Bangers',cursive;
+
+}
+
+.texto-mensaje{
+    color: rgb(32, 124, 124);
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    font-size: 1.4rem;
+}
+
 @media (max-width:1700px){
     .imagen-principal-contenedor{
         margin-left: -2rem;

@@ -58,7 +58,7 @@ main{
 }
 
 .ilustrador-elementos-contenedor{
-    height: 86vh;
+    min-height: 82vh;
     overflow: hidden;
     width: 65%;
     margin-top: 1rem;
@@ -208,6 +208,29 @@ main{
     width: 125%;
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: 1.5rem;
+}
+.boton-checkout{
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    margin-top: 1rem;
+    align-self: flex-end;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: black;
+    background-color: var(--green);
+    border: 2px solid white;
+    border-radius: .5rem;
+    padding: .5rem 4rem;
+    transition: all .3s;
+    border: 2px solid rgb(0, 0, 0);
+    border-width: 3px 2px 1px 2px;
+    border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
+}
+
+.boton-checkout:hover{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(176, 68, 167);
+    color: rgb(255, 255, 255);
 }
 
 /*MODAL*/
