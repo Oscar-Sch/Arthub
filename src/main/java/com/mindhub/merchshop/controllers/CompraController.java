@@ -52,7 +52,7 @@ public class CompraController {
     Usuario user = servicioUsuario.findByEmail(authentication.getName());
 
     Compra nuevaCompra = new Compra(user , LocalDateTime.now(), generarNumeroCompra());
-    servicioEmail.EnviarEmail("fxargentinoinvestment@gmail.com", nuevaCompra);
+    servicioEmail.EnviarEmail(user.getEmail(), nuevaCompra);
 }
 
 
