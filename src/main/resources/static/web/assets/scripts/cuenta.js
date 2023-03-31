@@ -55,7 +55,7 @@ createApp( {
         },
         actualizar(){
             axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&nick=${this.nick}&direccion=${this.direccion}
-            &zipCode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcionExtra=${this.descripcionExtra}&avatarUrl=${this.imagenUsuario}`,
+            &zipCode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcion=${this.descripcionExtra}&avatarUrl=${this.imagenUsuario}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
                     console.log(res.data)
