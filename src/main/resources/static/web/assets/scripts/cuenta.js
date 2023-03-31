@@ -23,14 +23,6 @@ createApp( {
         this.informacion()
     },
     methods: {
-        openMenu() {
-            let container=document.querySelector(".menu-container");
-            if (container.style.width=="11rem"){
-                container.style.width = "4.2rem";
-            }else{
-                container.style.width = "11rem";
-            }
-        },
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
@@ -74,14 +66,7 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
-            })
+            .then(response => {this.loginAux = sessionStorage.setItem('logIn', false)})
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')

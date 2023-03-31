@@ -65,7 +65,7 @@ createApp( {
                     pais: this.pais,
                     ciudad: this.ciudad,
                     nick: this.nick,
-                    descripcionExtra:this.descripcionExtra
+                    descripcion:this.descripcionExtra
                 })
             .then(res => {
                 let mensajeTexto = res.data

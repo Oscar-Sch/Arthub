@@ -71,14 +71,7 @@ createApp( {
         },
         logOut(){
             axios.post('/api/logout')
-            .then(response => {
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
-            })
+            .then(response => {this.loginAux = sessionStorage.setItem('logIn', false)})
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')
