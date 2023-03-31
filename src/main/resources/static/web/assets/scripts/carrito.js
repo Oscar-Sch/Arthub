@@ -14,14 +14,14 @@ createApp( {
             pais: "",
             descripcionExtra: "",
             imagenUsuario: "",
-            cvvTarjeta: 000,
-            numeroTarjeta: "****-****-****-****",
-            nombreTarjeta: "",
-            expiracionTarjeta: "00/00",
+            cvvTarjeta: 857,
+            numeroTarjeta: "2315-1535-5567-6548",
+            nombreTarjeta: "Melba Morel",
+            expiracionTarjeta: "30/07",
             auxCambiarDatos: false,
             productos: [],
             error: "",
-            loginAux: false
+            loginAux: false,
             pagoExitoso: false
         }
     },
