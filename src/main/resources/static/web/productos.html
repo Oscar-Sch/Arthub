@@ -57,7 +57,19 @@
           <img class="productos-color" src="./assets/images/productos-color.png">
             <div class="main_artistas position-relative">
                 <h2 class="titulo-seccion">Productos</h2>
-                <div class="d-flex flex-wrap justify-content-evenly mt-5">
+                <div class="d-flex flex-wrap justify-content-evenly mt-4">
+                  <div class="d-flex justify-content-center ">
+                    <div class="filtro-contenedor">
+                      <input type="text" v-model="nombreIlustrador" @keyup="filtroNombreIlustrador()" class="ilustradorNombre-input" placeholder="Busca a tu ilustrador favorito">
+                      <img src="./assets/images/search.png" alt="" class="lupa-imagen">
+                    </div>
+                    <div class="">
+                      <select v-model="tipoDeProducto" v-cloak class="ilustradorNombre-input-select" >
+                        <option value="false">Selecciona un producto..</option>
+                        <option v-for="producto of productos"  :value="producto">{{producto}}</option>
+                      </select>
+                    </div>
+                  </div>
                     <div class="container" id="contenedor_artistas">
                         <div class="card-deck row justify-content-evenly">           
                           <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
