@@ -116,13 +116,8 @@ createApp( {
         logOut(){
             axios.post('/api/logout')
             .then(response => {
+                sessionStorage.setItem('logIn', false)
                 this.loginAux = false
-                if(this.email === "admin@mindhub.com"){
-                    window.location.href = "../web/index.html"
-                }else{
-                    window.location.href = "./index.html"
-                }
-                
             })
         }
     }
