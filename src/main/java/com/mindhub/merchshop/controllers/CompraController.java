@@ -1,9 +1,17 @@
 package com.mindhub.merchshop.controllers;
 
+import com.mindhub.merchshop.models.Compra;
+import com.mindhub.merchshop.models.Usuario;
 import com.mindhub.merchshop.servicios.ServicioCompra;
 //import com.mindhub.merchshop.servicios.ServicioEmail;
+import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -27,8 +35,6 @@ public class CompraController {
     ServicioEmail servicioEmail;
     @Autowired
     ServicioCompra servicioCompra;
-    @Autowired
-    ServicioProductoIlustracion servicioProductoIlustracion;
 
 
 @PostMapping("/email/pdf")
