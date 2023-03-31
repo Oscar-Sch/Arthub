@@ -3,11 +3,28 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
+            nombre: "",
+            nickTitulo: "",
+            nick: "",
+            emailONick: "",
+            apellido: "",
+            email: "",
+            contraseñaRegistro: "",
+            contraseña: "",
+            direccion: "",
+            codigoPostal: "",
+            ciudad: "",
+            pais: "",
+            descripcionExtra: "",
+            imagenUsuario: "",
+            auxCambiarDatos: false,
+            error: "",
+            loginAux: false,
+            password: "",
             nombreIlustrador: "",
             tipoDeProducto: false, 
             productos: ["Remera", "Taza", "Cuaderno", "Llavero", "Poster"],
-            productosFiltrados: [],
-            loginAux: false
+            productosFiltrados: []
         }
     },
     created(){
@@ -75,8 +92,16 @@ createApp( {
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
                 },2000)
             }) 
-            .catch(error => {this.error = error.response.data
-            console.log(error)})
+            .catch(error => {
+                console.log(this.emailONick)
+                console.log(this.contraseña)
+                if(this.emailONick == "" || this.contraseña == "" ){
+                    this.error = "Completa todos los campos."
+                }else if(error.code == 'ERR_BAD_REQUEST'){
+                    this.error = "La contraseña no coincide con el usuario."
+                }
+
+            })
         },
         logOut(){
             axios.post('/api/logout')

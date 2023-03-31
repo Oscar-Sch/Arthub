@@ -101,13 +101,22 @@ createApp( {
                 let mensaje = document.getElementById('mensaje')
                 mensaje.classList.toggle('ocultar-modal')
                 mensaje.innerText = `Iniciaste sesion correctamente.`
-
+                sessionStorage.setItem('logIn', true)
+                this.loginAux = true
                 setTimeout(()=>{
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
                 },2000)
             }) 
-            .catch(error => {this.error = error.response.data
-            console.log(error)})
+            .catch(error => {
+                console.log(this.emailONick)
+                console.log(this.contraseña)
+                if(this.emailONick == "" || this.contraseña == "" ){
+                    this.error = "Completa todos los campos."
+                }else if(error.code == 'ERR_BAD_REQUEST'){
+                    this.error = "La contraseña no coincide con el usuario."
+                }
+
+            })
         },
         verProductos(id){
             window.location.href = `./editor-producto.html?id=${id}`
