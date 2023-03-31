@@ -32,18 +32,18 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#" v-if="!loginAux">Mi cuenta</a>
+                                <a class="nav-link active" href="#" v-if="!loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./artistas.html" v-if="!loginAux">Artistas</a>
+                                <a class="nav-link" href="./artistas.html" v-if="!loginAux" v-cloak>Artistas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./carrito.html">Carrito</a>
                             </li>
-                            <li class="nav-item link-bordeado "  @click="logOut()">
+                            <li class="nav-item link-bordeado "  @click="logOut()" v-cloak>
                                 <a class="nav-link" href="">Logout</a>
                             </li>                           
                         </ul>

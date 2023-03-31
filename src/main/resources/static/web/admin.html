@@ -33,7 +33,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="./cuenta.html" v-if="!loginAux">Mi cuenta</a>
+                                <a class="nav-link" href="./cuenta.html" v-if="!loginAux" v-cloak>Mi cuenta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./productos.html">Productos</a>
@@ -42,12 +42,12 @@
                                 <a class="nav-link" href="./artistas.html">Artistas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./carrito.html" v-if="!loginAux">Carrito</a>
+                                <a class="nav-link" href="./carrito.html" v-if="!loginAux" v-cloak>Carrito</a>
                             </li>
-                            <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux">
+                            <li class="nav-item link-bordeado" @click="cerrarModal()" v-if="!loginAux" v-cloak>
                                 <a class="nav-link">Login</a>
                             </li>
-                            <li class="nav-item link-bordeado" v-if="loginAux"  @click="logOut()">
+                            <li class="nav-item link-bordeado" v-if="loginAux"  @click="logOut()" v-cloak>
                                 <a class="nav-link" href="">Logout</a>
                             </li>
                         </ul>
