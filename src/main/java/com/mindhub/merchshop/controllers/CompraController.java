@@ -1,3 +1,4 @@
+
 package com.mindhub.merchshop.controllers;
 
 import com.mindhub.merchshop.models.Compra;
@@ -66,6 +67,7 @@ public class CompraController {
 //        // Generar la compra
 //        Usuario usuarioAutenticado = servicioUsuario.findByEmail(authentication.getName());
 //        Compra nuevaCompra = new Compra(usuarioAutenticado, paquetes, LocalDateTime.now(), generarNumeroCompra());
+
 //        servicioCompra.save(nuevaCompra);
 //
 //        //Generar PDF
@@ -75,4 +77,6 @@ public class CompraController {
 //
 //        return new ResponseEntity<>("Compra efectuada exitosamente" , HttpStatus.CREATED);
 //    }
+
 }
+

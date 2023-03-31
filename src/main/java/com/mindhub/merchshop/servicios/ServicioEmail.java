@@ -1,4 +1,5 @@
 
+
 package com.mindhub.merchshop.servicios;
 
 import com.lowagie.text.pdf.PdfPTable;
@@ -19,3 +20,4 @@ public interface ServicioEmail {
 
     public void pieTabla(PdfPTable tabla, Compra compra);
 }
+
