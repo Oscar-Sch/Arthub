@@ -249,6 +249,20 @@
     animation: modal-deslizar 1s forwards;
 }
 
+.cartelPago {
+    width: 28rem;
+    height: 8rem;
+    background-color: white;
+    left: 30rem;
+    top: 20rem;
+    border: 3px solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 2% 95% 1% 95%/95% 4% 92% 5%;
+    z-index: 1;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 2rem;
+}
+
 @keyframes modal-deslizar {
     0%{
         left: -10rem;

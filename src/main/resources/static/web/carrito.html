@@ -48,6 +48,9 @@
             </nav>         
         </header>
         <main>
+            <div class="position-absolute d-flex justify-content-center align-items-center" :class="{ 'cartelPago' : pagoExitoso }">
+                <p class="mb-0">El pago se realizó con éxito</p>
+            </div>
             <div class="contenedor-modalCarrito ocultar-modal" id="modalCarrito">
                 <div class="contenedor-modal" id="compraDatos">
                     <div class="boton-cerrar" >

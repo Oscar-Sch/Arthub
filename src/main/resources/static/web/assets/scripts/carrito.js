@@ -20,7 +20,8 @@ createApp( {
             expiracionTarjeta: "00/00",
             auxCambiarDatos: false,
             productos: [],
-            error: ""
+            error: "",
+            pagoExitoso: false
         }
     },
     created(){
@@ -35,6 +36,11 @@ createApp( {
                 description : this.descripcionExtra,
                 amount: 1
             }).then(response => {
+                    this.cerrarModal()
+                    this.pagoExitoso = true
+                    setTimeout(() => {
+                        this.pagoExitoso = false
+                    }, 3000)
                     console.log(response)
                 })
                 .catch(error => {
