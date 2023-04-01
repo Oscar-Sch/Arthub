@@ -75,8 +75,9 @@
     border-radius:1% 95% 1% 95%/95% 14% 92% 5%;
 }
 .boton-checkout:hover{
-    background-color: rgb(68, 176, 124);
-    color: black;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(176, 68, 167);
+    color: rgb(255, 255, 255);
 }
 .total-compra{
     width: 100%;

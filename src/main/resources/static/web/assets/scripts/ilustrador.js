@@ -86,10 +86,10 @@ createApp( {
 
                         setTimeout(()=>{
                             document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
-                        },2000)
+                        },1500)
                     }) 
                     .catch(error => {this.error = error.response.data})
-                }, 2000)
+                }, 1500)
             })
             .catch(error => {this.error = error.response.data})
         },
@@ -105,7 +105,7 @@ createApp( {
                 this.loginAux = true
                 setTimeout(()=>{
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
-                },2000)
+                },1500)
             }) 
             .catch(error => {
                 console.log(this.emailONick)
@@ -120,6 +120,10 @@ createApp( {
         },
         verProductos(id){
             window.location.href = `./editor-producto.html?id=${id}`
+        },
+        
+        volver(){
+            window.location.href = `./artistas.html`
         },
         logOut(){
             axios.post('/api/logout')
