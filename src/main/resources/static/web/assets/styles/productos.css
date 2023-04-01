@@ -47,13 +47,21 @@
 .estampado-remera{
     position: absolute;
     width: 50%;
-    top: 18%;
+    top: 28%;
     left: 50%;
     translate: -50% 0;
     object-fit: contain;
     z-index: 2;
     mask-image: url(../images/mascara-producto.png);
     mask-size: cover;
+}
+
+.mascara-taza{
+    mix-blend-mode: darken;
+    -webkit-mask-image: url(../images/mascara-taza.png);
+    -webkit-mask-size: 100% 100%;
+    mask-image: url(../images/mascara-taza.png);
+    mask-size: 100% 100%;
 }
 
 [v-cloak] {

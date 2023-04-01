@@ -164,361 +164,200 @@
                     </div>
                   </div>
                   <!-- fin artistas filtrados -->
-                    <div v-else class="container" id="contenedor_artistas">
-                        <div class="card-deck row justify-content-evenly"> 
-                          
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/1.png" alt="Card image cap">
-                              
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/2.png" alt="Card image cap">
-                              
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
 
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/3.png" alt="Card image cap">
-                              
+                  <template v-else-if="tipoDeProducto == 'Remera'" v-cloak v-for="(producto, index) of productosAleatorios">
+                    <div v-if="producto.includes('REMERA')"  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                      <div class="card">                      
+                        <div class="view overlay" >
+                            
+                            <div v-show="producto.includes('REMERA') && producto.includes('BLANCO')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_blanca.png" alt="Card image cap">
                             </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            <div v-show="producto.includes('REMERA') && producto.includes('AMARILLO')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_amarilla.png" alt="Card image cap">
                             </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/4.png" alt="Card image cap">
-                              
+                            <div v-show="producto.includes('REMERA') && producto.includes('AZUL')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_azul.png" alt="Card image cap">
                             </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            <div v-show="producto.includes('REMERA') && producto.includes('VERDE')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_verde.png" alt="Card image cap">
                             </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/5.png" alt="Card image cap">
-                              
+                            <div v-show="producto.includes('REMERA') && producto.includes('LILA')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_rosa.png" alt="Card image cap">
                             </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
+                            <div v-show="producto.includes('REMERA') && producto.includes('NEGRO')">
+                              <img class="card-img-top" src="../web/assets/images/productos/remera_roja.png" alt="Card image cap">
                             </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/6.png" alt="Card image cap">
-                              
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/productos harcodeados/7.png" alt="Card image cap">
-                              
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_azul.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/269715848_331511375217708_928283997295606897_n_493424.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_verde.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/117811586_171719334476803_1337973533433460834_n_493253.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_blanca.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                          <div  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
-                          <!-- Card -->
-                          <div class="card">                       
-                            <!--Card image-->
-                            <div class="view overlay">
-                              <img class="card-img-top" src="../web/assets/images/remera_roja.png" alt="Card image cap">
-                              <img class="estampado-remera" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                              <!--Title-->
-                              <h4 class="card-title">NOMBRE PRODUCTO</h4>
-                              <!--Text-->
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                              <button type="button" class="btn btn-light-blue btn-md">VER PRODUCTO</button>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                          </div>
-                        
-                          
+                           
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
                         </div>
-                        <!-- Card deck -->
-                          
+                        <div class="card-body">
+                          <!--Title-->
+                          <!--tipo de producto + color + talle + nombre ilustracion-->
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TALLE: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[2]}}</p>
+                          <!-- El boton debe decir agregar al carrito (se unificara con el carrito luego) -->
+                          <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                        </div>
+                      </div>
                     </div>
+                  </template>
+
+                  <template v-else-if="tipoDeProducto == 'Taza'" v-cloak v-for="(producto, index) of productosAleatorios">
+                    <div v-if="producto.includes('TAZA')"  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                      <div class="card">                      
+                        <div class="view overlay" >
+                          <div v-show="producto.includes('TAZA')">
+                            <img class="card-img-top mascara-taza" src="../web/assets/images/productos/taza_2.png" alt="Card image cap">
+                          </div>
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                        </div>
+                        <div class="card-body">
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[1]}}</p>
+                          <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+
+                  <template v-else-if="tipoDeProducto == 'Cuaderno'" v-cloak v-for="(producto, index) of productosAleatorios">
+                    <div v-if="producto.includes('LIBRETA')"  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                      <div class="card">                      
+                        <div class="view overlay" >
+                          <div v-show="producto.includes('LIBRETA')">
+                            <img class="card-img-top" src="../web/assets/images/productos/cuaderno.png" alt="Card image cap">
+                          </div>
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                        </div>
+                        <div class="card-body">
+                          <!--Title-->
+                          <!--tipo de producto + color + talle + nombre ilustracion-->
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                          <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+
+                  <template v-else-if="tipoDeProducto == 'Llavero'" v-cloak v-for="(producto, index) of productosAleatorios">
+                    <div v-if="producto.includes('LLAVERO')"  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                      <div class="card">                      
+                        <div class="view overlay" >
+                          <div v-show="producto.includes('LLAVERO')">
+                            <img class="card-img-top" src="../web/assets/images/productos/llavero-plastico-cuadrado.png" alt="Card image cap">
+                          </div>
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                        </div>
+                        <div class="card-body">
+                          <!--Title-->
+                          <!--tipo de producto + color + talle + nombre ilustracion-->
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TIPO: {{producto.split(',')[1]}}</p>
+                          <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+
+                  <template v-else-if="tipoDeProducto == 'Poster'" v-cloak v-for="(producto, index) of productosAleatorios">
+                    <div v-if="producto.includes('PRINT')"  class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                      <div class="card">                      
+                        <div class="view overlay" >
+                          <div v-show="producto.includes('PRINT')">
+                            <img class="card-img-top" src="../web/assets/images/productos/Poster-Mockup.png" alt="Card image cap">
+                          </div>
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                        </div>
+                        <div class="card-body">
+                          <!--Title-->
+                          <!--tipo de producto + color + talle + nombre ilustracion-->
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                          <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+
+
+                    
+                  <template v-else v-cloak v-for="(producto, index) of productosAleatorios">
+
+                  <div class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
+                    <div class="card">                      
+                      <div class="view overlay">
+                        <!-- Dependiendo el tipo de producto se usa la imagen
+                          correspondiente -->
+                          
+                          <div v-show="producto.includes('REMERA') && producto.includes('BLANCO')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_blanca.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('REMERA') && producto.includes('AMARILLO')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_amarilla.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('REMERA') && producto.includes('AZUL')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_azul.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('REMERA') && producto.includes('VERDE')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_verde.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('REMERA') && producto.includes('LILA')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_rosa.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('REMERA') && producto.includes('NEGRO')">
+                            <img class="card-img-top" src="../web/assets/images/productos/remera_roja.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('LIBRETA')">
+                            <img class="card-img-top" src="../web/assets/images/productos/cuaderno.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('PRINT')">
+                            <img class="card-img-top" src="../web/assets/images/productos/Poster-Mockup.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('TAZA')">
+                            <img class="card-img-top mascara-taza" src="../web/assets/images/productos/taza_2.png" alt="Card image cap">
+                          </div>
+                          <div v-show="producto.includes('LLAVERO')">
+                            <img class="card-img-top" src="../web/assets/images/productos/llavero-plastico-cuadrado.png" alt="Card image cap">
+                          </div>
+                        <!-- Se usa la ilustracion de la variable ilustracionesAleatorias
+                          del index del v-for. Si es una taza hay que agregarle
+                          una nueva clase para que le ponga la mascara de taza
+                          y un mix-blend-mode: darkened o como sea el atributo -->
+                        <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                      </div>
+                      <div class="card-body">
+                        <!--Title-->
+                        <!--tipo de producto + color + talle + nombre ilustracion-->
+                        <template v-if="producto.includes('REMERA')">
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TALLE: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[2]}}</p>
+                        </template>
+
+                        <template v-if="producto.includes('LIBRETA') || producto.includes('PRINT')">
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                        </template>
+
+                        <template v-if="producto.includes('LLAVERO')">
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">TIPO: {{producto.split(',')[1]}}</p>
+                        </template>
+
+                        <template v-if="producto.includes('TAZA')">
+                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[1]}}</p>
+                        </template>
+                          
+                        <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+
                    
                 </div>
             </div>
