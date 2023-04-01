@@ -24,13 +24,16 @@ createApp( {
             nombreIlustrador: "",
             tipoDeProducto: false, 
             productos: ["Remera", "Taza", "Cuaderno", "Llavero", "Poster"],
-            productosFiltrados: []
+            productosFiltrados: [],
+            ilustradores: [],
+            ilustradoresFiltrados: [],
         }
     },
     created(){
         if(sessionStorage.getItem('logIn') == 'true' ){
             this.loginAux = sessionStorage.getItem('logIn')
         }
+        this.informacion()
     },
     methods: {
         cerrarModal() {
@@ -109,6 +112,19 @@ createApp( {
                 sessionStorage.setItem('logIn', false)
                 this.loginAux = false
             })
+        },
+        informacion(){
+            axios.get(`/api/ilustradores`)
+            .then(res=>{
+                this.ilustradores = res.data
+                this.ilustradoresFiltrados = [...this.ilustradores]
+                console.log(res.data)
+            })
+        },
+        filtroNombreIlustrador(){
+            let filtro = this.ilustradores.filter(ilustrador => ilustrador.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase()))
+            this.ilustradoresFiltrados = filtro
+
         },
         filtroProducto(){
             let filtroInput = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))

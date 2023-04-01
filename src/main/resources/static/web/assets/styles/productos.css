@@ -56,22 +56,30 @@
     mask-size: cover;
 }
 
+[v-cloak] {
+    display: none;
+  }
+
 /*FILTRO*/
 .ilustradorNombre-input{
     background-color: aquamarine;
     height: 2rem;
-    width: 20vw;
+    width: 28vw;
     border: 2px solid black;
     border-width: 2px 2px 3px 3px;
     border-radius: 1% 95% 1% 95%/95% 2% 92% 1%;
 }
+
+/* .ilustradorNombre-input::placeholder{
+    font-size: 10px;
+} */
 
 .ilustradorNombre-input-select{
     margin-left: 1rem;
     margin-top: -1rem;
     background-color: rgb(248, 143, 243);
     height: 2rem;
-    width: 20vw;
+    width: 28vw;
     border: 2px solid black;
     border-width: 2px 2px 3px 3px;
     border-radius: 1% 95% 1% 95%/95% 2% 92% 1%;
