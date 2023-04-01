@@ -2,8 +2,8 @@ package com.mindhub.merchshop.models;
 
 public enum ColorProducto {
     BLANCO,
-    NEGRO,
-    LILA,
+    ROJO,
+    ROSA,
     AMARILLO,
     VERDE,
     AZUL
