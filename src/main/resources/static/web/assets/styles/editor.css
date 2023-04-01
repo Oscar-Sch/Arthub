@@ -398,7 +398,7 @@
     }
     .contenedor-info-carrusel_editor {
         margin: 0;
-        width: 60%;
+        /* width: 60%; */
         padding: .8rem;
     }
     .img-template {
@@ -429,6 +429,7 @@
         padding: .2rem .6rem;
     }
     .contenedor1_editor{
+        flex-direction: column;
         width: 90%;
     }
     .body__editor {
@@ -485,7 +486,7 @@
         gap: 3rem;
     }
     .contenedor-info-carrusel_editor {
-        width: 68%;
+        /* width: 68%; */
         height: 100%;
         
     }
@@ -506,7 +507,7 @@
     .vista-previa__editor-producto-retrato,
     .vista-previa__editor-producto-taza
     {
-        background-size: calc(112%);
+        background-size: calc(100%);
         width: 14rem;
         height: 27rem;
     }

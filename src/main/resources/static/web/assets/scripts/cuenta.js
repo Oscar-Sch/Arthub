@@ -58,12 +58,26 @@ createApp( {
             &zipCode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcion=${this.descripcionExtra}&avatarUrl=${this.imagenUsuario}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
-                    console.log(res.data)
-                    
-                    console.log(this.informacion())
+                    document.getElementById('inicioSesionRegistro').classList.remove('contenedor-despedida')
+                    document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
+                    document.getElementById('mensaje').innerText = res.data
+                    setTimeout(()=>{
+                        document.getElementById('inicioSesionRegistro').classList.toggle('contenedor-despedida')
+                        setTimeout(()=>{
+                            document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
+                        }, 1500)
+                    }, 2000)
                 })
                 .catch(error => {
-                    this.error = error.data
+                    document.getElementById('inicioSesionRegistro').classList.remove('contenedor-despedida')
+                    document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
+                    document.getElementById('mensaje').innerText = error.data
+                    setTimeout(()=>{
+                        document.getElementById('inicioSesionRegistro').classList.toggle('contenedor-despedida')
+                        setTimeout(()=>{
+                            document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
+                        }, 1500)
+                    }, 2000)
             })
             for(let i = 0; i <= 9; i++){
                 let input = document.getElementsByTagName("input")[i]
