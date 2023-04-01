@@ -166,9 +166,9 @@ main{
     color: var(--green);
     
 }
-.contenedor-dialogo+.contenedor-dialogo span{
+/* .contenedor-dialogo+.contenedor-dialogo span{
     color: var(--violet);
-}
+} */
 .subtitulo-derecha{
     text-align: right;
     margin-right: 7rem;
