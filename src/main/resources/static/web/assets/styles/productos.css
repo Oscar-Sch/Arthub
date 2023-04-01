@@ -56,6 +56,10 @@
     mask-size: cover;
 }
 
+[v-cloak] {
+    display: none;
+  }
+
 /*FILTRO*/
 .ilustradorNombre-input{
     background-color: aquamarine;
