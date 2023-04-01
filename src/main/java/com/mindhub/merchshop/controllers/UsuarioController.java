@@ -44,15 +44,17 @@ public class UsuarioController {
         return new UsuarioDTO(serviciosUsuario.findByEmail(email));
     }
 
+
     @PatchMapping("/api/usuario/modificar")
     public ResponseEntity<Object> update(Authentication authentication,
-                                         @RequestParam String nombre, @RequestParam String nick,
-                                         @RequestParam String email) {
+          @RequestParam String nombre,      @RequestParam String nick, @RequestParam String direccion,
+          @RequestParam String pais,        @RequestParam String ciudad, @RequestParam String zipcode,
+          @RequestParam String descripcion, @RequestParam String avatar ) {
 
         Usuario usuarioModificado = serviciosUsuario.findByEmail(authentication.getName());
 
 
-        if (nombre.isEmpty() && nick.isEmpty() && email.isEmpty()) {
+        if (nombre.isEmpty() && nick.isEmpty()) {
             return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.FORBIDDEN);
         }
 
@@ -61,20 +63,40 @@ public class UsuarioController {
         }
         usuarioModificado.setNombre(nombre);
 
-        if (nick.isEmpty()) {
+        if (direccion.isEmpty()) {
+            return new ResponseEntity<>("La direccion no puede estar vacía", HttpStatus.FORBIDDEN);
+        }
+        usuarioModificado.getDireccion().setDireccion(direccion);
+
+        if (pais.isEmpty()) {
+            return new ResponseEntity<>("El país no puede estar vacío", HttpStatus.FORBIDDEN);
+        }
+        usuarioModificado.getDireccion().setPais(pais);
+
+        if (ciudad.isEmpty()) {
+            return new ResponseEntity<>("La ciudad no puede estar vacío", HttpStatus.FORBIDDEN);
+        }
+        usuarioModificado.getDireccion().setCiudad(ciudad);
+
+        if (zipcode.isEmpty()) {
+            return new ResponseEntity<>("El codigo postal no puede estar vacío", HttpStatus.FORBIDDEN);
+        }
+        usuarioModificado.getDireccion().setZipCode(zipcode);
+
+        if (descripcion.isEmpty()) {
+            return new ResponseEntity<>("La descripcion no puede estar vacía", HttpStatus.FORBIDDEN);
+        }
+        if (avatar.isEmpty()) {
+            return new ResponseEntity<>("El avatar no puede estar vacío", HttpStatus.FORBIDDEN);
+        }
+        usuarioModificado.setAvatarUrl(avatar);
+
+        if (!nick.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByNick(nick);
             if (usuarioExistente != null && !usuarioExistente.getNick().equals(usuarioModificado.getNick())) {
                 return new ResponseEntity<>("El nick ya está en uso", HttpStatus.FORBIDDEN);
             }
             usuarioModificado.setNick(nick);
-        }
-
-        if (email.isEmpty()) {
-            Usuario usuarioExistente = serviciosUsuario.findByEmail(email);
-            if (usuarioExistente != null && !usuarioExistente.getEmail().equals(usuarioModificado.getEmail())) {
-                return new ResponseEntity<>("El correo electrónico ya está en uso", HttpStatus.FORBIDDEN);
-            }
-            usuarioModificado.setEmail(email);
         }
 
         serviciosUsuario.save(usuarioModificado);
