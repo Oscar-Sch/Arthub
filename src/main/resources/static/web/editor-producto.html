@@ -50,6 +50,7 @@
             </nav> 
         </header>
         <main class="main__editor">
+            <!-- {{listaProductosGenericos}} -->
             <div class="contenedor-editor">
                 <img class="editor-blanca" src="./assets/images/editor-blanca.png">
                 <img class="editor-color" src="./assets/images/editor-color.png">
@@ -83,11 +84,11 @@
                             <div class="contenedor-productos_editor-selector ">
                                 <h6 class="text-black mt-1 mt-md-0">PRODUCTOS</h6>
                                 <div class="d-flex  poductos-iconos align-items-center justify-content-around">
-                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-llavero', 'llavero')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'llavero' }"><img src="./assets/images/llavero.png" alt=""></span>
-                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-cuaderno', 'cuaderno')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'cuaderno' }"><img src="./assets/images/cuaderno.png" alt=""></span>
-                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto', 'remera')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'remera' }"><img src="./assets/images/remera.png" alt=""></span>
-                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-retrato', 'retrato')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'retrato' }"><img src="./assets/images/retrato.png" alt=""></span>
-                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-taza', 'taza')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'taza' }"><img src="./assets/images/taza.png" alt=""></span>
+                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-llavero', 'LLAVERO')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'LLAVERO' }"><img src="./assets/images/llavero.png" alt=""></span>
+                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-cuaderno', 'LIBRETA')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'LIBRETA' }"><img src="./assets/images/cuaderno.png" alt=""></span>
+                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto', 'REMERA')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'REMERA' }"><img src="./assets/images/remera.png" alt=""></span>
+                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-retrato', 'PRINT')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'PRINT' }"><img src="./assets/images/retrato.png" alt=""></span>
+                                    <span class="pointer" @click="seleccion('vista-previa__editor-producto-taza', 'TAZA')" :class="{ 'productoSeleccionado' : productoSeleccionado == 'TAZA' }"><img src="./assets/images/taza.png" alt=""></span>
                                 </div>
                             </div>
                         </div>
@@ -102,12 +103,12 @@
             
                                         <div class="vista-prev-colores-remera" 
                                             :class="
-                                            { 'vista-previa__remera-rojo': colorSeleccionado === 'rojo', 
-                                            'vista-previa__remera-azul': colorSeleccionado === 'azul',
-                                            'vista-previa__remera-verde' : colorSeleccionado === 'verde',
-                                            'vista-previa__editor-producto' : colorSeleccionado === 'blanco',
-                                            'vista-previa__remera-rosa' : colorSeleccionado === 'rosa',
-                                            'vista-previa__remera-amarillo' : colorSeleccionado === 'amarillo'
+                                            { 'vista-previa__remera-rojo': colorSeleccionado === 'ROJO', 
+                                            'vista-previa__remera-azul': colorSeleccionado === 'AZUL',
+                                            'vista-previa__remera-verde' : colorSeleccionado === 'VERDE',
+                                            'vista-previa__editor-producto' : colorSeleccionado === 'BLANCO',
+                                            'vista-previa__remera-rosa' : colorSeleccionado === 'ROSA',
+                                            'vista-previa__remera-amarillo' : colorSeleccionado === 'AMARILLO'
                                             } "
                                         >
             
@@ -125,12 +126,12 @@
                                         <div>
                                             <h6>Colores</h6>
                                             <div class="d-flex flex-column align-items-center justify-content-evenly seleccion-colores">
-                                                <span class="rojo colores-editor" @click="cambiarColor('rojo')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'rojo' }"></span>
-                                                <span class="azul colores-editor" @click="cambiarColor('azul')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'azul' }"></span>
-                                                <span class="verde colores-editor" @click="cambiarColor('verde')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'verde' }"></span>
-                                                <span class="blanco colores-editor" @click="cambiarColor('blanco')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'blanco' }"></span>
-                                                <span class="rosa colores-editor" @click="cambiarColor('rosa')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'rosa' }"></span>
-                                                <span class="amarillo colores-editor" @click="cambiarColor('amarillo')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'amarillo' }"></span>
+                                                <span class="rojo colores-editor" @click="cambiarColor('ROJO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROJO' }"></span>
+                                                <span class="azul colores-editor" @click="cambiarColor('AZUL')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AZUL' }"></span>
+                                                <span class="verde colores-editor" @click="cambiarColor('VERDE')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'VERDE' }"></span>
+                                                <span class="blanco colores-editor" @click="cambiarColor('BLANCO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'BLANCO' }"></span>
+                                                <span class="rosa colores-editor" @click="cambiarColor('ROSA')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROSA' }"></span>
+                                                <span class="amarillo colores-editor" @click="cambiarColor('AMARILLO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AMARILLO' }"></span>
                                             </div>
                                         </div>
                                         <div>
@@ -149,7 +150,7 @@
                             </div>
                         </div>
                         <div class="contenedo-btn">
-                            <button class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+                            <button @click="agregarAlCarrito()" class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
                         </div>
                         
         

@@ -81,11 +81,11 @@ public class MerchshopApplication {
 			Producto ramera9 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.AZUL);
 			Producto ramera10 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.AZUL);
 
-			Producto ramera11 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.LILA);
-			Producto ramera12 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.LILA);
-			Producto ramera13 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.LILA);
-			Producto ramera14 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.LILA);
-			Producto ramera15 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.LILA);
+			Producto ramera11 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.ROSA);
+			Producto ramera12 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.ROSA);
+			Producto ramera13 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.ROSA);
+			Producto ramera14 = new Producto(30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.ROSA);
+			Producto ramera15 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.ROSA);
 
 			Producto ramera16 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.VERDE);
 			Producto ramera17 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.VERDE);
@@ -99,11 +99,11 @@ public class MerchshopApplication {
 			Producto ramera24 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.BLANCO);
 			Producto ramera25 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.BLANCO);
 
-			Producto ramera26 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.NEGRO);
-			Producto ramera27 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.NEGRO);
-			Producto ramera28 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.NEGRO);
-			Producto ramera29 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.NEGRO);
-			Producto ramera30 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.NEGRO);
+			Producto ramera26 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XS, ColorProducto.ROJO);
+			Producto ramera27 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.S, ColorProducto.ROJO);
+			Producto ramera28 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.M, ColorProducto.ROJO);
+			Producto ramera29 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.L, ColorProducto.ROJO);
+			Producto ramera30 = new Producto( 30, "stock marzo", 500.0, TipoProducto.REMERA, TallaProducto.XL, ColorProducto.ROJO);
 
 			productoRepository.save(ramera1);
 			productoRepository.save(ramera2);
