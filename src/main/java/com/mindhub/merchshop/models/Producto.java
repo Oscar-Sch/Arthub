@@ -16,18 +16,22 @@ public class Producto {
     private Integer stock;
     private String descripcion;
     private Double precio;
+    @Enumerated(EnumType.STRING)
     private TipoProducto tipoProducto;
+    @Enumerated(EnumType.STRING)
     private TallaProducto talla;
+    @Enumerated(EnumType.STRING)
     private TamañoProducto tamaño;
+    @Enumerated(EnumType.STRING)
     private ColorProducto color;
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     List<PaqueteDeProductos> paqueteDeProductos = new ArrayList<>();
 
     public Producto(){}
 
-
+    //Remeras
     public Producto( Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TallaProducto talla, ColorProducto color) {
-        this.nombre = this.tipoProducto + ", "+ this.talla+", "+this.color;
+        this.nombre = tipoProducto + ", "+ talla +", "+ color;
         this.stock = stock;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -35,29 +39,29 @@ public class Producto {
         this.talla = talla;
         this.color = color;
     }
-
+    //Taza
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, ColorProducto color){
-        this.nombre = this.tipoProducto + ", "+ this.color;
+        this.nombre = tipoProducto + ", "+ color;
         this.stock = stock;
         this.descripcion = descripcion;
         this.precio = precio;
         this.tipoProducto = tipoProducto;
         this.color = color;
     }
-
+    //llavero
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto){
 
-        this.nombre = this.tipoProducto +", cuadrado.";
+        this.nombre = tipoProducto +", cuadrado.";
         this.stock = stock;
         this.descripcion = descripcion;
         this.precio = precio;
         this.tipoProducto = tipoProducto;
     }
 
-
+    //Libreta, Print
     public Producto(Integer stock, String descripcion, Double precio, TipoProducto tipoProducto, TamañoProducto tamaño){
 
-        this.nombre = this.tipoProducto +", "+this.tamaño;
+        this.nombre = tipoProducto +", "+ tamaño;
         this.stock = stock;
         this.descripcion = descripcion;
         this.precio = precio;
