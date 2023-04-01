@@ -1,6 +1,6 @@
 package com.mindhub.merchshop.dtos;
 
-import com.mindhub.merchshop.models.Producto;
+import com.mindhub.merchshop.models.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,16 +12,25 @@ public class ProductoDTO {
     private Integer stock;
     private String descripcion;
     private Double precio;
+    private TipoProducto tipoProducto;
+    private TallaProducto talla;
+    private ColorProducto color;
+    private TamañoProducto tamaño;
 
-    private List<PaqueteDeProductosDTO> paqueteDeProductosDTO;
+    private List<PaqueteDeProductosDTO> paqueteDeProductos;
     public ProductoDTO(){}
-    public ProductoDTO(Producto producto){
+    //Remera
+    public ProductoDTO(Producto producto) {
         this.id = producto.getId();
         this.nombre = producto.getNombre();
         this.stock = producto.getStock();
         this.descripcion = producto.getDescripcion();
         this.precio = producto.getPrecio();
-        this.paqueteDeProductosDTO = producto.getPaqueteDeProductos().stream().map(PaqueteDeProductosDTO::new).collect(Collectors.toList());
+        this.tipoProducto = producto.getTipoProducto();
+        this.talla = producto.getTalla();
+        this.color = producto.getColor();
+        this.tamaño = producto.getTamaño();
+        this.paqueteDeProductos = producto.getPaqueteDeProductos().stream().map(PaqueteDeProductosDTO::new).collect(Collectors.toList());
     }
 
     public Long getId() {
@@ -44,7 +53,24 @@ public class ProductoDTO {
         return precio;
     }
 
+
+    public TipoProducto getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public TallaProducto getTalla() {
+        return talla;
+    }
+
+    public ColorProducto getColor() {
+        return color;
+    }
+
+    public TamañoProducto getTamaño() {
+        return tamaño;
+    }
+
     public List<PaqueteDeProductosDTO> getPaqueteDeProductos() {
-        return paqueteDeProductosDTO;
+        return paqueteDeProductos;
     }
 }
