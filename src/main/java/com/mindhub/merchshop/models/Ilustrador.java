@@ -4,7 +4,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Ilustrador {
@@ -12,21 +14,27 @@ public class Ilustrador {
     private String email;
     private String nombre;
     private String nick;
+    private String ciudad;
     private String avatarURL;
     private String contrasenia;
 
 //    private List<Direccion> direcciones;
+    @ElementCollection
+    @Column(name = "redes_sociales")
+    Set<String> redesSociales = new HashSet<>();
     @OneToMany(mappedBy = "ilustrador", fetch = FetchType.EAGER)
     private List<Ilustracion> ilustraciones = new ArrayList<>();
 
     public Ilustrador(){};
-    public Ilustrador(String email, String nombre, String nick, String avatarURL, String contrasenia,  List<Ilustracion> ilustraciones) {
+    public Ilustrador(String email, String nombre, String nick, String ciudad,String avatarURL, String contrasenia,  Set<String> redesSociales,List<Ilustracion> ilustraciones) {
         this.email = email;
         this.nombre = nombre;
         this.nick = nick;
+        this.ciudad = ciudad;
         this.avatarURL = avatarURL;
         this.contrasenia = contrasenia;
 //        this.direccion = direccion;
+        this.redesSociales = redesSociales;
         this.ilustraciones = ilustraciones;
     }
 
@@ -52,6 +60,14 @@ public class Ilustrador {
 
     public void setNick(String nick) {
         this.nick = nick;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getAvatarURL() {
@@ -88,5 +104,13 @@ public class Ilustrador {
     public void addIlustraciones(Ilustracion ilustracion) {
         ilustracion.setIlustrador(this);
         ilustraciones.add(ilustracion);
+    }
+
+    public Set<String> getRedesSociales() {
+        return redesSociales;
+    }
+
+    public void setRedesSociales(Set<String> redesSociales) {
+        this.redesSociales = redesSociales;
     }
 }

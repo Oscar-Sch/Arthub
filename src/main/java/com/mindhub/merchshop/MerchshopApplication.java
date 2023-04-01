@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
+import java.util.Set;
 
 
 @SpringBootApplication
@@ -22,7 +23,7 @@ public class MerchshopApplication {
 		return (args) -> {
 
 			//Ilustrador1 y sus ilustraciones
-			Ilustrador ilustrador1 = new Ilustrador("izuu@gmail.com", "Joel Trinidad", "Izuu", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/305033956_1263199574444982_6802776079643692029_n_494110.png?alt=media&token=70a0f9bf-ae73-488f-a9eb-d092b65b9baf", "000000", List.of());
+			Ilustrador ilustrador1 = new Ilustrador("izuu@gmail.com", "Joel Trinidad", "Izuu", "Buenos Aires","https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/305033956_1263199574444982_6802776079643692029_n_494110.png?alt=media&token=70a0f9bf-ae73-488f-a9eb-d092b65b9baf", "000000", Set.of("http://instagram.com", "http://twitter.com"),List.of());
 
 			Ilustracion ilustracion1 = new Ilustracion("A", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/109086572_165094608472609_1619852278073271916_n_493205.png?alt=media&token=b48e8969-6b2d-427c-95e8-ae474b390948", ilustrador1, List.of());
 			Ilustracion ilustracion2 = new Ilustracion("B", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/117811586_171719334476803_1337973533433460834_n_493253.png?alt=media&token=a3e0a217-12dc-4c59-8d6d-9a8ea24f7678", ilustrador1, List.of());
@@ -30,7 +31,7 @@ public class MerchshopApplication {
 			Ilustracion ilustracion4 = new Ilustracion("D", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/hero-color-sketch.png?alt=media&token=da1ce51e-71f4-4c69-9574-0dbd4371371a", ilustrador1, List.of());
 
 			//Ilustrador2 y sus ilustraciones
-			Ilustrador ilustrador2 = new Ilustrador("niett@gmail.com", "Cameron Velasquez", "Niett", "", "000000", List.of());
+			Ilustrador ilustrador2 = new Ilustrador("niett@gmail.com", "Cameron Velasquez", "Niett", "Santiago","", "000000", Set.of("http://instagram.com", "http://twitter.com"), List.of());
 
 			Ilustracion ilustracion5 = new Ilustracion("A2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronG.png?alt=media&token=7eab0746-09dc-4382-bceb-89cc2366db45", ilustrador2, List.of());
 			Ilustracion ilustracion6 = new Ilustracion("B2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronF.PNG?alt=media&token=47749f76-8ffb-4a82-bd44-c677fcd9ca5b", ilustrador2, List.of());
@@ -38,7 +39,7 @@ public class MerchshopApplication {
 			Ilustracion ilustracion8 = new Ilustracion("D2", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/CameronA.JPG?alt=media&token=e2fed519-dbae-4c2e-bba0-43a7bdd8e392", ilustrador2, List.of());
 
 			//Ilustradora3 y sus ilustraciones
-			Ilustrador ilustrador3 = new Ilustrador("toffitafoffita@gmail.com", "Sofia Gomelsky", "ToffaG", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/panaretrato.png?alt=media&token=c8734b0c-61a3-4c9e-afe6-9f29982e21b0", "123", List.of());
+			Ilustrador ilustrador3 = new Ilustrador("toffitafoffita@gmail.com", "Sofia Gomelsky", "ToffaG", "Cordoba","https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/panaretrato.png?alt=media&token=c8734b0c-61a3-4c9e-afe6-9f29982e21b0", "123", Set.of("http://instagram.com", "http://twitter.com"), List.of());
 
 			Ilustracion ilustracion9 = new Ilustracion("BTS pelo rojo", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana5.png?alt=media&token=ae0ce714-3307-49e4-a410-0a98b1b466e8", ilustrador3, List.of());
 			Ilustracion ilustracion10 = new Ilustracion("Hobbi", "https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/pana6.png?alt=media&token=752989be-b0c1-470f-8914-325f142c6583", ilustrador3, List.of());

@@ -35,8 +35,10 @@ public class IlustradorController {
         String mail = ilustradorDTO.getEmail();
         String nombre = ilustradorDTO.getNombre();
         String nick = ilustradorDTO.getNick();
+        String ciudad = ilustradorDTO.getCiudad();
         String avatar = ilustradorDTO.getAvatarURL();
         String contrasenia = ilustradorDTO.getContrasenia();
+        Set<String> redesSociales = ilustradorDTO.getRedesSociales();
 
 
         if(mail.isEmpty()){
@@ -52,7 +54,7 @@ public class IlustradorController {
         if(contrasenia.isEmpty() ){
             return new ResponseEntity<>("Este campo no puede estar vacío", HttpStatus.BAD_REQUEST);}
 
-        Ilustrador nuevoIlustrador = new Ilustrador(mail, nombre, nick, avatar, contrasenia, List.of());
+        Ilustrador nuevoIlustrador = new Ilustrador(mail, nombre, nick, ciudad,avatar, contrasenia, redesSociales ,List.of());
         servicioIlustrador.save(nuevoIlustrador);
 
         return new ResponseEntity<>("Ilustrador creado!", HttpStatus.CREATED);
