@@ -146,7 +146,7 @@ createApp( {
                         this.pagoExitoso = false
                     }, 3000)
                     console.log(response)
-                    axios.post(`/api/email/pdf`)
+                    axios.post(`/api/email/pdf`,this.listaCarrito)
                     .then(res=>{
                         console.log("Correcto")
                     })
