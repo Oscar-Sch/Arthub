@@ -129,12 +129,17 @@ createApp( {
         productosIlustAleatorios(){
             axios.get(`/api/ilustraciones`)
             .then(res=>{
-                const ilustraciones = res.data.map(ilustracion => ilustracion.imgURL)
+
+                console.log(res.data)
+               
+                const ilustraciones = res.data.map(({nombre, imgURL}) => ({nombre, imgURL})) // Desestructuro las propiedades
                 const ilustracionesMezcladas = ilustraciones.sort(() => Math.random() - 0.5)
                 this.ilustracionesAleatorias = ilustracionesMezcladas.slice(0, 18)
                 this.ilustracionesAleatorias.push(...ilustracionesMezcladas.slice(0,4))
 
-                console.log(this.ilustracionesAleatorias)
+                console.log(">>>>>>" + JSON.stringify(this.ilustracionesAleatorias) )
+
+                // console.log(this.ilustracionesAleatorias)
             })
 
             axios.get(`/api/productos`)

@@ -101,6 +101,14 @@
     box-shadow: 0 0 10px 100px #1882A8 inset;
 }
 
+.title-productos{
+    color: var(--violet);
+    font-weight: bolder;
+    /* padding: 0 3rem; */
+    font-family: 'Bangers',cursive;
+    text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff, 2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+}
+
 /* @media (min-width: 992px){
     .ilustracion_productos{
         left: -5rem;

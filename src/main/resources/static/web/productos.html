@@ -156,7 +156,7 @@
                             </a>
                           </div>
                           <div class="card-body">
-                            <h4 class="card-title">{{ilustrador.nick}}</h4>
+                            <h4 class="card-title fs-6">{{ilustrador.nick}}</h4>
                             <button type="button" class="btn btn-light-blue btn-md" @click="verPerfil(ilustrador.nick)">VER PERFIL</button>
                           </div>
                         </div>
@@ -189,14 +189,14 @@
                               <img class="card-img-top" src="../web/assets/images/productos/remera_roja.png" alt="Card image cap">
                             </div>
                            
-                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                         </div>
                         <div class="card-body">
-                          <!--Title-->
-                          <!--tipo de producto + color + talle + nombre ilustracion-->
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TALLE: {{producto.split(',')[1]}}</p>
-                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[2]}}</p>
+                          
+                          
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TALLE: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">COLOR: {{producto.split(',')[2]}}</p>
                           <!-- El boton debe decir agregar al carrito (se unificara con el carrito luego) -->
                           <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
                         </div>
@@ -211,11 +211,11 @@
                           <div v-show="producto.includes('TAZA')">
                             <img class="card-img-top mascara-taza" src="../web/assets/images/productos/taza_2.png" alt="Card image cap">
                           </div>
-                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                         </div>
                         <div class="card-body">
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">COLOR: {{producto.split(',')[1]}}</p>
                           <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
                         </div>
                       </div>
@@ -229,13 +229,13 @@
                           <div v-show="producto.includes('LIBRETA')">
                             <img class="card-img-top" src="../web/assets/images/productos/cuaderno.png" alt="Card image cap">
                           </div>
-                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                            <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                         </div>
                         <div class="card-body">
-                          <!--Title-->
-                          <!--tipo de producto + color + talle + nombre ilustracion-->
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                          
+                          
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TAMAÑO: {{producto.split(',')[1]}}</p>
                           <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
                         </div>
                       </div>
@@ -249,13 +249,13 @@
                           <div v-show="producto.includes('LLAVERO')">
                             <img class="card-img-top" src="../web/assets/images/productos/llavero-plastico-cuadrado.png" alt="Card image cap">
                           </div>
-                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                            <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                         </div>
                         <div class="card-body">
-                          <!--Title-->
-                          <!--tipo de producto + color + talle + nombre ilustracion-->
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TIPO: {{producto.split(',')[1]}}</p>
+                          
+                          
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TIPO: {{producto.split(',')[1]}}</p>
                           <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
                         </div>
                       </div>
@@ -269,13 +269,13 @@
                           <div v-show="producto.includes('PRINT')">
                             <img class="card-img-top" src="../web/assets/images/productos/Poster-Mockup.png" alt="Card image cap">
                           </div>
-                          <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                            <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                         </div>
                         <div class="card-body">
-                          <!--Title-->
-                          <!--tipo de producto + color + talle + nombre ilustracion-->
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                          
+                          
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TAMAÑO: {{producto.split(',')[1]}}</p>
                           <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
                         </div>
                       </div>
@@ -289,8 +289,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 cards-container_artistas" >
                     <div class="card">                      
                       <div class="view overlay">
-                        <!-- Dependiendo el tipo de producto se usa la imagen
-                          correspondiente -->
+                        
                           
                           <div v-show="producto.includes('REMERA') && producto.includes('BLANCO')">
                             <img class="card-img-top" src="../web/assets/images/productos/remera_blanca.png" alt="Card image cap">
@@ -322,34 +321,32 @@
                           <div v-show="producto.includes('LLAVERO')">
                             <img class="card-img-top" src="../web/assets/images/productos/llavero-plastico-cuadrado.png" alt="Card image cap">
                           </div>
-                        <!-- Se usa la ilustracion de la variable ilustracionesAleatorias
-                          del index del v-for. Si es una taza hay que agregarle
-                          una nueva clase para que le ponga la mascara de taza
-                          y un mix-blend-mode: darkened o como sea el atributo -->
-                        <img class="estampado-remera" :src="ilustracionesAleatorias[index]">
+                       
+                          <img class="estampado-remera" :src="ilustracionesAleatorias[index].imgURL">
                       </div>
                       <div class="card-body">
-                        <!--Title-->
-                        <!--tipo de producto + color + talle + nombre ilustracion-->
+                        
+                        
                         <template v-if="producto.includes('REMERA')">
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TALLE: {{producto.split(',')[1]}}</p>
-                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[2]}}</p>
+                          <p class="mb-0 card-title title-productos fs-5">{{ilustracionesAleatorias[index].nombre}}</p>
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TALLE: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">COLOR: {{producto.split(',')[2]}}</p>
                         </template>
 
                         <template v-if="producto.includes('LIBRETA') || producto.includes('PRINT')">
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TAMAÑO: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TAMAÑO: {{producto.split(',')[1]}}</p>
                         </template>
 
                         <template v-if="producto.includes('LLAVERO')">
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">TIPO: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">TIPO: {{producto.split(',')[1]}}</p>
                         </template>
 
                         <template v-if="producto.includes('TAZA')">
-                          <p class="mb-0 card-title">{{producto.split(',')[0]}}</p>
-                          <p class="mb-0 card-title">COLOR: {{producto.split(',')[1]}}</p>
+                          <p class="mb-0 card-title fs-6">{{producto.split(',')[0]}}</p>
+                          <p class="mb-0 card-title fs-6">COLOR: {{producto.split(',')[1]}}</p>
                         </template>
                           
                         <button type="button" class="btn btn-light-blue btn-md">AGREGAR AL CARRITO</button>
