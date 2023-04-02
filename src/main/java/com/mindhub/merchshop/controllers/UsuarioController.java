@@ -54,10 +54,6 @@ public class UsuarioController {
         Usuario usuarioModificado = serviciosUsuario.findByEmail(authentication.getName());
 
 
-        if (nombre.isEmpty() && nick.isEmpty()) {
-            return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.FORBIDDEN);
-        }
-
         if (nombre.isEmpty()) {
             return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.FORBIDDEN);
         }
@@ -86,6 +82,8 @@ public class UsuarioController {
         if (descripcion.isEmpty()) {
             return new ResponseEntity<>("La descripcion no puede estar vacía", HttpStatus.FORBIDDEN);
         }
+        usuarioModificado.getDireccion().setDescripcion(descripcion);
+
         if (avatar.isEmpty()) {
             return new ResponseEntity<>("El avatar no puede estar vacío", HttpStatus.FORBIDDEN);
         }
