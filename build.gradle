@@ -16,6 +16,8 @@ bootRun {
 }
 
 dependencies {
+	implementation 'com.google.cloud:google-cloud-storage:2.17.2'
+	implementation 'com.google.firebase:firebase-admin:7.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
