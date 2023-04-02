@@ -23,7 +23,6 @@ public class ProductoController {
         List<Producto> todosLosProductos = productoRepository.findAll();
 
         return todosLosProductos.stream().map(ProductoDTO::new).collect(Collectors.toSet());
-
     }
 
 }

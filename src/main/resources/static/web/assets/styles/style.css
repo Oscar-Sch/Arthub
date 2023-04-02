@@ -7,6 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+.logo{
+    height: 3.5rem; 
+    margin-right: 1rem;
+}
 :root{
     --violet:rgb(124, 75, 177);
     --green:#5ad096ff;

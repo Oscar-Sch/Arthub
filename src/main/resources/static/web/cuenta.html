@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/styles/cuenta.css">
+    <link rel="shortcut icon" href="./assets/images/logonegro.png" type="image/x-icon">
     <title>Shop | Mi Cuenta</title>
 </head>
 <body id="app" style="background-color: black;">
@@ -24,6 +25,7 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark">
                 <div class="container navegacion">
+                    <img src="./assets/images/logo.png" alt="Logo" class="logo">
                     <a class="navbar-brand" href="./index.html">ARTHUB</a>
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -63,15 +65,20 @@
                 <div class="datos-contenedor">
                     <div class="titulo-imagen-contenedor">                            
                         <div class="imagen-datos-contenedor">
-                            <img class="imagen-datos" :src="avatarUrl" :alt="nick" :title="nick">
+                            <div v-if="imagenUsuario != 'null'">
+                                <img v-cloak class="imagen-datos" :src="imagenUsuario" :alt="nick" :title="nick" >
+                            </div>
+                            <div v-else class="subir-imagen-contenedor">
+                                <p class="texto-imagen">Sube tu avatar</p>
+                                <input type="file" class="input-imagen" id="file-imagen" >
+                                
+                                <p class="texto-imagen-secundario">Maximo 10mb</p>
+                            </div>
                         </div>
 
                     </div>
                     <div class="contenedor-formulario-nombre">
-                        <div class="imagen-datos-editar-navegar-contenedor">
-                            <div class="imagen-datos-editar-navegar-contenedordeImagen">
-                                <img class="imagen-datos" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png" :alt="nick" :title="nick">
-                            </div>
+                        <div class="imagen-datos-editar-navegar-contenedor">                             
                             <div>
                                 <div class="nombre-editar-contenedor">
                                     <h2 class="titulo-nombre">Hola <span v-cloak class="nick-color">{{nickTitulo}}</span></h2>
@@ -100,7 +107,7 @@
                                         <label>Apellido</label>
                                         <input v-cloak class="formulario-input" type="text" v-model="apellido" readonly>
                                         <label>Email</label>
-                                        <input v-cloak class="formulario-input" type="text" v-model="email" readonly>
+                                        <p v-cloak class="formulario-input">{{email}}</p>
                                         <label>Codigo Postal</label>
                                         <input v-cloak class="formulario-input" type="text" v-model="codigoPostal" readonly>
                                         <label>Pais</label>
