@@ -22,29 +22,113 @@ createApp( {
             productos: [],
             error: "",
             loginAux: false,
-            pagoExitoso: false
+            pagoExitoso: false,
+            listaProductosGenericos:[],
+            listaIlustraciones:[]
+
         }
     },
     created(){
         if(sessionStorage.getItem('logIn') == 'true' ){
             this.loginAux = sessionStorage.getItem('logIn')
         }
+        this.cargarDatos()
         this.informacion()
     },
     methods: {
+        formatCurrency(amount){
+            // let options = { style: 'currency', currency: 'MXN' };
+            let numberFormat = new Intl.NumberFormat('es-AR');
+            return numberFormat.format(amount);
+        },
+        cargarDatos(){
+            axios.get("/api/productos")
+            .then(res=>{
+                this.listaProductosGenericos=res.data;
+            })
+            axios.get(`/api/ilustraciones`)
+            .then(res=>{
+                this.listaIlustraciones=res.data;
+            })
+            if(localStorage.getItem("Carrito")){
+                this.listaCarrito= JSON.parse(localStorage.getItem("Carrito"));
+            }
+
+        },
+        
+        ilustracionURL(id){
+            return this.listaIlustraciones.find(ilu=>ilu.id==id).imgURL;
+        },
+        productoURL(id){
+            let producto=this.listaProductosGenericos.find(prod=> prod.id==id);
+            console.log(producto)
+            if (producto.tipoProducto=="REMERA"){
+                switch (producto.color) {
+                    case "ROJO":
+                        return "./assets/images/productos/remera_roja.png"
+                    case "AMARILLO":
+                        return "./assets/images/productos/remera_amarilla.png"
+                    case "VERDE":
+                        return "./assets/images/productos/remera_verde.png"
+                    case "ROSA":
+                        return "./assets/images/productos/remera_rosa.png"
+                    case "AZUL":
+                        return "./assets/images/productos/remera_azul.png"               
+                    default:
+                        return "./assets/images/productos/remera_blanca.png"
+                }
+            }else if(producto.tipoProducto=="LIBRETA"){
+                return `./assets/images/productos/cuaderno.png`
+            }
+            else if(producto.tipoProducto=="TAZA"){
+                return `./assets/images/productos/taza-12001-15d1df27529361ea9316093719791002-1024-1024.png`
+            }
+            else if(producto.tipoProducto=="LLAVERO"){
+                return `./assets/images/productos/llavero-plastico-cuadrado.png`
+            }
+            return `./assets/images/productos/Poster-Mockup.png`
+
+        },
+        calcularTotal(){
+            return this.listaCarrito.reduce((acu,prod)=>{
+                return acu + (this.listaProductosGenericos.find(p=>p.id==prod.productoId).precio*prod.cantidad);
+            },0)
+        },
+        eliminarProducto(producto){
+            let index= this.listaCarrito.findIndex(p=> p.productoId==producto.productoId);
+            this.listaCarrito.splice(index,1);
+            localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
+            this.cargarDatos()
+        },
+        agregarAlCarrito(producto){
+            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.productoId && prod.ilustracionId===producto.ilustracionId);    
+            this.listaCarrito[index].cantidad++;
+            localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
+            this.cargarDatos()
+        },
+        restarAlCarrito(producto){
+            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.productoId && prod.ilustracionId===producto.ilustracionId);  
+            this.listaCarrito[index].cantidad--;
+            if(this.listaCarrito[index].cantidad<=0){
+                this.listaCarrito.splice(index,1);
+            }
+            localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
+            this.cargarDatos()
+        },
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
+                    console.log(res.data)
                     this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
                     this.apellido = res.data.nombre.split("-")[1].trim()
                     this.email = res.data.email
                     this.imagenUsuario = res.data.imagenUsuario
-                    this.ciudad = res.data.ciudad
-                    this.pais = res.data.pais
-                    this.direccion = res.data.direccion
-                    this.codigoPostal = res.data.codigoPostal
-                    this.descripcionExtra = res.data.descripcionExtra
+                    this.ciudad = res.data.direcciones.ciudad
+                    this.pais = res.data.direcciones.pais
+                    this.direccion = res.data.direcciones.direccion
+                    this.codigoPostal = res.data.direcciones.zipCode
+                    this.descripcionExtra = res.data.direcciones.descripcionExtra
                     this.productos = res.data.productos
                 })
                 .catch(error => console.log(error))
