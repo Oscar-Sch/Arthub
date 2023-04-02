@@ -117,6 +117,13 @@
     height: 82vh;
 }
 
+.title_productos{
+    font-size: 24px;
+}
+
+.deck-productos{
+    height: 10vh;
+}
 
 @media (min-width: 768px){
     #card-deck-productos{

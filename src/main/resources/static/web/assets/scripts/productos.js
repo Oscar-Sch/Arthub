@@ -154,6 +154,7 @@ createApp( {
         },
         filtroNombreIlustrador(){
             let filtro = this.ilustradores.filter(ilustrador => ilustrador.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase()))
+            console.log(filtro)
             this.ilustradoresFiltrados = filtro
         },
         
