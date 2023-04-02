@@ -113,19 +113,21 @@
     height: 23rem;
 }
 
+#card-deck-productos{
+    height: 82vh;
+}
 
-/* @media (min-width: 992px){
-    .ilustracion_productos{
-        left: -5rem;
-        bottom: 0;
+
+@media (min-width: 768px){
+    #card-deck-productos{
+        height: 62vh;
     }
-    .ilustracion_productos img {
-        width: 40rem;
-        height: 54rem;
-    }
-} */
+}
 
 @media (min-width: 1024px){
+    #card-deck-productos{
+        height: 76vh;
+    }
     .card-productos{
         height: 26rem;
     }
