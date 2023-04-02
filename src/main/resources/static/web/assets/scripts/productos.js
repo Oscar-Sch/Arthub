@@ -132,12 +132,12 @@ createApp( {
 
                 console.log(res.data)
                
-                const ilustraciones = res.data.map(({nombre, imgURL}) => ({nombre, imgURL})) // Desestructuro las propiedades
+                const ilustraciones = res.data.map(({nombre, imgURL}) => ({nombre, imgURL})) // Desestructuro las propiedades para solo traer esas
                 const ilustracionesMezcladas = ilustraciones.sort(() => Math.random() - 0.5)
                 this.ilustracionesAleatorias = ilustracionesMezcladas.slice(0, 18)
                 this.ilustracionesAleatorias.push(...ilustracionesMezcladas.slice(0,4))
 
-                console.log(">>>>>>" + JSON.stringify(this.ilustracionesAleatorias) )
+                console.log(">>>>>>" + JSON.stringify(this.ilustracionesAleatorias)) // lo parseo para poder visualizar en la consola del navegador
 
                 // console.log(this.ilustracionesAleatorias)
             })
