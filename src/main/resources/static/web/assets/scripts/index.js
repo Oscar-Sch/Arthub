@@ -100,12 +100,9 @@ createApp( {
             })
         },
         logOut(){
+            sessionStorage.setItem('logIn', 'false')
+            this.loginAux = false
             axios.post('/api/logout')
-            .then(response => {
-                sessionStorage.setItem('logIn', 'false')
-                this.loginAux = false
-            })
-            .catch(erro => console.log(erro))
         }
     }
 }).mount("#app")

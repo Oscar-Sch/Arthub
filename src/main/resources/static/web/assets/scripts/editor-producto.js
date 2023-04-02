@@ -52,7 +52,12 @@ createApp({
             if(icono == 'vista-previa__editor-producto-llavero' || icono == 'vista-previa__editor-producto-cuaderno'  || icono == 'vista-previa__editor-producto-retrato' || icono == 'vista-previa__editor-producto-taza'){
                 this.colorSeleccionado = ''
             }
-        }
+        },
+        logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
+            axios.post('/api/logout')
+        },
     },
     computed: {
         currentImage() {

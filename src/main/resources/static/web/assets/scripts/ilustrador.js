@@ -126,11 +126,9 @@ createApp( {
             window.location.href = `./artistas.html`
         },
         logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
             axios.post('/api/logout')
-            .then(response => {
-                sessionStorage.setItem('logIn', false)
-                this.loginAux = false
-            })
-        }
+        },
     }
 }).mount("#app")
