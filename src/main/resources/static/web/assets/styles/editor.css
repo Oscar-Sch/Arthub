@@ -436,7 +436,7 @@
         min-height: 35rem;
     }
     .btn-agregar-carrito {
-        padding: .3rem 1rem;
+        padding: .7rem 1rem;
         font-size: 1.5rem;
     }
     .contenedor-bt-carrito_editor button{
@@ -462,6 +462,12 @@
         height: 15rem;
     } */
 }
+.agregar-quitar-productos{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 
 @media (min-width: 1024px){
     .info-ilustrador_editor p{

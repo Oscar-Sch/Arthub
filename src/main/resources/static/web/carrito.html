@@ -121,213 +121,65 @@
                 <h2 class="titulo-seccion">Carrito</h2>
                 <div class="contenedor-compra">
                     <div class="contenedor-productos">
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_roja.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/305033956_1263199574444982_6802776079643692029_n_494110.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
+                        <!-- <img v-for="producto of listaCarrito" :src="productoURL(producto.productoId)" alt=""> -->
+                        <!-- <div v-for="producto of listaCarrito">
+                            {{productoURL(producto.productoId)}}
+                            
+                        </div> -->
+                        <template v-if="listaCarrito.length" >
+                            <div class="producto" v-for="producto of listaCarrito">
+                                <template v-for="productoGenerico of listaProductosGenericos.filter(prod=> prod.id==producto.productoId)">
+                                    <div class="producto-wrap">
+                                        <div class="producto-imagen">
+                                            <img class="producto-imagen_plantilla" :src="productoURL(producto.productoId)">
+                                            <img class="producto-imagen_estampa" :src="ilustracionURL(producto.ilustracionId)">
+                                        </div>
+                                        <div class="producto-detalles">
+                                            <p class="producto-detalles_titulo">{{`${productoGenerico.tipoProducto} sublimada`}}</p>
+                                            <div>
+                                                <template v-if="productoGenerico.tipoProducto=='REMERA'">
+                                                    <p>TALLA: <span>{{productoGenerico.talla}}</span></p>
+                                                </template>
+                                                <template v-else-if="productoGenerico.tipoProducto=='LIBRETA'">
+                                                    <p>TAMAÑO: <span>{{productoGenerico.tamaño}}</span></p>
+                                                </template>
+                                                <p>CANTIDAD: <span>{{producto.cantidad}}</span></p>
+                                                <p>PRECIO C/U: <span>${{formatCurrency(productoGenerico.precio)}}</span></p>
+                                                <p>DESCRIPCION: <span>{{productoGenerico.descripcion}}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>     
+                                    <div class="producto-wrap">
+                                        <div class="producto-cantidad">
+                                            <div class="agregar-quitar-productos">
+                                                <template v-if="producto.cantidad==1">
+                                                    <button @click="restarAlCarrito(producto)" class="cambiar-cantidad"><i class="fa-solid fa-trash"></i></button>
+                                                </template>
+                                                <template v-else>
+                                                    <button @click="restarAlCarrito(producto)" class="cambiar-cantidad">-</button>
+                                                </template>
+                                                <p class="mostrar-cantidad">{{producto.cantidad}}</p>
+                                                <button @click="agregarAlCarrito(producto)" class="cambiar-cantidad">+</button>
+                                            </div>
+                                            <p>{{productoGenerico.stock}} disponibles</p>
+                                        </div>
+                                        <div class="producto-eliminar">
+                                            <i @click="eliminarProducto(producto)" class="fa-regular fa-trash-can fa-2xl"></i>
+                                            <p>Eliminar</p>
+                                        </div>
+                                        <div class="producto-monto">
+                                            <p>${{formatCurrency(productoGenerico.precio*producto.cantidad)}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>     
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
+                                </template>
                             </div>
-                        </div>
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_amarilla.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/119031130_180659546916115_5991594656918939829_n_493257.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_azul.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/call-to-action.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_blanca.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/269715848_331511375217708_928283997295606897_n_493424.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_verde.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/109086572_165094608472609_1619852278073271916_n_493205.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="producto">
-                            <div class="producto-wrap">
-                                <div class="producto-imagen">
-                                    <img class="producto-imagen_plantilla" src="./assets/images/remera_roja.png">
-                                    <img class="producto-imagen_estampa" src="./assets/images/117811586_171719334476803_1337973533433460834_n_493253.png">
-                                </div>
-                                <div class="producto-detalles">
-                                    <p class="producto-detalles_titulo">Remera hombre ilustracion</p>
-                                    <div>
-                                        <p>TALLA: <span>L</span></p>
-                                        <p>CANTIDAD: <span>3</span></p>
-                                        <p>PRECIO C/U: <span>$3000</span></p>
-                                        <p>DESCRIPCION: <span>Remera roja sublimada</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="producto-wrap">
-                                <div class="producto-cantidad">
-                                    <div class="agregar-quitar-productos">
-                                        <button class="cambiar-cantidad">-</button>
-                                        <p class="mostrar-cantidad">3</p>
-                                        <button class="cambiar-cantidad">+</button>
-                                    </div>
-                                    <p>10 disponibles</p>
-                                </div>
-                                <div class="producto-eliminar">
-                                    <i class="fa-regular fa-trash-can fa-2xl"></i>
-                                    <p>Eliminar</p>
-                                </div>
-                                <div class="producto-monto">
-                                    <p>$9000</p>
-                                </div>
-                            </div>
-                        </div>
+                        </template>
+                        <template v-else>
+                            <h2>No posee productos en el carrito</h2>
+                        </template>
                     </div>
                     <div class="total-compra">
-                        <p>Total: <span>$25000</span></p>
+                        <p>Total: <span>${{calcularTotal()}}</span></p>
                     </div>
                 </div>
                 <button class="boton-checkout" data-bs-toggle="modal" data-bs-target="#checkout" @click="cerrarModal()">Checkout</button>

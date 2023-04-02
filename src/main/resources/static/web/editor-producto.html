@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/131d9c1f34.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/index.css">
+    <link rel="stylesheet" href="./assets/styles/carrito.css">
     <link rel="stylesheet" href="./assets/styles/editor.css">
     <script defer src="./assets/scripts/editor.js"></script>
     <title>Shop | Editor</title>
@@ -123,36 +124,61 @@
             
                                 <div class="contenedor-colores-talles">
                                     <div class="d-flex justify-content-end colores-talles">
-                                        <div>
-                                            <h6>Colores</h6>
-                                            <div class="d-flex flex-column align-items-center justify-content-evenly seleccion-colores">
-                                                <span class="rojo colores-editor" @click="cambiarColor('ROJO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROJO' }"></span>
-                                                <span class="azul colores-editor" @click="cambiarColor('AZUL')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AZUL' }"></span>
-                                                <span class="verde colores-editor" @click="cambiarColor('VERDE')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'VERDE' }"></span>
-                                                <span class="blanco colores-editor" @click="cambiarColor('BLANCO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'BLANCO' }"></span>
-                                                <span class="rosa colores-editor" @click="cambiarColor('ROSA')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROSA' }"></span>
-                                                <span class="amarillo colores-editor" @click="cambiarColor('AMARILLO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AMARILLO' }"></span>
+                                        <template v-if="productoSeleccionado=='REMERA'">
+                                            <div>
+                                                <h6>Colores</h6>
+                                                <div class="d-flex flex-column align-items-center justify-content-evenly seleccion-colores">
+                                                    <span class="rojo colores-editor" @click="cambiarColor('ROJO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROJO' }"></span>
+                                                    <span class="azul colores-editor" @click="cambiarColor('AZUL')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AZUL' }"></span>
+                                                    <span class="verde colores-editor" @click="cambiarColor('VERDE')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'VERDE' }"></span>
+                                                    <span class="blanco colores-editor" @click="cambiarColor('BLANCO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'BLANCO' }"></span>
+                                                    <span class="rosa colores-editor" @click="cambiarColor('ROSA')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'ROSA' }"></span>
+                                                    <span class="amarillo colores-editor" @click="cambiarColor('AMARILLO')" :class="{ 'colorSeleccionado' : colorSeleccionado === 'AMARILLO' }"></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <h6>Talles</h6>
-                                            <div class="talles_editor d-flex flex-column align-items-center justify-content-evenly">
-                                                <span  @click="talle('XS')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XS' }">XS</span>
-                                                <span  @click="talle('M')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'M' }">M</span>
-                                                <span  @click="talle('L')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'L' }">L</span>
-                                                <span  @click="talle('XL')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XL' }">XL</span>
-                                                <span  @click="talle('XXL')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XXL' }">XXL</span>
-                                                <span  @click="talle('3X')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == '3L' }">3L</span>
+                                            <div>
+                                                <h6>Talles</h6>
+                                                <div class="talles_editor d-flex flex-column align-items-center justify-content-evenly">
+                                                    <span  @click="talle('XS')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XS' }">XS</span>
+                                                    <span  @click="talle('S')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'S' }">S</span>
+                                                    <span  @click="talle('M')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'M' }">M</span>
+                                                    <span  @click="talle('L')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'L' }">L</span>
+                                                    <span  @click="talle('XL')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'XL' }">XL</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </template>
+                                        <template v-else-if="productoSeleccionado=='PRINT'">
+                                            <div>
+                                                <h6>Medidas</h6>
+                                                <div class="talles_editor d-flex flex-column align-items-center justify-content-evenly">
+                                                    <span  @click="talle('PEQUEÑO')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'PEQUEÑO' }">PEQUEÑO</span>
+                                                    <span  @click="talle('MEDIANO')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'MEDIANO' }">MEDIANO</span>
+                                                    <span  @click="talle('GRANDE')" class="text-black d-flex justify-content-center align-items-center pointer talle" :class="{ 'colorSeleccionado' : medida == 'GRANDE' }">GRANDE</span>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="contenedo-btn">
-                            <button @click="agregarAlCarrito()" class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+                            <template v-if="estaEnCarrito>0">
+                                <div class="agregar-quitar-productos">
+                                    <template v-if="estaEnCarrito===1">
+                                        <button class="btn-minus btn b-rojo cambiar-cantidad" @click="restarAlCarrito()"><i class="fa-solid fa-trash"></i></button>
+                                    </template>
+                                    <template v-else>
+                                        <button class="btn-minus btn b-rojo cambiar-cantidad" @click="restarAlCarrito()"><i class="fa-solid fa-minus"></i></button>
+                                    </template>
+                                    <span class="cant-carrito"><b>{{productoIlustracionActivo.cantidad}}</b></span>
+                                    <button class="btn-plus btn b-rojo cambiar-cantidad" @click="agregarAlCarrito()"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </template>
+                            <template v-else>
+                                <button @click="agregarAlCarrito()" class="btn-agregar-carrito">AGREGAR AL CARRITO</button>
+                            </template>
                         </div>
-                        
+                        {{estaEnCarrito}}
         
                     </div>
         
