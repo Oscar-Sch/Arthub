@@ -131,6 +131,11 @@ createApp({
             }
             localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
         },
+        logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
+            axios.post('/api/logout')
+        },
     },
     computed: {
         currentImage() {

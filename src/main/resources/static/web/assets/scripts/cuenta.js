@@ -88,10 +88,9 @@ createApp( {
            
         },
         logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
             axios.post('/api/logout')
-            .then(response => {
-                this.loginAux = false
-                sessionStorage.setItem('logIn', false)})
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')
