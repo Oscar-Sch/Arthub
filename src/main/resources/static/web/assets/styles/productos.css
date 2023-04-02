@@ -109,6 +109,11 @@
     text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff, 2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
 }
 
+.card-productos{
+    height: 23rem;
+}
+
+
 /* @media (min-width: 992px){
     .ilustracion_productos{
         left: -5rem;
@@ -119,3 +124,9 @@
         height: 54rem;
     }
 } */
+
+@media (min-width: 1024px){
+    .card-productos{
+        height: 26rem;
+    }
+}
