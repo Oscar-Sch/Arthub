@@ -122,7 +122,9 @@ main{
 }
 
 .imagen-datos{
-    height: 105%;
+    margin-top: -1rem;
+    min-height: 59vh;
+    object-fit: cover;
 }
 
 .titulos-contenedor{
@@ -234,6 +236,8 @@ label{
     border: none;
     color: white;
     font-size: 1.3rem;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
 }
 
 .formulario-label-input-informacionExtra{
@@ -310,7 +314,7 @@ label{
 }
 
 .compra-contenedor{
-    height: 50.45vh;
+    height: 44vh;
     background-color: white;
     padding: 1rem;
     overflow-y: scroll;
@@ -463,6 +467,42 @@ label{
     font-family: 'Bangers',cursive;
     letter-spacing: .15rem;
     font-size: 1.4rem;
+}
+.error-texto{
+    color: red;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    font-size: 1.4rem;
+    text-align: center;
+    height: 1rem;
+    animation: erorr .5s;
+}
+
+.subir-imagen-contenedor{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+.texto-imagen{
+    font-size: 1.4rem;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    margin: 0;
+}
+
+.texto-imagen-secundario{
+    font-size: 1rem;
+    font-family: 'Bangers',cursive;
+    letter-spacing: .15rem;
+    margin: 0;
+    margin-top: -.9rem;
+}
+.input-imagen{
+    padding-left: 0;
 }
 
 @media (max-width:1700px){

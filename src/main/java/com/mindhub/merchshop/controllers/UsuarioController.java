@@ -73,7 +73,7 @@ public class UsuarioController {
         usuarioModificado.getDireccion().setPais(pais);
 
         if (ciudad.isEmpty()) {
-            return new ResponseEntity<>("La ciudad no puede estar vacío", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("La ciudad no puede estar vacía", HttpStatus.FORBIDDEN);
         }
         usuarioModificado.getDireccion().setCiudad(ciudad);
 

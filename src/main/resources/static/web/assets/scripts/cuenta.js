@@ -17,8 +17,7 @@ createApp( {
             auxCambiarDatos: false,
             productos: [],
             error: "",
-            loginAux: false,
-            avatarUrl: ""
+            loginAux: false
         }
     },
     created(){
@@ -36,8 +35,10 @@ createApp( {
                     this.nick = this.nickTitulo
                     this.apellido = res.data.nombre.split(" ")[1].trim()
                     this.email = res.data.email
-                    this.avatarUrl=res.data.avatarUrl
-                    this.imagenUsuario = res.data.imagenUsuario
+
+                    this.imagenUsuario = res.data.avatarUrl
+                   // this.avatarUrl=res.data.avatarUrl
+                   // this.imagenUsuario = res.data.imagenUsuario
                     this.ciudad = res.data.direcciones.ciudad
                     this.pais = res.data.direcciones.pais
                     this.direccion = res.data.direcciones.direccion
@@ -48,17 +49,21 @@ createApp( {
                 .catch(error => console.log(error))
         },
         activarFormulario(){
-            for(let i = 0; i <= 9; i++){
+            for(let i = 0; i <= 8; i++){
                 let input = document.getElementsByTagName("input")[i]
                 input.removeAttribute("readonly")
                 input.classList.add('formulario-input-bordebottom')
             }
         },
         actualizar(){
-            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + "-" + this.apellido}&email=${this.email}&nick=${this.nick}&direccion=${this.direccion}
-            &zipCode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcion=${this.descripcionExtra}&avatarUrl=${this.imagenUsuario}`,
+            let imagen = document.getElementById('file-imagen').files[0]
+            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + "-" + this.apellido}&nick=${this.nick}&direccion=${this.direccion}
+            &zipcode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcion=${this.descripcionExtra}&avatar=${imagen}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
+                    this.informacion()
+                    document.getElementById('mensaje').classList.remove('error-texto')
+                    document.getElementById('mensaje').classList.add('texto-mensaje')
                     document.getElementById('inicioSesionRegistro').classList.remove('contenedor-despedida')
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
                     document.getElementById('mensaje').innerText = res.data
@@ -70,17 +75,20 @@ createApp( {
                     }, 2000)
                 })
                 .catch(error => {
+                    this.informacion()
                     document.getElementById('inicioSesionRegistro').classList.remove('contenedor-despedida')
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
-                    document.getElementById('mensaje').innerText = error.data
+                    document.getElementById('mensaje').classList.add('error-texto')
+                    document.getElementById('mensaje').classList.remove('texto-mensaje')
+                    document.getElementById('mensaje').innerText = error.response.data
                     setTimeout(()=>{
                         document.getElementById('inicioSesionRegistro').classList.toggle('contenedor-despedida')
                         setTimeout(()=>{
                             document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
-                        }, 1500)
-                    }, 2000)
+                        }, 2500)
+                    }, 3000)
             })
-            for(let i = 0; i <= 9; i++){
+            for(let i = 0; i <= 8; i++){
                 let input = document.getElementsByTagName("input")[i]
                 input.setAttribute("readonly", "")
                 input.classList.remove('formulario-input-bordebottom')
