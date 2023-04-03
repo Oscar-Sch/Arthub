@@ -65,10 +65,10 @@
                 <div class="datos-contenedor">
                     <div class="titulo-imagen-contenedor">                            
                         <div class="imagen-datos-contenedor">
-                            <div v-if="imagenUsuario != 'null'">
+                            <div v-if="!imagenUsuario == ''">
                                 <img v-cloak class="imagen-datos" :src="imagenUsuario" :alt="nick" :title="nick" >
                             </div>
-                            <div v-else class="subir-imagen-contenedor">
+                            <div v--if="imagenUsuario == ''" class="subir-imagen-contenedor">
                                 <p class="texto-imagen">Sube tu avatar</p>
                                 <input type="file" class="input-imagen" id="file-imagen" >
                                 

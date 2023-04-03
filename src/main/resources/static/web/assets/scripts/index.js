@@ -86,7 +86,11 @@ createApp( {
                 this.loginAux = true
                 setTimeout(()=>{
                     document.getElementById('inicioSesionRegistro').classList.toggle('ocultar-modal')
-                },1500)
+                },500)
+
+                if(this.email === "ADMINMERCH@gmail.com"){
+                    window.location.href = "../admin.html"
+                }
             }) 
             .catch(error => {
                 console.log(this.emailONick)

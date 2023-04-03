@@ -30,15 +30,14 @@ createApp( {
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    this.nombre = res.data.nombre.split(" ")[0].trim()
+                    this.nombre = res.data.nombre.split("-")[0].trim()
                     this.nickTitulo = res.data.nick
                     this.nick = this.nickTitulo
                     this.apellido = res.data.nombre.split(" ")[1].trim()
                     this.email = res.data.email
-
                     this.imagenUsuario = res.data.avatarUrl
-                   // this.avatarUrl=res.data.avatarUrl
-                   // this.imagenUsuario = res.data.imagenUsuario
+                    this.avatarUrl=res.data.avatarUrl
+                    this.imagenUsuario = res.data.imagenUsuario
                     this.ciudad = res.data.direcciones.ciudad
                     this.pais = res.data.direcciones.pais
                     this.direccion = res.data.direcciones.direccion
@@ -49,7 +48,7 @@ createApp( {
                 .catch(error => console.log(error))
         },
         activarFormulario(){
-            for(let i = 0; i <= 7; i++){
+            for(let i = 0; i <= 8; i++){
                 let input = document.getElementsByTagName("input")[i]
                 input.removeAttribute("readonly")
                 input.classList.add('formulario-input-bordebottom')
