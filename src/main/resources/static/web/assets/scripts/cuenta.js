@@ -49,7 +49,7 @@ createApp( {
                 .catch(error => console.log(error))
         },
         activarFormulario(){
-            for(let i = 0; i <= 8; i++){
+            for(let i = 0; i <= 7; i++){
                 let input = document.getElementsByTagName("input")[i]
                 input.removeAttribute("readonly")
                 input.classList.add('formulario-input-bordebottom')
@@ -57,7 +57,7 @@ createApp( {
         },
         actualizar(){
             let imagen = document.getElementById('file-imagen').files[0]
-            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + "-" + this.apellido}&nick=${this.nick}&direccion=${this.direccion}
+            axios.patch(`/api/usuario/modificar`,`nombre=${this.nombre + " " + this.apellido}&nick=${this.nick}&direccion=${this.direccion}
             &zipcode=${this.codigoPostal}&ciudad=${this.ciudad}&pais=${this.pais}&descripcion=${this.descripcionExtra}&avatar=${imagen}`,
                 {headers:{'content-type':'application/x-www-form-urlencoded'}})
                 .then(res=> {
