@@ -2,10 +2,12 @@ package com.mindhub.merchshop;
 
 import com.mindhub.merchshop.models.*;
 import com.mindhub.merchshop.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 import java.util.Set;
@@ -13,13 +15,15 @@ import java.util.Set;
 
 @SpringBootApplication
 public class MerchshopApplication {
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MerchshopApplication.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner initData(UsuarioRepository usuarioRepository, CompraRepository compraRepository, PaqueteDeProductosRepository paqueteDeProductosRepository, ProductoRepository productoRepository, IlustradorRepository ilustradorRepository, IlustracionRepository ilustracionRepository, ProductoRepository productoIlustracionRepository) {
+	public CommandLineRunner initData(UsuarioRepository usuarioRepository, CompraRepository compraRepository, PaqueteDeProductosRepository paqueteDeProductosRepository, ProductoRepository productoRepository, IlustradorRepository ilustradorRepository, IlustracionRepository ilustracionRepository, ProductoRepository productoIlustracionRepository, DireccionRepository direccionRepository) {
 		return (args) -> {
 
 			//Ilustrador1 y sus ilustraciones
@@ -165,7 +169,11 @@ public class MerchshopApplication {
 			productoRepository.save(print2);
 			productoRepository.save(print3);
 
-
+			Direccion dir1= new Direccion("Argentina","La Plata","Diagonal 77, 730, 1b","1900","Edificio ladrillos a la vista");
+			Usuario us1= new Usuario("oscarschwerdt@gmail.com","Oscar Schwerdt","Ranso",passwordEncoder.encode("123456"),dir1);
+			us1.setAvatarUrl("https://firebasestorage.googleapis.com/v0/b/arthub-102d1.appspot.com/o/prison-mike.webp?alt=media&token=ccb59e27-26ad-4c03-89d5-34b9f70a9d11");
+			direccionRepository.save(dir1);
+			usuarioRepository.save(us1);
 
 			//Usuario usuario1 = new Usuario("niettpls@gmail.com", "Julio Perez", "Nick", "123");
 

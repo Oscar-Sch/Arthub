@@ -4,18 +4,15 @@ createApp({
     data(){
         return {
             currentIndex: 0,
-            images: [
-                '../web/assets/images/illustrations/illust_Joel/1.png',
-                '../web/assets/images/illustrations/illust_Joel/2.png',
-                '../web/assets/images/illustrations/illust_Joel/3.png'
-            ],
+            images: [],
             seleccionado: 'vista-previa__editor-producto',
             colorSeleccionado: 'BLANCO',
             medida: 'L',
             productoSeleccionado: 'REMERA',
             listaCarrito:[],
             listaProductosGenericos:[],
-            listaIlustraciones:[]
+            listaIlustraciones:[],
+            productoIlustracionActivo:null,
         }
     },
     created(){
@@ -55,7 +52,15 @@ createApp({
         seleccion(icono, producto){
             this.seleccionado = icono
             this.productoSeleccionado = producto
-            console.log(icono)
+            if(producto=="REMERA"){
+                this.medida="L"
+                this.colorSeleccionado="BLANCO"
+            }else if(producto=="PRINT"){
+                this.medida="MEDIANO"
+            }else{
+                this.medida=""
+            }
+            console.log(this.medida)
             if(icono == 'vista-previa__editor-producto-llavero' || icono == 'vista-previa__editor-producto-cuaderno'  || icono == 'vista-previa__editor-producto-retrato' || icono == 'vista-previa__editor-producto-taza'){
                 this.colorSeleccionado = ''
             }
@@ -70,51 +75,66 @@ createApp({
             .then(res=>{
                 this.listaProductosGenericos=res.data;
             })
-            // axios.get("/api/productos")
-            // .then(res=>{
-            //     this.listaProductosGenericos=res.data;
-            // })
+            const parameterSearch= new URLSearchParams(location.search);
+            const id=parameterSearch.get("id");
+            axios.get(`/api/ilustracion/${id}`)
+            .then(res=>{
+                this.listaIlustraciones=res.data;
+                this.images=this.listaIlustraciones.map(ilustracion=> ilustracion.imgURL)
+                this.currentIndex=this.listaIlustraciones.findIndex(ilu=>ilu.id==id)
+                if(localStorage.getItem("Carrito")){
+                    this.listaCarrito= JSON.parse(localStorage.getItem("Carrito"));
+                }
+            })
+
+        },
+        obtenerProducto(){
+            if (this.productoSeleccionado=="LLAVERO" || this.productoSeleccionado=="LIBRETA" || this.productoSeleccionado=="TAZA"){
+                return this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado);
+            }else if (this.productoSeleccionado=="PRINT"){
+                return this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.tamaño==this.medida);
+            }else{
+                return this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.talla==this.medida && prod.color==this.colorSeleccionado);
+            }
         },
         agregarAlCarrito(){
-            let ilustracion=this.images[this.currentIndex];
-            console.log({"ilustracion":ilustracion})
-            let producto;
-            if (this.productoSeleccionado=="LLAVERO" || this.productoSeleccionado=="LIBRETA" || this.productoSeleccionado=="TAZA"){
-                producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado);
-            }else if (this.productoSeleccionado=="PRINT"){
-                producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.tamaño==this.medida);
-            }else{
-                producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.talla==this.medida && prod.color==this.colorSeleccionado);
-            }
-            console.log(producto)
-            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id);
-            // let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id && prod.ilustracionId===ilustracion.id);
+            let ilustracion=this.listaIlustraciones[this.currentIndex];
+            let producto= this.obtenerProducto();
+            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id && prod.ilustracionId===ilustracion.id);
             if (index<0){
                 console.log("pusheado")
                 let nuevoProducto={
                     productoId:producto.id,
-                    ilustracionId:ilustracion,
+                    ilustracionId:ilustracion.id,
                     cantidad:1
                 }
+                this.productoIlustracionActivo=nuevoProducto;
                 this.listaCarrito.push(nuevoProducto);
             }else{
                 console.log("agregado")
                 this.listaCarrito[index].cantidad++;
+                this.productoIlustracionActivo=this.listaCarrito[index];
             }
             localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
-            // this.productoculosFiltrados=this.ActualizarEstadoCarrito();
-            console.log(JSON.parse(localStorage.getItem("Carrito")))
         },
-        RestarAlCarrito(producto, ilustracion){
-            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id && prod.ilustracionId);
+        restarAlCarrito(){
+            let ilustracion=this.listaIlustraciones[this.currentIndex];
+            let producto= this.obtenerProducto();
+            let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id && prod.ilustracionId===ilustracion.id);
             this.listaCarrito[index].cantidad--;
-            // this.articulosFiltrados=this.ActualizarEstadoCarrito();
-            if(this.listaCarrito[index].enCarrito<=0){
+            this.productoIlustracionActivo=this.listaCarrito[index];
+            if(this.listaCarrito[index].cantidad<=0){
+                console.log("eliminado")
                 this.listaCarrito.splice(index,1);
+            }else{
+                console.log("restado")
             }
             localStorage.setItem("Carrito", JSON.stringify(this.listaCarrito));
-            // this.articulosFiltrados=this.ActualizarEstadoCarrito();
-            console.log(JSON.parse(localStorage.getItem("Carrito")))
+        },
+        logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
+            axios.post('/api/logout')
         },
     },
     computed: {
@@ -122,11 +142,28 @@ createApp({
           return this.images[this.currentIndex]
         },
         estaEnCarrito(){
-            if(localStorage.getItem("Carrito")){
-                this.listaCarrito= JSON.parse(localStorage.getItem("Carrito"));
-                this.articulosFiltrados= this.ActualizarEstadoCarrito();
-                // console.log(this.articulosFiltrados)
-            }
+            // if(this.productoIlustracionActivo){
+                // if(localStorage.getItem("Carrito")){
+                if(this.listaCarrito){
+                    // let carrito= JSON.parse(localStorage.getItem("Carrito"));
+                    let ilustracion=this.listaIlustraciones[this.currentIndex];
+                    let producto;
+                    if (this.productoSeleccionado=="LLAVERO" || this.productoSeleccionado=="LIBRETA" || this.productoSeleccionado=="TAZA"){
+                        producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado);
+                    }else if (this.productoSeleccionado=="PRINT"){
+                        producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado);
+                        // producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.tamaño==this.medida);
+                    }else{
+                        producto=this.listaProductosGenericos.find(prod=> prod.tipoProducto==this.productoSeleccionado && prod.talla==this.medida && prod.color==this.colorSeleccionado);
+                    }
+                    let index= this.listaCarrito.findIndex(prod=>prod.productoId===producto.id && prod.ilustracionId===ilustracion.id);
+                    if (index>=0){
+                        this.productoIlustracionActivo=this.listaCarrito[index];
+                        return this.productoIlustracionActivo.cantidad;
+                    }
+                }
+            // }
+            return 0;
         }
     }
   

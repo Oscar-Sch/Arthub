@@ -5,6 +5,7 @@ import com.mindhub.merchshop.dtos.RegisterDTO;
 import com.mindhub.merchshop.dtos.UsuarioDTO;
 import com.mindhub.merchshop.models.Direccion;
 import com.mindhub.merchshop.models.Usuario;
+import com.mindhub.merchshop.servicios.FileService;
 import com.mindhub.merchshop.servicios.ServicioDireccion;
 import com.mindhub.merchshop.servicios.ServicioEmail;
 import com.mindhub.merchshop.servicios.ServicioUsuario;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -22,7 +24,8 @@ import static java.util.stream.Collectors.toList;
 @RestController
 public class UsuarioController {
 
-
+    @Autowired
+    private FileService fileService;
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -49,14 +52,10 @@ public class UsuarioController {
     public ResponseEntity<Object> update(Authentication authentication,
           @RequestParam String nombre,      @RequestParam String nick, @RequestParam String direccion,
           @RequestParam String pais,        @RequestParam String ciudad, @RequestParam String zipcode,
-          @RequestParam String descripcion, @RequestParam String avatar ) {
+          @RequestParam String descripcion, @RequestParam(required = false) MultipartFile avatar ) {
 
         Usuario usuarioModificado = serviciosUsuario.findByEmail(authentication.getName());
 
-
-        if (nombre.isEmpty() && nick.isEmpty()) {
-            return new ResponseEntity<>("Los campos no pueden estar vacios", HttpStatus.FORBIDDEN);
-        }
 
         if (nombre.isEmpty()) {
             return new ResponseEntity<>("El nombre no puede estar vacío", HttpStatus.FORBIDDEN);
@@ -88,10 +87,15 @@ public class UsuarioController {
         }
         usuarioModificado.getDireccion().setDescripcion(descripcion);
 
-        if (avatar.isEmpty()) {
-            return new ResponseEntity<>("El avatar no puede estar vacío", HttpStatus.FORBIDDEN);
+        if (avatar!=null) {
+            try{
+                usuarioModificado.setAvatarUrl(fileService.upload(avatar));
+            }
+            catch(Exception e){
+                return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
+            }
         }
-        usuarioModificado.setAvatarUrl(avatar);
+
 
         if (!nick.isEmpty()) {
             Usuario usuarioExistente = serviciosUsuario.findByNick(nick);

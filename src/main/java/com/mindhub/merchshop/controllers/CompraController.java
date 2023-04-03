@@ -1,15 +1,14 @@
 
 package com.mindhub.merchshop.controllers;
 
-import com.mindhub.merchshop.models.Compra;
-import com.mindhub.merchshop.models.Usuario;
-import com.mindhub.merchshop.servicios.ServicioCompra;
+import com.mindhub.merchshop.dtos.CompraRealizadaDTO;
+import com.mindhub.merchshop.models.*;
+import com.mindhub.merchshop.servicios.*;
 //import com.mindhub.merchshop.servicios.ServicioEmail;
-import com.mindhub.merchshop.servicios.ServicioEmail;
-import com.mindhub.merchshop.servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,47 +35,37 @@ public class CompraController {
     ServicioEmail servicioEmail;
     @Autowired
     ServicioCompra servicioCompra;
+    @Autowired
+    ServicioProducto servicioProducto;
+    @Autowired
+    ServicioIlustracion servicioIlustracion;
+    @Autowired
+    ServicioPaqueteDeProductos servicioPaqueteDeProductos;
 
 
-@PostMapping("/email/pdf")
-    public void enviarpdf(Authentication authentication){
-    Usuario user = servicioUsuario.findByEmail(authentication.getName());
+    @PostMapping("/email/pdf")
+    public void crearCompra(@RequestBody List<CompraRealizadaDTO> productos, Authentication authentication) {
 
-    Compra nuevaCompra = new Compra(user , LocalDateTime.now(), generarNumeroCompra());
-    servicioEmail.EnviarEmail(user.getEmail(), nuevaCompra);
-}
+        Usuario usuario = servicioUsuario.findByEmail(authentication.getName());
+
+        Compra nuevaCompra = new Compra(usuario, LocalDateTime.now(), generarNumeroCompra());
+
+        List<PaqueteDeProductos> paqueteProductos = new ArrayList<>();
+
+        for (CompraRealizadaDTO producto : productos) {
+
+            Producto productoBD = servicioProducto.findById(producto.getProductoId());
+            Ilustracion ilustracionBD = servicioIlustracion.findById(producto.getIlustracionId());
+            PaqueteDeProductos paqueteProducto = new PaqueteDeProductos(nuevaCompra,productoBD, ilustracionBD, producto.getCantidad());
+            paqueteProductos.add(paqueteProducto);
+        }
+
+        nuevaCompra.setProductos(paqueteProductos);
+        servicioCompra.save(nuevaCompra);
+        servicioEmail.EnviarEmail(usuario.getEmail(), nuevaCompra);
+    }
 
 
-
-//    @Transactional
-//    @PostMapping("/comprar")
-//    public ResponseEntity<?> realizarCompra(@RequestBody List<PaqueteDeProductosDTO> paquetes, Authentication authentication, HttpServletResponse response) throws IOException {
-//
-//        // Descontar stock
-//        for (PaqueteDeProductosDTO paquete : paquetes) {
-//            ProductoIlustracion productoIlustracion = servicioProductoIlustracion.findById(paquete.getProductoIlustracionId());
-//            productoIlustracion.setStock(productoIlustracion.getStock() - paquete.getCantidad());
-//        }
-//
-//        // Calcular el monto total de la compra
-//        Double montoTotal = 0.0;
-//        for (PaqueteDeProductosDTO paquete : paquetes) {
-//            montoTotal += paquete.getMontoTotal();
-//        }
-//
-//        // Generar la compra
-//        Usuario usuarioAutenticado = servicioUsuario.findByEmail(authentication.getName());
-//        Compra nuevaCompra = new Compra(usuarioAutenticado, paquetes, LocalDateTime.now(), generarNumeroCompra());
-
-//        servicioCompra.save(nuevaCompra);
-//
-//        //Generar PDF
-//       generarPDF(authentication, response, nuevaCompra);
-//
-//        servicioEmail.EnviarEmail(usuarioAutenticado.getEmail(), authentication, nuevaCompra, response);
-//
-//        return new ResponseEntity<>("Compra efectuada exitosamente" , HttpStatus.CREATED);
-//    }
 
 }
 

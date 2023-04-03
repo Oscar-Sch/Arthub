@@ -30,12 +30,15 @@ createApp( {
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    this.nombre = res.data.nombre.split("-")[0].trim()
+                    this.nombre = res.data.nombre.split(" ")[0].trim()
                     this.nickTitulo = res.data.nick
                     this.nick = this.nickTitulo
-                    this.apellido = res.data.nombre.split("-")[1].trim()
+                    this.apellido = res.data.nombre.split(" ")[1].trim()
                     this.email = res.data.email
+
                     this.imagenUsuario = res.data.avatarUrl
+                   // this.avatarUrl=res.data.avatarUrl
+                   // this.imagenUsuario = res.data.imagenUsuario
                     this.ciudad = res.data.direcciones.ciudad
                     this.pais = res.data.direcciones.pais
                     this.direccion = res.data.direcciones.direccion
@@ -93,10 +96,9 @@ createApp( {
            
         },
         logOut(){
+            sessionStorage.setItem('logIn', false)
+            this.loginAux = false
             axios.post('/api/logout')
-            .then(response => {
-                this.loginAux = false
-                sessionStorage.setItem('logIn', false)})
         },
         mostrarDatos(idMostrar, idOcultar, idTextoActivo,idTextoDesactivado){
             document.getElementById(idMostrar).classList.remove('ocultar-capa')
