@@ -40,7 +40,7 @@ createApp( {
         registro(){
             axios.post('/api/usuario/registro',
                         {
-                            nombre: this.nombre + "-" + this.apellido,
+                            nombre: this.nombre + " " + this.apellido,
                             email: this.email,
                             contraseña: this.contraseñaRegistro,
                             direccion: this.direccion,
