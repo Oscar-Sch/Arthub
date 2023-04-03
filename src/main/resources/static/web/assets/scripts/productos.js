@@ -27,6 +27,8 @@ createApp( {
             productosFiltrados: [],
             ilustradores: [],
             ilustradoresFiltrados: [],
+            ilustracionesAleatorias: [],
+            productosAleatorios: [],
         }
     },
     created(){
@@ -34,6 +36,8 @@ createApp( {
             this.loginAux = sessionStorage.getItem('logIn')
         }
         this.informacion()
+
+        this.productosIlustAleatorios()
     },
     methods: {
         cerrarModal() {
@@ -116,19 +120,45 @@ createApp( {
             .then(res=>{
                 this.ilustradores = res.data
                 this.ilustradoresFiltrados = [...this.ilustradores]
-                console.log(res.data)
             })
+
+            
+        },
+        productosIlustAleatorios(){
+            axios.get(`/api/ilustraciones`)
+            .then(res=>{
+
+                console.log(res.data)
+               
+                const ilustraciones = res.data.map(({nombre, imgURL}) => ({nombre, imgURL})) // Desestructuro las propiedades para solo traer esas
+                const ilustracionesMezcladas = ilustraciones.sort(() => Math.random() - 0.5)
+                this.ilustracionesAleatorias = ilustracionesMezcladas.slice(0, 18)
+                this.ilustracionesAleatorias.push(...ilustracionesMezcladas.slice(0,4))
+
+                console.log(">>>>>>" + JSON.stringify(this.ilustracionesAleatorias)) // lo parseo para poder visualizar en la consola del navegador
+
+                // console.log(this.ilustracionesAleatorias)
+            })
+
+            axios.get(`/api/productos`)
+            .then(res=>{
+                const productos = res.data.map(producto => producto.nombre)
+                const productosMezclados = productos.sort(() => Math.random() - 0.5)
+                this.productosAleatorios = productosMezclados.slice(0, 18)
+
+                console.log(this.productosAleatorios)
+            })
+
         },
         filtroNombreIlustrador(){
             let filtro = this.ilustradores.filter(ilustrador => ilustrador.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase()))
+            console.log(filtro)
             this.ilustradoresFiltrados = filtro
-
         },
-        filtroProducto(){
-            let filtroInput = this.ilustradores.filter(e => e.nick.toLowerCase().includes(this.nombreIlustrador.toLowerCase))
-            let filtroSelect = filtroInput.filter(e => this.tipoDeProducto.includes(e.productos))
-            this.productosFiltrados = filtroSelect
-        }
+        
+    },
+    computed: {
+     
     },
     mounted() {
         AOS.init();
