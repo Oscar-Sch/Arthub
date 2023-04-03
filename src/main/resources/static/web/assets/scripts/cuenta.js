@@ -30,7 +30,7 @@ createApp( {
         informacion(){
             axios.get(`/api/usuario/actual`)
                 .then(res=> {
-                    this.nombre = res.data.nombre.split("-")[0].trim()
+                    this.nombre = res.data.nombre.split(" ")[0].trim()
                     this.nickTitulo = res.data.nick
                     this.nick = this.nickTitulo
                     this.apellido = res.data.nombre.split(" ")[1].trim()
